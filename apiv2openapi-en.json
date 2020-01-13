@@ -1,0 +1,3377 @@
+{
+  "info": {
+    "version": "v2", 
+    "description": "# Introduction\n\nAdmin API v2 for Dialpad.\n\nRequests and responses from the admin API are provided in the JSON format.\n\n# Pagination\n\nList APIs support a limit and cursor parameter.\n\nThe limit defines the number of results to return. For the first request, pass in a desired limit.\nThe API response will contain a cursor field with a special string. Pass this special string into\nthe next request to retrieve the next page.\n\n# Authentication\n\nAll requests are authenticated via an API key in the query parameter or as a bearer token in the\nAuthorization header.\n\nAn API key can be acquired from the Dialpad admin web portal.\n\nNote: If you received your API key from the Dialpad support team rather than the web portal, the\nuser associated with your key must have company administrator permissions.\n", 
+    "title": "api"
+  }, 
+  "paths": {
+    "/api/v2/offices/{id}/operators": {
+      "get": {
+        "description": "Gets mainline operators for an office.", 
+        "parameters": [
+          {
+            "description": "The office's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "offices"
+        ], 
+        "summary": "Get operators", 
+        "operationId": "OfficeApi_listOperators", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosGroupOperatorCollection"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/company": {
+      "get": {
+        "description": "Gets company information.", 
+        "parameters": [], 
+        "tags": [
+          "company"
+        ], 
+        "summary": "Get company", 
+        "operationId": "CompanyApi_getCompany", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosCompanyCompanyProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/callback": {
+      "post": {
+        "tags": [
+          "callback"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosCallCallbackProto"
+            }
+          }
+        }, 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosCallCallbackMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }
+        ], 
+        "operationId": "CallApi_callback"
+      }
+    }, 
+    "/api/v2/offices/{id}": {
+      "get": {
+        "description": "Gets an office by id.", 
+        "parameters": [
+          {
+            "description": "The office's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "offices"
+        ], 
+        "summary": "Get office by id", 
+        "operationId": "OfficeApi_getOffice", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosOfficeOfficeProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/transcripts/{call_id}": {
+      "get": {
+        "description": "Get the transcript of a call.", 
+        "parameters": [
+          {
+            "description": "The call's id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "call_id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "transcripts"
+        ], 
+        "summary": "Get the transcript of a call", 
+        "operationId": "TranscriptApi_getTranscript", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosTranscriptTranscriptProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/offices/{office_id}/departments": {
+      "get": {
+        "description": "Gets all the departments for an office.", 
+        "parameters": [
+          {
+            "description": "The office's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "office_id"
+          }, 
+          {
+            "description": "The maximum number of results to return.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "limit", 
+            "format": "int64"
+          }, 
+          {
+            "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.", 
+            "type": "string", 
+            "name": "cursor", 
+            "in": "query"
+          }
+        ], 
+        "tags": [
+          "offices"
+        ], 
+        "summary": "Get departments", 
+        "operationId": "DepartmentApi_listDepartments", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosGroupGroupCollection"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/callcenters/{id}/operators": {
+      "get": {
+        "description": "Gets operators for a call center.", 
+        "parameters": [
+          {
+            "description": "The call center's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "callcenters"
+        ], 
+        "summary": "Get operators", 
+        "operationId": "CallCenterApi_listOperators", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosGroupOperatorCollection"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/stats/{id}": {
+      "get": {
+        "description": "Gets the progress and result of a statistics request.", 
+        "parameters": [
+          {
+            "description": "Request ID returned by a POST /stats request.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "stats"
+        ], 
+        "summary": "Get statistics results", 
+        "operationId": "StatsApi_getStats", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosStatsStatsProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/rooms/{id}/assign_number": {
+      "post": {
+        "description": "Assigns a number to a room. The number will automatically be taken from the company's reserved block if there are reserved numbers, otherwise a number will be auto-assigned from the provided area code.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberAssignNumberMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The room's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Assign number", 
+        "operationId": "NumberApi_assignNumberToRoom", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberNumberProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/offices/{office_id}/plan/updateLicenses": {
+      "post": {
+        "description": "Increments the license counts for the office plan.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosPlanAdjustLicensesProto"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The office's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "office_id"
+          }
+        ], 
+        "tags": [
+          "offices"
+        ], 
+        "summary": "Update licenses", 
+        "operationId": "PlanApi_updateLicenses", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosPlanPlanProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/callcenters/{id}": {
+      "get": {
+        "description": "Gets a call center by id.", 
+        "parameters": [
+          {
+            "description": "The call center's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "callcenters"
+        ], 
+        "summary": "Get call center by id", 
+        "operationId": "CallCenterApi_getCallCenter", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosGroupGroupProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/numbers": {
+      "get": {
+        "description": "Gets all numbers in your company.", 
+        "parameters": [
+          {
+            "description": "The maximum number of results to return.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "limit", 
+            "format": "int64"
+          }, 
+          {
+            "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.", 
+            "type": "string", 
+            "name": "cursor", 
+            "in": "query"
+          }, 
+          {
+            "description": "Status to filter by.", 
+            "type": "string", 
+            "name": "status", 
+            "in": "query"
+          }
+        ], 
+        "tags": [
+          "numbers"
+        ], 
+        "summary": "Get numbers", 
+        "operationId": "NumberApi_listNumbers", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberNumberCollection"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/offices": {
+      "get": {
+        "description": "Gets all the offices in your company.", 
+        "parameters": [
+          {
+            "description": "The maximum number of results to return.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "limit", 
+            "format": "int64"
+          }, 
+          {
+            "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.", 
+            "type": "string", 
+            "name": "cursor", 
+            "in": "query"
+          }
+        ], 
+        "tags": [
+          "offices"
+        ], 
+        "summary": "Get offices", 
+        "operationId": "OfficeApi_listOffices", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosOfficeOfficeCollection"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/rooms/{id}": {
+      "patch": {
+        "description": "Updates room details by id.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosRoomUpdateRoomMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The room's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Update room", 
+        "operationId": "RoomApi_updateRoom", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosRoomRoomProto"
+            }
+          }
+        }
+      }, 
+      "get": {
+        "description": "Gets a room by id.", 
+        "parameters": [
+          {
+            "description": "The room's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Get room by id", 
+        "operationId": "RoomApi_getRoom", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosRoomRoomProto"
+            }
+          }
+        }
+      }, 
+      "delete": {
+        "description": "Deletes a room by id.", 
+        "parameters": [
+          {
+            "description": "The room's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Delete room", 
+        "operationId": "RoomApi_deleteRoom", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosRoomRoomProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/users/{id}/initiate_call": {
+      "post": {
+        "description": "Causes a user's native Dialpad application to initiate an outbound call.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosCallInitiateCallMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The user's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Initiate oubound call", 
+        "operationId": "CallApi_initiateCall", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosCallInitiatedCallProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/offices/{id}/assign_number": {
+      "post": {
+        "description": "Assigns a number to a office. The number will automatically be taken from the company's reserved block if there are reserved numbers, otherwise a number will be auto-assigned from the provided area code.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberAssignNumberMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The office's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "offices"
+        ], 
+        "summary": "Assign number", 
+        "operationId": "NumberApi_assignNumberToOffice", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberNumberProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/rooms/{parent_id}/deskphones": {
+      "post": {
+        "description": "Creates a desk phone under a room.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosDeskphoneCreateDeskPhone"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The room's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "parent_id"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Create room desk phone", 
+        "operationId": "DeskPhoneApi_createRoomDeskphone", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
+            }
+          }
+        }
+      }, 
+      "get": {
+        "description": "Gets all desk phones under a room.", 
+        "parameters": [
+          {
+            "description": "The room's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "parent_id"
+          }, 
+          {
+            "description": "The maximum number of results to return.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "limit", 
+            "format": "int64"
+          }, 
+          {
+            "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.", 
+            "type": "string", 
+            "name": "cursor", 
+            "in": "query"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Gets desk phones under a room", 
+        "operationId": "DeskPhoneApi_listRoomDeskphones", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosDeskphoneDeskPhoneCollection"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/stats": {
+      "post": {
+        "description": "Begins processing statistics asynchronously, returning a request id to get the status and result of the result. The results should be queried by calling GET /stats/{request_id}. Stats for the whole company will be processed by default. An office_id can be provided to limit stats to a single office. A target_id and target_type can be provided to limit stats to a single target.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosStatsProcessStatsMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }
+        ], 
+        "tags": [
+          "stats"
+        ], 
+        "summary": "Process statistics", 
+        "operationId": "StatsApi_processStats", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosStatsProcessingProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/users/{id}/assign_number": {
+      "post": {
+        "description": "Assigns a number to a user. The number will automatically be taken from the company's reserved block if there are reserved numbers, otherwise a number will be auto-assigned from the provided area code.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberAssignNumberMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The user's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Assign number", 
+        "operationId": "NumberApi_assignNumberToUser", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberNumberProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/event-subscriptions/call/{id}": {
+      "put": {
+        "description": "Create a call event subscription for your company. Call events will be sent to the provided URL. Each subscription should be created with an id in the URL, which can be used to get and delete the subscription in the future. If a secret is provided, call events will be encoded and signed in the JWT format using the shared secret with the HS256 algorithm. The JWT payload should be decoded and the signature verified to ensure that the event came from Dialpad. If no secret is provided, unencoded events will be sent in the JSON format. It is recommended to provide a secret so that you can verify the authenticity of the event. Call states can be used to limit the states for which call events are sent. Use ['all'] to get events for all states. A target_type and target_id may optionally be provided to scope the events only to calls to/from that target.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosCallEventSubscriptionCreateOrUpdateCallEventSubscriptionEndpoint"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The call event subscription's hook id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "event"
+        ], 
+        "summary": "Create event subscription", 
+        "operationId": "CallEventSubscriptionApi_createOrUpdateCallEventSubscription", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosCallEventSubscriptionCallEventSubscriptionProto"
+            }
+          }
+        }
+      }, 
+      "get": {
+        "description": "Gets a call event subscription by id.", 
+        "parameters": [
+          {
+            "description": "The call event subscription's hook id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "event"
+        ], 
+        "summary": "Get call event subscription", 
+        "operationId": "CallEventSubscriptionApi_getCallEventSubscription", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosCallEventSubscriptionCallEventSubscriptionProto"
+            }
+          }
+        }
+      }, 
+      "delete": {
+        "description": "Deletes a call event subscription by id.", 
+        "parameters": [
+          {
+            "description": "The call event subscription's hook id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "event"
+        ], 
+        "summary": "Delete call event subscription", 
+        "operationId": "CallEventSubscriptionApi_deleteCallEventSubscription", 
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          }
+        }
+      }
+    }, 
+    "/api/v2/rooms/{parent_id}/deskphones/{id}": {
+      "get": {
+        "description": "Gets a room desk phone by id.", 
+        "parameters": [
+          {
+            "description": "The room's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "parent_id"
+          }, 
+          {
+            "description": "The desk phone's id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Get desk phone by id", 
+        "operationId": "DeskPhoneApi_getRoomDeskphone", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
+            }
+          }
+        }
+      }, 
+      "delete": {
+        "description": "Deletes a room desk phone by id.", 
+        "parameters": [
+          {
+            "description": "The room's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "parent_id"
+          }, 
+          {
+            "description": "The desk phone's id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Kill desk phone by id", 
+        "operationId": "DeskPhoneApi_deleteRoomDeskphone", 
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          }
+        }
+      }
+    }, 
+    "/api/v2/event-subscriptions/call": {
+      "get": {
+        "description": "Gets all call event subscriptions.", 
+        "parameters": [
+          {
+            "description": "The maximum number of results to return.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "limit", 
+            "format": "int64"
+          }, 
+          {
+            "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.", 
+            "type": "string", 
+            "name": "cursor", 
+            "in": "query"
+          }, 
+          {
+            "in": "query", 
+            "type": "string", 
+            "name": "target_id", 
+            "format": "int64"
+          }, 
+          {
+            "enum": [
+              "department", 
+              "office", 
+              "callcenter", 
+              "user", 
+              "room", 
+              "staffgroup", 
+              "callrouter", 
+              "channel", 
+              "coachinggroup", 
+              "unknown"
+            ], 
+            "type": "string", 
+            "name": "target_type", 
+            "in": "query"
+          }
+        ], 
+        "tags": [
+          "event"
+        ], 
+        "summary": "Get call event subscriptions", 
+        "operationId": "CallEventSubscriptionApi_listCallEventSubscriptions", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosCallEventSubscriptionCallEventSubscriptionCollection"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/rooms": {
+      "post": {
+        "description": "Creates a new room.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosRoomCreateRoomMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Create room", 
+        "operationId": "RoomApi_createRoom", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosRoomRoomProto"
+            }
+          }
+        }
+      }, 
+      "get": {
+        "description": "Gets all rooms in your company, optionally filtering by office.", 
+        "parameters": [
+          {
+            "description": "The office's id.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "office_id", 
+            "format": "int64"
+          }, 
+          {
+            "description": "The maximum number of results to return.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "limit", 
+            "format": "int64"
+          }, 
+          {
+            "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.", 
+            "type": "string", 
+            "name": "cursor", 
+            "in": "query"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Get rooms", 
+        "operationId": "RoomApi_listRooms", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosRoomRoomCollection"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/users/{parent_id}/deskphones": {
+      "post": {
+        "description": "Creates a desk phone under a user.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosDeskphoneCreateDeskPhone"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The user's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "parent_id"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Create user desk phone", 
+        "operationId": "DeskPhoneApi_createUserDeskphone", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
+            }
+          }
+        }
+      }, 
+      "get": {
+        "description": "Gets all desk phones under a user.", 
+        "parameters": [
+          {
+            "description": "The user's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "parent_id"
+          }, 
+          {
+            "description": "The maximum number of results to return.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "limit", 
+            "format": "int64"
+          }, 
+          {
+            "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.", 
+            "type": "string", 
+            "name": "cursor", 
+            "in": "query"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Gets desk phones under a user", 
+        "operationId": "DeskPhoneApi_listUserDeskphones", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosDeskphoneDeskPhoneCollection"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/users/{id}/unassign_number": {
+      "post": {
+        "description": "Un-assigns a phone number from a user. The number will be returned to the company's reserved block if there is one. Otherwise the number will be released.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberUnassignNumberMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The user's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Un-assign number", 
+        "operationId": "NumberApi_unassignNumberFromUser", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberNumberProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/offices/{id}/unassign_number": {
+      "post": {
+        "description": "Un-assigns a phone number from a office mainline. The number will be returned to the company's reserved block if there is one. Otherwise the number will be released.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberUnassignNumberMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The office's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "offices"
+        ], 
+        "summary": "Un-assign number", 
+        "operationId": "NumberApi_unassignNumberFromOffice", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberNumberProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/departments/{id}": {
+      "get": {
+        "description": "Gets a department by id.", 
+        "parameters": [
+          {
+            "description": "The department's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "departments"
+        ], 
+        "summary": "Get department by id", 
+        "operationId": "DepartmentApi_getDepartment", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosGroupGroupProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/users/{parent_id}/deskphones/{id}": {
+      "get": {
+        "description": "Gets a user desk phone by id.", 
+        "parameters": [
+          {
+            "description": "The user's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "parent_id"
+          }, 
+          {
+            "description": "The desk phone's id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Get desk phone by id", 
+        "operationId": "DeskPhoneApi_getUserDeskphone", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
+            }
+          }
+        }
+      }, 
+      "delete": {
+        "description": "Deletes a user desk phone by id.", 
+        "parameters": [
+          {
+            "description": "The user's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "parent_id"
+          }, 
+          {
+            "description": "The desk phone's id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Kill desk phone by id", 
+        "operationId": "DeskPhoneApi_deleteUserDeskphone", 
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          }
+        }
+      }
+    }, 
+    "/api/v2/offices/{office_id}/plan": {
+      "get": {
+        "description": "Gets the plan for an office.", 
+        "parameters": [
+          {
+            "description": "The office's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "office_id"
+          }
+        ], 
+        "tags": [
+          "offices"
+        ], 
+        "summary": "Get plan", 
+        "operationId": "PlanApi_getPlan", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosPlanPlanProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/users/{id}/activecall": {
+      "patch": {
+        "description": "Turn call recording on or off for a user's active call.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosCallUpdateActiveCallMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The user's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Toggle live call recording", 
+        "operationId": "CallApi_updateActiveCall", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosCallActiveCallProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/numbers/{number}": {
+      "get": {
+        "description": "Gets number details by number.", 
+        "parameters": [
+          {
+            "description": "A phone number (e164 format).", 
+            "required": true, 
+            "type": "string", 
+            "name": "number", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "numbers"
+        ], 
+        "summary": "Get details by number", 
+        "operationId": "NumberApi_getNumber", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberNumberProto"
+            }
+          }
+        }
+      }, 
+      "delete": {
+        "description": "Un-assigns a phone number from a target. The number will be returned to the company's reserved block if there is one. Otherwise the number will be released.", 
+        "parameters": [
+          {
+            "description": "A phone number (e164 format).", 
+            "required": true, 
+            "type": "string", 
+            "name": "number", 
+            "in": "path"
+          }, 
+          {
+            "description": "Releases the number (does not return it to the company reserved pool if there is one).", 
+            "type": "boolean", 
+            "name": "release", 
+            "in": "query"
+          }
+        ], 
+        "tags": [
+          "numbers"
+        ], 
+        "summary": "Un-assign number", 
+        "operationId": "NumberApi_unassignNumber", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberNumberProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/users/{id}": {
+      "patch": {
+        "description": "Updates the provided fields for an existing user.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosUserUpdateUserMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The user's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Update user", 
+        "operationId": "UserApi_updateUser", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosUserUserProto"
+            }
+          }
+        }
+      }, 
+      "get": {
+        "description": "Gets a user by id.", 
+        "parameters": [
+          {
+            "description": "The user's id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Get user by id", 
+        "operationId": "UserApi_getUser", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosUserUserProto"
+            }
+          }
+        }
+      }, 
+      "delete": {
+        "description": "Deletes a user by id.", 
+        "parameters": [
+          {
+            "description": "The user's id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Delete user by id", 
+        "operationId": "UserApi_deleteUser", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosUserUserProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/rooms/international_pin": {
+      "post": {
+        "description": "When PIN protected international calls are enabled for the company, a PIN is required to make international calls from room phones.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosRoomCreateInternationalPinProto"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Request a PIN to make international calls from rooms", 
+        "operationId": "DeskPhoneApi_createInternationalPin", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosRoomInternationalPinProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/users": {
+      "post": {
+        "description": "Creates a new user.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosUserCreateUserMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Create user", 
+        "operationId": "UserApi_createUser", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosUserUserProto"
+            }
+          }
+        }
+      }, 
+      "get": {
+        "description": "Gets company users, optionally filtering by email.", 
+        "parameters": [
+          {
+            "description": "The user's email.", 
+            "type": "string", 
+            "name": "email", 
+            "in": "query"
+          }, 
+          {
+            "default": "active", 
+            "enum": [
+              "active", 
+              "cancelled", 
+              "suspended", 
+              "pending", 
+              "deleted", 
+              "all"
+            ], 
+            "type": "string", 
+            "name": "state", 
+            "in": "query"
+          }, 
+          {
+            "description": "The maximum number of results to return.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "limit", 
+            "format": "int64"
+          }, 
+          {
+            "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.", 
+            "type": "string", 
+            "name": "cursor", 
+            "in": "query"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "List users", 
+        "operationId": "UserApi_listUsers", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosUserUserCollection"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/offices/{office_id}/callcenters": {
+      "get": {
+        "description": "Gets all the call centers for an office.", 
+        "parameters": [
+          {
+            "description": "The office's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "office_id"
+          }, 
+          {
+            "description": "The maximum number of results to return.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "limit", 
+            "format": "int64"
+          }, 
+          {
+            "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.", 
+            "type": "string", 
+            "name": "cursor", 
+            "in": "query"
+          }
+        ], 
+        "tags": [
+          "offices"
+        ], 
+        "summary": "Get call centers", 
+        "operationId": "CallCenterApi_listCallCenters", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosGroupGroupCollection"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/rooms/{id}/unassign_number": {
+      "post": {
+        "description": "Un-assigns a phone number from a room. The number will be returned to the company's reserved block if there is one. Otherwise the number will be released.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberUnassignNumberMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The room's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "rooms"
+        ], 
+        "summary": "Un-assign number", 
+        "operationId": "NumberApi_unassignNumberFromRoom", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosNumberNumberProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/sms": {
+      "post": {
+        "description": "Send an SMS message.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosSmsSendSMSMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }
+        ], 
+        "tags": [
+          "sms"
+        ], 
+        "summary": "Sends an SMS message to a phone number on behalf of a user.", 
+        "operationId": "SMSApi_sendSms", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosSmsSMSProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/departments/{id}/operators": {
+      "get": {
+        "description": "Gets operators for a department.", 
+        "parameters": [
+          {
+            "description": "The department's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "departments"
+        ], 
+        "summary": "Get operators", 
+        "operationId": "DepartmentApi_listOperators", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosGroupOperatorCollection"
+            }
+          }
+        }
+      }
+    }
+  }, 
+  "schemes": [
+    "https"
+  ], 
+  "produces": [
+    "application/json"
+  ], 
+  "basePath": "/", 
+  "securityDefinitions": {
+    "bearer_token": {
+      "description": "<p>The API key can be put in the Authorization header.</p>\n<p>i.e. Authorization: Bearer <api_key></p>", 
+      "type": "apiKey", 
+      "name": "Authorization", 
+      "in": "header"
+    }, 
+    "api_key_in_url": {
+      "description": "<p>The API key can be put in the URL parameters.</p>\n<p>i.e. ?apikey=<api_key></p>", 
+      "type": "apiKey", 
+      "name": "apikey", 
+      "in": "query"
+    }
+  }, 
+  "host": "dialpad.com", 
+  "definitions": {
+    "ProtosCallInitiateCallMessage": {
+      "type": "object", 
+      "properties": {
+        "outbound_caller_id": {
+          "type": "string", 
+          "description": "The e164-formatted number shown to the call recipient (or \"blocked\").                              If set to \"blocked\", the recipient will receive a call from                              \"unknown caller\""
+        }, 
+        "phone_number": {
+          "type": "string", 
+          "description": "The e164-formatted number to call."
+        }, 
+        "group_id": {
+          "type": "string", 
+          "description": "The ID of a group that will be used to initiate the call.", 
+          "format": "int64"
+        }, 
+        "group_type": {
+          "enum": [
+            "office", 
+            "department", 
+            "callcenter", 
+            "unknown"
+          ], 
+          "type": "string", 
+          "description": "The type of a group that will be used to initiate the call."
+        }, 
+        "custom_data": {
+          "type": "string", 
+          "description": "Extra data to associate with the call."
+        }
+      }
+    }, 
+    "ProtosDeskphoneCreateDeskPhone": {
+      "required": [
+        "mac_address", 
+        "name", 
+        "type"
+      ], 
+      "type": "object", 
+      "properties": {
+        "type": {
+          "enum": [
+            "obi", 
+            "polycom", 
+            "sip", 
+            "mini", 
+            "audiocodes", 
+            "yealink"
+          ], 
+          "type": "string", 
+          "description": "Type (vendor) of the desk phone. Use sip for generic types."
+        }, 
+        "name": {
+          "type": "string", 
+          "description": "Name of the desk phone."
+        }, 
+        "mac_address": {
+          "type": "string", 
+          "description": "MAC address of the desk phone."
+        }
+      }
+    }, 
+    "ProtosApiKeyApiKeyProto": {
+      "type": "object", 
+      "properties": {
+        "description": {
+          "type": "string"
+        }, 
+        "access_token": {
+          "type": "string"
+        }, 
+        "target_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "target_type": {
+          "enum": [
+            "department", 
+            "office", 
+            "callcenter", 
+            "user", 
+            "room", 
+            "staffgroup", 
+            "callrouter", 
+            "channel", 
+            "coachinggroup", 
+            "unknown"
+          ], 
+          "type": "string"
+        }, 
+        "access_type": {
+          "type": "string"
+        }, 
+        "token_type": {
+          "type": "string"
+        }
+      }
+    }, 
+    "ProtosRoomUpdateRoomMessage": {
+      "type": "object", 
+      "properties": {
+        "phone_numbers": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array", 
+          "description": "A list of all phone numbers assigned to the room. Numbers can be re-ordered or removed from this list to unassign them."
+        }, 
+        "name": {
+          "type": "string", 
+          "description": "The room's name"
+        }
+      }
+    }, 
+    "ProtosDeskphoneDeskPhoneCollection": {
+      "type": "object", 
+      "properties": {
+        "cursor": {
+          "type": "string"
+        }, 
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
+          }, 
+          "type": "array", 
+          "description": "Public representation of a desk phone."
+        }
+      }
+    }, 
+    "ProtosPlanPlanProto": {
+      "type": "object", 
+      "properties": {
+        "tollfree_group_lines": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "user_lines": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "group_lines": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "fax_lines": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "tollfree_room_lines": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "room_lines": {
+          "type": "string", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosCallCallbackProto": {
+      "type": "object", 
+      "properties": {
+        "position": {
+          "type": "string", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosGroupDtmfMapping": {
+      "type": "object", 
+      "properties": {
+        "input": {
+          "type": "string"
+        }, 
+        "options": {
+          "description": "DTMF routing options.", 
+          "$ref": "#/definitions/ProtosGroupDtmfOptions"
+        }
+      }
+    }, 
+    "ProtosCallUpdateActiveCallMessage": {
+      "type": "object", 
+      "properties": {
+        "is_recording": {
+          "type": "boolean", 
+          "description": "Whether or not recording should be enabled."
+        }, 
+        "recording_type": {
+          "default": "user", 
+          "enum": [
+            "user", 
+            "group", 
+            "all"
+          ], 
+          "type": "string", 
+          "description": "For group calls (call centers, departments, etc.), whether or not to toggle recording for the operator call (personal recording), the group call (department recording), or both."
+        }, 
+        "play_message": {
+          "default": true, 
+          "type": "boolean", 
+          "description": "Whether or not to play a message to indicate the call is being recorded (or recording has stopped)."
+        }
+      }
+    }, 
+    "ProtosCallInitiatedCallProto": {
+      "type": "object", 
+      "properties": {
+        "device": {
+          "description": "Representation of Device entities", 
+          "$ref": "#/definitions/ProtosDeviceDeviceProto"
+        }
+      }
+    }, 
+    "ProtosDeskphoneDeskPhone": {
+      "type": "object", 
+      "properties": {
+        "phone_number": {
+          "type": "string"
+        }, 
+        "owner_type": {
+          "enum": [
+            "user", 
+            "room"
+          ], 
+          "type": "string"
+        }, 
+        "realm": {
+          "type": "string"
+        }, 
+        "name": {
+          "type": "string"
+        }, 
+        "sip_transport_type": {
+          "enum": [
+            "tls"
+          ], 
+          "type": "string"
+        }, 
+        "device_model": {
+          "type": "string"
+        }, 
+        "port": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "ring_notification": {
+          "type": "boolean"
+        }, 
+        "byod": {
+          "type": "boolean"
+        }, 
+        "mac_address": {
+          "type": "string"
+        }, 
+        "firmware_version": {
+          "type": "string"
+        }, 
+        "password": {
+          "type": "string"
+        }, 
+        "type": {
+          "enum": [
+            "obi", 
+            "polycom", 
+            "sip", 
+            "mini", 
+            "audiocodes", 
+            "yealink"
+          ], 
+          "type": "string"
+        }, 
+        "id": {
+          "type": "string"
+        }, 
+        "owner_id": {
+          "type": "string", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosCallCallbackMessage": {
+      "type": "object", 
+      "properties": {
+        "phone_number": {
+          "type": "string", 
+          "description": "The e164-formatted number to call back."
+        }, 
+        "call_center_id": {
+          "type": "string", 
+          "description": "The ID of a call center that will be used to fulfill the callback.", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosSmsSMSProto": {
+      "type": "object", 
+      "properties": {
+        "message_status": {
+          "enum": [
+            "success", 
+            "failed", 
+            "pending"
+          ], 
+          "type": "string"
+        }, 
+        "direction": {
+          "enum": [
+            "inbound", 
+            "outbound"
+          ], 
+          "type": "string"
+        }, 
+        "user_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "text": {
+          "type": "string"
+        }, 
+        "target_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "target_type": {
+          "enum": [
+            "department", 
+            "office", 
+            "callcenter", 
+            "user", 
+            "room", 
+            "staffgroup", 
+            "callrouter", 
+            "channel", 
+            "coachinggroup", 
+            "unknown"
+          ], 
+          "type": "string"
+        }, 
+        "contact_id": {
+          "type": "string"
+        }, 
+        "from_number": {
+          "type": "string"
+        }, 
+        "to_numbers": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "created_date": {
+          "type": "string", 
+          "format": "date-time"
+        }, 
+        "id": {
+          "type": "string", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosUserUserCollection": {
+      "type": "object", 
+      "properties": {
+        "cursor": {
+          "type": "string"
+        }, 
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ProtosUserUserProto"
+          }, 
+          "type": "array", 
+          "description": "Full response body for get user operations."
+        }
+      }
+    }, 
+    "ProtosGroupRoutingOptions": {
+      "type": "object", 
+      "properties": {
+        "open": {
+          "description": "Group routing options for open or closed states.", 
+          "$ref": "#/definitions/ProtosGroupRoutingOptionsInner"
+        }, 
+        "closed": {
+          "description": "Group routing options for open or closed states.", 
+          "$ref": "#/definitions/ProtosGroupRoutingOptionsInner"
+        }
+      }
+    }, 
+    "ProtosNumberAssignNumberMessage": {
+      "type": "object", 
+      "properties": {
+        "area_code": {
+          "type": "string", 
+          "description": "An area code to attempt to use if a reserved pool number is not provided. If no area code is provided, the office's area code will be used."
+        }, 
+        "number": {
+          "type": "string", 
+          "description": "A phone number from the reserved pool to attempt to assign."
+        }
+      }
+    }, 
+    "ProtosRoomCreateInternationalPinProto": {
+      "type": "object", 
+      "properties": {
+        "customer_ref": {
+          "type": "string", 
+          "description": "An identifier to be printed in the usage summary. Typically used for identifying the person who requested the PIN."
+        }
+      }
+    }, 
+    "ProtosRoomInternationalPinProto": {
+      "type": "object", 
+      "properties": {
+        "customer_ref": {
+          "type": "string"
+        }, 
+        "pin": {
+          "type": "string"
+        }, 
+        "expires_on": {
+          "type": "string", 
+          "format": "date-time"
+        }
+      }
+    }, 
+    "ProtosPlanAdjustLicensesProto": {
+      "type": "object", 
+      "properties": {
+        "fax_line_delta": {
+          "type": "string", 
+          "description": "Number of fax line licenses to increment.", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosCallActiveCallProto": {
+      "type": "object", 
+      "properties": {
+        "call_state": {
+          "type": "string"
+        }, 
+        "is_recording": {
+          "type": "boolean"
+        }, 
+        "id": {
+          "type": "string", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosUserCreateUserMessage": {
+      "required": [
+        "email", 
+        "office_id"
+      ], 
+      "type": "object", 
+      "properties": {
+        "office_id": {
+          "type": "string", 
+          "description": "The user's office id.", 
+          "format": "int64"
+        }, 
+        "first_name": {
+          "type": "string", 
+          "description": "The user's first name."
+        }, 
+        "last_name": {
+          "type": "string", 
+          "description": "The user's last name."
+        }, 
+        "email": {
+          "type": "string", 
+          "description": "The user's email."
+        }, 
+        "license": {
+          "default": "talk", 
+          "enum": [
+            "talk", 
+            "agents", 
+            "lite_support_agents", 
+            "lite_lines"
+          ], 
+          "type": "string", 
+          "description": "The user's license type. This affects billing for the user."
+        }
+      }
+    }, 
+    "ProtosUserUpdateUserMessage": {
+      "type": "object", 
+      "properties": {
+        "first_name": {
+          "type": "string", 
+          "description": "The user's first name."
+        }, 
+        "admin_office_ids": {
+          "items": {
+            "type": "string", 
+            "format": "int64"
+          }, 
+          "type": "array", 
+          "description": "The list of admin office IDs. This is used to set the user as an office admin for the offices with the provided IDs."
+        }, 
+        "forwarding_numbers": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array", 
+          "description": "The user's forwarding numbers."
+        }, 
+        "license": {
+          "enum": [
+            "talk", 
+            "agents", 
+            "lite_support_agents", 
+            "lite_lines"
+          ], 
+          "type": "string", 
+          "description": "The user's license type. Changing this affects billing for the user."
+        }, 
+        "extension": {
+          "type": "string", 
+          "description": "The user's new extension number. Extensions are optional in Dialpad and turned off by default. If you want extensions please contact support to enable them."
+        }, 
+        "is_super_admin": {
+          "type": "boolean", 
+          "description": "Whether or not the user is a super admin (company level administrator)."
+        }, 
+        "office_id": {
+          "type": "string", 
+          "description": "The user's office id. If provided, the user will be moved to this office. For international offices, the user must not have phone numbers assigned. Once the transfer is complete, your admin can add the phone numbers via the user assign number API. Only supported on paid accounts and there must be enough licenses to transfer the user to the destination office.", 
+          "format": "int64"
+        }, 
+        "state": {
+          "enum": [
+            "active", 
+            "suspended"
+          ], 
+          "type": "string", 
+          "description": "The user's state. This is used to suspend or re-activate a user."
+        }, 
+        "last_name": {
+          "type": "string", 
+          "description": "The user's last name."
+        }, 
+        "phone_numbers": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array", 
+          "description": "The user's phone numbers. This can be used to re-order or remove numbers. To assign a new number, use the assign number API instead."
+        }, 
+        "emails": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array", 
+          "description": "The user's emails. This can be used to add, remove, or re-order emails. The first email in the list is the user's primary email."
+        }, 
+        "job_title": {
+          "type": "string", 
+          "description": "The user's job title."
+        }
+      }
+    }, 
+    "ProtosCallEventSubscriptionCreateOrUpdateCallEventSubscriptionEndpoint": {
+      "required": [
+        "url"
+      ], 
+      "type": "object", 
+      "properties": {
+        "group_calls_only": {
+          "type": "boolean", 
+          "description": "Call event subscription for group calls only."
+        }, 
+        "enabled": {
+          "default": true, 
+          "type": "boolean", 
+          "description": "Whether or not the call event subscription is enabled."
+        }, 
+        "target_id": {
+          "type": "string", 
+          "description": "ID of the target", 
+          "format": "int64"
+        }, 
+        "target_type": {
+          "enum": [
+            "department", 
+            "office", 
+            "callcenter", 
+            "user", 
+            "room", 
+            "staffgroup", 
+            "callrouter", 
+            "channel", 
+            "coachinggroup", 
+            "unknown"
+          ], 
+          "type": "string", 
+          "description": "Type of the target"
+        }, 
+        "url": {
+          "type": "string", 
+          "description": "The call event subscription's url."
+        }, 
+        "secret": {
+          "type": "string", 
+          "description": "The call event subscription's signature secret."
+        }, 
+        "call_states": {
+          "items": {
+            "enum": [
+              "preanswer", 
+              "calling", 
+              "ringing", 
+              "connected", 
+              "merged", 
+              "hold", 
+              "queued", 
+              "voicemail", 
+              "eavesdrop", 
+              "monitor", 
+              "barge", 
+              "hangup", 
+              "blocked", 
+              "admin", 
+              "parked", 
+              "takeover", 
+              "all", 
+              "postcall", 
+              "transcription", 
+              "recording"
+            ], 
+            "type": "string"
+          }, 
+          "type": "array", 
+          "description": "The call event subscription's list of call states."
+        }
+      }
+    }, 
+    "ProtosGroupGroupCollection": {
+      "type": "object", 
+      "properties": {
+        "cursor": {
+          "type": "string"
+        }, 
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ProtosGroupGroupProto"
+          }, 
+          "type": "array", 
+          "description": "Full response body for get group (department, call center) operations."
+        }
+      }
+    }, 
+    "ProtosCallEventSubscriptionCallEventSubscriptionCollection": {
+      "type": "object", 
+      "properties": {
+        "cursor": {
+          "type": "string"
+        }, 
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ProtosCallEventSubscriptionCallEventSubscriptionProto"
+          }, 
+          "type": "array", 
+          "description": "Call event subscription proto"
+        }
+      }
+    }, 
+    "ProtosNumberUnassignNumberMessage": {
+      "required": [
+        "number"
+      ], 
+      "type": "object", 
+      "properties": {
+        "number": {
+          "type": "string", 
+          "description": "A phone number (e164 format)."
+        }
+      }
+    }, 
+    "ProtosUserUserProto": {
+      "type": "object", 
+      "properties": {
+        "admin_office_ids": {
+          "items": {
+            "type": "string", 
+            "format": "int64"
+          }, 
+          "type": "array"
+        }, 
+        "is_super_admin": {
+          "type": "boolean"
+        }, 
+        "last_name": {
+          "type": "string"
+        }, 
+        "is_admin": {
+          "type": "boolean"
+        }, 
+        "timezone": {
+          "type": "string"
+        }, 
+        "phone_numbers": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "first_name": {
+          "type": "string"
+        }, 
+        "forwarding_numbers": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "office_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "muted": {
+          "type": "boolean"
+        }, 
+        "company_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "state": {
+          "enum": [
+            "active", 
+            "cancelled", 
+            "suspended", 
+            "pending", 
+            "deleted"
+          ], 
+          "type": "string"
+        }, 
+        "location": {
+          "type": "string"
+        }, 
+        "status_message": {
+          "type": "string"
+        }, 
+        "job_title": {
+          "type": "string"
+        }, 
+        "is_available": {
+          "type": "boolean"
+        }, 
+        "is_online": {
+          "type": "boolean"
+        }, 
+        "emails": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "language": {
+          "type": "string"
+        }, 
+        "license": {
+          "enum": [
+            "talk", 
+            "agents", 
+            "lite_support_agents", 
+            "lite_lines"
+          ], 
+          "type": "string"
+        }, 
+        "country": {
+          "type": "string"
+        }, 
+        "do_not_disturb": {
+          "type": "boolean"
+        }, 
+        "extension": {
+          "type": "string"
+        }, 
+        "image_url": {
+          "type": "string"
+        }, 
+        "is_on_duty": {
+          "type": "boolean"
+        }
+      }
+    }, 
+    "ProtosOfficeOfficeSettings": {
+      "type": "object", 
+      "properties": {
+        "set_caller_id_disabled": {
+          "type": "boolean"
+        }, 
+        "disable_desk_phone_self_provision": {
+          "type": "boolean"
+        }, 
+        "disable_ivr_voicemail": {
+          "type": "boolean"
+        }, 
+        "no_recording_message_on_user_calls": {
+          "type": "boolean"
+        }, 
+        "block_caller_id_disabled": {
+          "type": "boolean"
+        }, 
+        "bridged_target_recording_allowed": {
+          "type": "boolean"
+        }, 
+        "allow_device_guest_login": {
+          "type": "boolean"
+        }
+      }
+    }, 
+    "ProtosOfficeOfficeProto": {
+      "type": "object", 
+      "properties": {
+        "wednesday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "routing_options": {
+          "description": "Group routing options.", 
+          "$ref": "#/definitions/ProtosGroupRoutingOptions"
+        }, 
+        "name": {
+          "type": "string"
+        }, 
+        "first_action": {
+          "enum": [
+            "operators", 
+            "menu"
+          ], 
+          "type": "string"
+        }, 
+        "monday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "country": {
+          "type": "string"
+        }, 
+        "office_settings": {
+          "$ref": "#/definitions/ProtosOfficeOfficeSettings"
+        }, 
+        "tuesday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "friday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "state": {
+          "enum": [
+            "active", 
+            "cancelled", 
+            "suspended", 
+            "pending", 
+            "deleted"
+          ], 
+          "type": "string"
+        }, 
+        "no_operators_action": {
+          "enum": [
+            "voicemail", 
+            "menu", 
+            "department", 
+            "bridge_target", 
+            "extension", 
+            "person", 
+            "directory", 
+            "message", 
+            "operator", 
+            "disabled"
+          ], 
+          "type": "string"
+        }, 
+        "thursday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "ring_seconds": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "phone_numbers": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "saturday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "sunday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "office_id": {
+          "type": "string", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosOfficeOfficeCollection": {
+      "type": "object", 
+      "properties": {
+        "cursor": {
+          "type": "string"
+        }, 
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ProtosOfficeOfficeProto"
+          }, 
+          "type": "array", 
+          "description": "Full response body for get office operations."
+        }
+      }
+    }, 
+    "ProtosStatsStatsProto": {
+      "type": "object", 
+      "properties": {
+        "file_type": {
+          "type": "string"
+        }, 
+        "status": {
+          "enum": [
+            "processing", 
+            "complete"
+          ], 
+          "type": "string"
+        }, 
+        "download_url": {
+          "type": "string"
+        }
+      }
+    }, 
+    "ProtosRoomRoomCollection": {
+      "type": "object", 
+      "properties": {
+        "cursor": {
+          "type": "string"
+        }, 
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ProtosRoomRoomProto"
+          }, 
+          "type": "array", 
+          "description": "Full response body for get room operations."
+        }
+      }
+    }, 
+    "ProtosNumberNumberProto": {
+      "type": "object", 
+      "properties": {
+        "status": {
+          "enum": [
+            "available", 
+            "pending", 
+            "office", 
+            "department", 
+            "call_center", 
+            "user", 
+            "room", 
+            "porting", 
+            "call_router", 
+            "dynamic_caller"
+          ], 
+          "type": "string"
+        }, 
+        "deleted": {
+          "type": "boolean"
+        }, 
+        "target_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "area_code": {
+          "type": "string"
+        }, 
+        "company_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "number": {
+          "type": "string"
+        }, 
+        "office_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "type": {
+          "enum": [
+            "local", 
+            "tollfree", 
+            "softbank", 
+            "free"
+          ], 
+          "type": "string"
+        }, 
+        "target_type": {
+          "enum": [
+            "department", 
+            "office", 
+            "callcenter", 
+            "user", 
+            "room", 
+            "staffgroup", 
+            "callrouter", 
+            "channel", 
+            "coachinggroup", 
+            "unknown"
+          ], 
+          "type": "string"
+        }
+      }
+    }, 
+    "ProtosNumberNumberCollection": {
+      "type": "object", 
+      "properties": {
+        "cursor": {
+          "type": "string"
+        }, 
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ProtosNumberNumberProto"
+          }, 
+          "type": "array", 
+          "description": "Phone number details."
+        }
+      }
+    }, 
+    "ProtosRoomRoomProto": {
+      "type": "object", 
+      "properties": {
+        "name": {
+          "type": "string"
+        }, 
+        "country": {
+          "type": "string"
+        }, 
+        "company_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "is_free": {
+          "type": "boolean"
+        }, 
+        "office_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "state": {
+          "enum": [
+            "active", 
+            "cancelled", 
+            "suspended", 
+            "pending", 
+            "deleted"
+          ], 
+          "type": "string"
+        }, 
+        "image_url": {
+          "type": "string"
+        }, 
+        "is_on_duty": {
+          "type": "boolean"
+        }, 
+        "phone_numbers": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "type": "string", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosNumberCreateNumberMessage": {
+      "type": "object", 
+      "properties": {
+        "office_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "source": {
+          "enum": [
+            "service_titan"
+          ], 
+          "type": "string"
+        }
+      }
+    }, 
+    "ProtosGroupGroupProto": {
+      "type": "object", 
+      "properties": {
+        "routing_options": {
+          "description": "Group routing options.", 
+          "$ref": "#/definitions/ProtosGroupRoutingOptions"
+        }, 
+        "name": {
+          "type": "string"
+        }, 
+        "first_action": {
+          "enum": [
+            "operators", 
+            "menu"
+          ], 
+          "type": "string"
+        }, 
+        "monday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "country": {
+          "type": "string"
+        }, 
+        "wednesday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "tuesday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "friday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "state": {
+          "enum": [
+            "active", 
+            "cancelled", 
+            "suspended", 
+            "pending", 
+            "deleted"
+          ], 
+          "type": "string"
+        }, 
+        "no_operators_action": {
+          "enum": [
+            "voicemail", 
+            "menu", 
+            "department", 
+            "bridge_target", 
+            "extension", 
+            "person", 
+            "directory", 
+            "message", 
+            "operator", 
+            "disabled"
+          ], 
+          "type": "string"
+        }, 
+        "thursday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "ring_seconds": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "phone_numbers": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "saturday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "sunday_hours": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array"
+        }, 
+        "id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "office_id": {
+          "type": "string", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosTranscriptTranscriptProto": {
+      "type": "object", 
+      "properties": {
+        "lines": {
+          "items": {
+            "$ref": "#/definitions/ProtosTranscriptTranscriptLineProto"
+          }, 
+          "type": "array", 
+          "description": "An array of individual lines of the transcript."
+        }, 
+        "call_id": {
+          "type": "string", 
+          "description": "The call's id.", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosGroupRoutingOptionsInner": {
+      "type": "object", 
+      "properties": {
+        "action_target_type": {
+          "enum": [
+            "office", 
+            "department", 
+            "callcenter", 
+            "contact", 
+            "user", 
+            "room", 
+            "contactgroup", 
+            "staffgroup", 
+            "callrouter", 
+            "channel", 
+            "coachinggroup", 
+            "unknown"
+          ], 
+          "type": "string"
+        }, 
+        "operator_routing": {
+          "enum": [
+            "simultaneous", 
+            "longestidle", 
+            "fixedorder", 
+            "roundrobin", 
+            "mostskilled", 
+            "random"
+          ], 
+          "type": "string"
+        }, 
+        "dtmf": {
+          "items": {
+            "$ref": "#/definitions/ProtosGroupDtmfMapping"
+          }, 
+          "type": "array"
+        }, 
+        "try_dial_operators": {
+          "type": "boolean"
+        }, 
+        "action": {
+          "enum": [
+            "voicemail", 
+            "menu", 
+            "department", 
+            "bridge_target", 
+            "extension", 
+            "person", 
+            "directory", 
+            "message", 
+            "operator", 
+            "disabled"
+          ], 
+          "type": "string"
+        }, 
+        "action_target_id": {
+          "type": "string", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosStatsProcessStatsMessage": {
+      "required": [
+        "export_type", 
+        "stat_type"
+      ], 
+      "type": "object", 
+      "properties": {
+        "stat_type": {
+          "enum": [
+            "calls", 
+            "texts", 
+            "voicemails", 
+            "recordings", 
+            "onduty", 
+            "csat", 
+            "dispositions"
+          ], 
+          "type": "string", 
+          "description": "The type of statistics to be returned."
+        }, 
+        "export_type": {
+          "enum": [
+            "stats", 
+            "records"
+          ], 
+          "type": "string", 
+          "description": "Whether to return aggregated statistics (stats), or individual rows for each record (records)."
+        }, 
+        "target_id": {
+          "type": "string", 
+          "description": "ID of the target", 
+          "format": "int64"
+        }, 
+        "days_ago_end": {
+          "default": 30, 
+          "type": "string", 
+          "description": "End of the date range to get statistics for. This is the number of days to look back relative to the current day. Used in conjunction with days_ago_start to specify a range.", 
+          "format": "int64"
+        }, 
+        "target_type": {
+          "enum": [
+            "department", 
+            "office", 
+            "callcenter", 
+            "user", 
+            "room", 
+            "staffgroup", 
+            "callrouter", 
+            "channel", 
+            "coachinggroup", 
+            "unknown"
+          ], 
+          "type": "string", 
+          "description": "Type of the target"
+        }, 
+        "coaching_group": {
+          "type": "boolean", 
+          "description": "Whether or not the the statistics should be for trainees of the coach with the given target_id."
+        }, 
+        "office_id": {
+          "type": "string", 
+          "description": "ID of the office to get statistics for. If a target_id and target_type are passed in this value is ignored and instead the target is used.", 
+          "format": "int64"
+        }, 
+        "is_today": {
+          "type": "boolean", 
+          "description": "Whether or not the statistics are for the current day. days_ago_start and days_ago_end are ignored if this is passed in."
+        }, 
+        "timezone": {
+          "default": "UTC", 
+          "type": "string", 
+          "description": "Timezone using a tz database name."
+        }, 
+        "days_ago_start": {
+          "default": 1, 
+          "type": "string", 
+          "description": "Start of the date range to get statistics for. This is the number of days to look back relative to the current day. Used in conjunction with days_ago_end to specify a range.", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosStatsProcessingProto": {
+      "type": "object", 
+      "properties": {
+        "already_started": {
+          "type": "boolean"
+        }, 
+        "request_id": {
+          "type": "string"
+        }
+      }
+    }, 
+    "ProtosCompanyCreateCompanyMessage": {
+      "required": [
+        "account_type", 
+        "country", 
+        "domain", 
+        "name"
+      ], 
+      "type": "object", 
+      "properties": {
+        "country": {
+          "type": "string", 
+          "description": "Primary country of the company."
+        }, 
+        "domain": {
+          "type": "string", 
+          "description": "Domain name of user emails."
+        }, 
+        "admin_email": {
+          "type": "string", 
+          "description": "Email address of the company administrator."
+        }, 
+        "account_type": {
+          "enum": [
+            "default", 
+            "enterprise", 
+            "pro", 
+            "free"
+          ], 
+          "type": "string", 
+          "description": "Company pricing tier."
+        }, 
+        "name": {
+          "type": "string", 
+          "description": "Company display name."
+        }
+      }
+    }, 
+    "ProtosDeviceDeviceProto": {
+      "type": "object", 
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    }, 
+    "ProtosCallEventSubscriptionCallEventSubscriptionProto": {
+      "type": "object", 
+      "properties": {
+        "group_calls_only": {
+          "type": "boolean", 
+          "description": "Call event subscription for group calls only."
+        }, 
+        "enabled": {
+          "default": true, 
+          "type": "boolean", 
+          "description": "Whether or not the call event subscription is enabled."
+        }, 
+        "url": {
+          "type": "string", 
+          "description": "The call event subscription's url."
+        }, 
+        "call_states": {
+          "items": {
+            "enum": [
+              "preanswer", 
+              "calling", 
+              "ringing", 
+              "connected", 
+              "merged", 
+              "hold", 
+              "queued", 
+              "voicemail", 
+              "eavesdrop", 
+              "monitor", 
+              "barge", 
+              "hangup", 
+              "blocked", 
+              "admin", 
+              "parked", 
+              "takeover", 
+              "all", 
+              "postcall", 
+              "transcription", 
+              "recording"
+            ], 
+            "type": "string"
+          }, 
+          "type": "array", 
+          "description": "The call event subscription's list of call states."
+        }, 
+        "signature": {
+          "description": "Call event subscription's signature containing the secret.", 
+          "$ref": "#/definitions/ProtosCallEventSubscriptionCallEventSubscriptionSignatureProto"
+        }, 
+        "id": {
+          "type": "string", 
+          "description": "The call event subscription's hook id."
+        }
+      }
+    }, 
+    "ProtosGroupOperatorCollection": {
+      "type": "object", 
+      "properties": {
+        "rooms": {
+          "items": {
+            "$ref": "#/definitions/ProtosRoomRoomProto"
+          }, 
+          "type": "array", 
+          "description": "Full response body for get room operations."
+        }, 
+        "users": {
+          "items": {
+            "$ref": "#/definitions/ProtosUserUserProto"
+          }, 
+          "type": "array", 
+          "description": "Full response body for get user operations."
+        }
+      }
+    }, 
+    "ProtosSmsSendSMSMessage": {
+      "required": [
+        "text", 
+        "user_id"
+      ], 
+      "type": "object", 
+      "properties": {
+        "text": {
+          "type": "string", 
+          "description": "The contents of the message that should be sent."
+        }, 
+        "sender_group_type": {
+          "enum": [
+            "office", 
+            "department", 
+            "callcenter", 
+            "unknown"
+          ], 
+          "type": "string", 
+          "description": "The ID type (i.e. office, department, or callcenter)."
+        }, 
+        "user_id": {
+          "type": "string", 
+          "description": "The ID of the user who should be the sender of the SMS.", 
+          "format": "int64"
+        }, 
+        "to_numbers": {
+          "items": {
+            "type": "string"
+          }, 
+          "type": "array", 
+          "description": "Up to 10 E164-formatted phone numbers who should receive the SMS."
+        }, 
+        "sender_group_id": {
+          "type": "string", 
+          "description": "The ID of an office, department, or call center that the User should  send the message on behalf of.", 
+          "format": "int64"
+        }
+      }
+    }, 
+    "ProtosGroupDtmfOptions": {
+      "type": "object", 
+      "properties": {
+        "action": {
+          "enum": [
+            "voicemail", 
+            "menu", 
+            "department", 
+            "bridge_target", 
+            "extension", 
+            "person", 
+            "directory", 
+            "message", 
+            "operator", 
+            "disabled"
+          ], 
+          "type": "string"
+        }, 
+        "action_target_id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "action_target_type": {
+          "enum": [
+            "office", 
+            "department", 
+            "callcenter", 
+            "contact", 
+            "user", 
+            "room", 
+            "contactgroup", 
+            "staffgroup", 
+            "callrouter", 
+            "channel", 
+            "coachinggroup", 
+            "unknown"
+          ], 
+          "type": "string"
+        }
+      }
+    }, 
+    "ProtosCompanyCreateCompanyResponse": {
+      "type": "object", 
+      "properties": {
+        "company": {
+          "description": "Company details.", 
+          "$ref": "#/definitions/ProtosCompanyCompanyProto"
+        }, 
+        "api_key": {
+          "description": "API key details.", 
+          "$ref": "#/definitions/ProtosApiKeyApiKeyProto"
+        }, 
+        "office": {
+          "description": "Full response body for get office operations.", 
+          "$ref": "#/definitions/ProtosOfficeOfficeProto"
+        }
+      }
+    }, 
+    "ProtosCallEventSubscriptionCallEventSubscriptionSignatureProto": {
+      "type": "object", 
+      "properties": {
+        "secret": {
+          "type": "string"
+        }, 
+        "type": {
+          "type": "string"
+        }, 
+        "algo": {
+          "type": "string"
+        }
+      }
+    }, 
+    "ProtosRoomCreateRoomMessage": {
+      "required": [
+        "name", 
+        "office_id"
+      ], 
+      "type": "object", 
+      "properties": {
+        "office_id": {
+          "type": "string", 
+          "description": "The office's id.", 
+          "format": "int64"
+        }, 
+        "name": {
+          "type": "string", 
+          "description": "The room's name"
+        }
+      }
+    }, 
+    "ProtosTranscriptTranscriptLineProto": {
+      "type": "object", 
+      "properties": {
+        "user_id": {
+          "type": "string", 
+          "description": "The ID of the user who was speaking.", 
+          "format": "int64"
+        }, 
+        "name": {
+          "type": "string", 
+          "description": "The name of the call participant who was speaking."
+        }, 
+        "contact_id": {
+          "type": "string", 
+          "description": "The ID of the contact who was speaking."
+        }, 
+        "content": {
+          "type": "string", 
+          "description": "The transcribed text."
+        }, 
+        "time": {
+          "type": "string", 
+          "description": "The time at which the line was spoken.", 
+          "format": "date-time"
+        }, 
+        "type": {
+          "enum": [
+            "moment", 
+            "transcript"
+          ], 
+          "type": "string"
+        }
+      }
+    }, 
+    "ProtosCompanyCompanyProto": {
+      "type": "object", 
+      "properties": {
+        "country": {
+          "type": "string"
+        }, 
+        "domain": {
+          "type": "string"
+        }, 
+        "account_type": {
+          "type": "string"
+        }, 
+        "id": {
+          "type": "string", 
+          "format": "int64"
+        }, 
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  }, 
+  "security": [
+    {
+      "bearer_token": []
+    }, 
+    {
+      "api_key_in_url": []
+    }
+  ], 
+  "swagger": "2.0", 
+  "consumes": [
+    "application/json"
+  ]
+}
