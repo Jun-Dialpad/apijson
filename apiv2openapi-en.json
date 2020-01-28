@@ -110,6 +110,11 @@
         ], 
         "responses": {
           "200": {
+            "examples": {
+              "application/json": {
+                "position": "1"
+              }
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallCallbackProto"
