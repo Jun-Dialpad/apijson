@@ -124,12 +124,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "phone_number": "+14155551001", 
-                  "call_center_id": 13
-                }
-              }, 
               "$ref": "#/definitions/ProtosCallCallbackMessage"
             }, 
             "name": "body", 
@@ -503,11 +497,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "area_code": "604"
-                }
-              }, 
               "$ref": "#/definitions/ProtosNumberAssignNumberMessage"
             }, 
             "name": "body", 
@@ -555,11 +544,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "fax_line_delta": "1"
-                }
-              }, 
               "$ref": "#/definitions/ProtosPlanAdjustLicensesProto"
             }, 
             "name": "body", 
@@ -918,11 +902,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "name": "Blackcomb"
-                }
-              }, 
               "$ref": "#/definitions/ProtosRoomUpdateRoomMessage"
             }, 
             "name": "body", 
@@ -1052,17 +1031,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "outbound_caller_id": "blocked", 
-                  "phone_number": [
-                    "+14155551001"
-                  ], 
-                  "group_id": "4", 
-                  "group_type": "office", 
-                  "custom_data": "something"
-                }
-              }, 
               "$ref": "#/definitions/ProtosCallInitiateCallMessage"
             }, 
             "name": "body", 
@@ -1105,11 +1073,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "area_code": "604"
-                }
-              }, 
               "$ref": "#/definitions/ProtosNumberAssignNumberMessage"
             }, 
             "name": "body", 
@@ -1157,13 +1120,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "type": "obi", 
-                  "name": "Test Obihai", 
-                  "mac_address": "9cadefa00096"
-                }
-              }, 
               "$ref": "#/definitions/ProtosDeskphoneCreateDeskPhone"
             }, 
             "name": "body", 
@@ -1270,20 +1226,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "stat_type": "calls", 
-                  "export_type": "stats", 
-                  "target_id": 2, 
-                  "days_ago_end": 5, 
-                  "target_type": "user", 
-                  "coaching_group": true, 
-                  "office_id": 4, 
-                  "is_today": false, 
-                  "timezone": "UTC", 
-                  "days_ago_start": 1
-                }
-              }, 
               "$ref": "#/definitions/ProtosStatsProcessStatsMessage"
             }, 
             "name": "body", 
@@ -1316,12 +1258,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "area_code": "415", 
-                  "number": "+8031112223302"
-                }
-              }, 
               "$ref": "#/definitions/ProtosNumberAssignNumberMessage"
             }, 
             "name": "body", 
@@ -1369,19 +1305,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "group_calls_only": true, 
-                  "url": "https://test.com", 
-                  "secret": "test_secret", 
-                  "enabled": true, 
-                  "call_states": [
-                    "hangup", 
-                    "barge", 
-                    "recording"
-                  ]
-                }
-              }, 
               "$ref": "#/definitions/ProtosCallEventSubscriptionCreateOrUpdateCallEventSubscriptionEndpoint"
             }, 
             "name": "body", 
@@ -1656,12 +1579,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "office_id": 4, 
-                  "name": "Whistler"
-                }
-              }, 
               "$ref": "#/definitions/ProtosRoomCreateRoomMessage"
             }, 
             "name": "body", 
@@ -1774,13 +1691,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "type": "obi", 
-                  "name": "Test Obihai", 
-                  "mac_address": "9cadefa00096"
-                }
-              }, 
               "$ref": "#/definitions/ProtosDeskphoneCreateDeskPhone"
             }, 
             "name": "body", 
@@ -1889,11 +1799,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "number": "+8031112223302"
-                }
-              }, 
               "$ref": "#/definitions/ProtosNumberUnassignNumberMessage"
             }, 
             "name": "body", 
@@ -1934,11 +1839,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "number": "+16045551002"
-                }
-              }, 
               "$ref": "#/definitions/ProtosNumberUnassignNumberMessage"
             }, 
             "name": "body", 
@@ -2192,13 +2092,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "is_recording": true, 
-                  "recording_type": "group", 
-                  "play_message": true
-                }
-              }, 
               "$ref": "#/definitions/ProtosCallUpdateActiveCallMessage"
             }, 
             "name": "body", 
@@ -2319,20 +2212,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "first_name": "Blocky", 
-                  "last_name": "Mockson", 
-                  "forwarding_numbers": [
-                    "+442074865800", 
-                    "+815058098764"
-                  ], 
-                  "extension": "12345", 
-                  "license": "lite_support_agents", 
-                  "office_id": 14, 
-                  "job_title": "Junior Accountant"
-                }
-              }, 
               "$ref": "#/definitions/ProtosUserUpdateUserMessage"
             }, 
             "name": "body", 
@@ -2534,11 +2413,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "customer_ref": "something"
-                }
-              }, 
               "$ref": "#/definitions/ProtosRoomCreateInternationalPinProto"
             }, 
             "name": "body", 
@@ -2573,14 +2447,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "office_id": 4, 
-                  "first_name": "Mocky", 
-                  "last_name": "Mockson", 
-                  "email": "mocky@fuzz-ball.com"
-                }
-              }, 
               "$ref": "#/definitions/ProtosUserCreateUserMessage"
             }, 
             "name": "body", 
@@ -2877,11 +2743,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "number": "+16045551004"
-                }
-              }, 
               "$ref": "#/definitions/ProtosNumberUnassignNumberMessage"
             }, 
             "name": "body", 
@@ -2929,15 +2790,6 @@
         "parameters": [
           {
             "schema": {
-              "examples": {
-                "application/json": {
-                  "text": "Test text", 
-                  "user_id": "2", 
-                  "to_numbers": [
-                    "+14155557777"
-                  ]
-                }
-              }, 
               "$ref": "#/definitions/ProtosSmsSendSMSMessage"
             }, 
             "name": "body", 
