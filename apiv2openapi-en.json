@@ -3229,7 +3229,11 @@
           "description": "The ID of a call center that will be used to fulfill the callback.", 
           "format": "int64"
         }
-      }
+      },
+      "examples": {
+        "call_center_id": 13, 
+        "phone_number": "+14155551001"
+       }
     }, 
     "ProtosSmsSMSProto": {
       "type": "object", 
