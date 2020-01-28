@@ -110,11 +110,6 @@
         ], 
         "responses": {
           "200": {
-            "examples": {
-              "application/json": {
-                "position": "1"
-              }
-            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallCallbackProto"
@@ -2659,7 +2654,75 @@
         "responses": {
           "200": {
             "examples": {
-              "application/json": {}
+              "application/json": {
+                "items": [
+                  {
+                    "routing_options": {
+                      "open": {
+                        "action_target_type": "department", 
+                        "operator_routing": "longestidle", 
+                        "dtmf": [
+                          {
+                            "input": "1", 
+                            "options": {
+                              "action": "department", 
+                              "action_target_id": "4", 
+                              "action_target_type": "office"
+                            }
+                          }
+                        ], 
+                        "try_dial_operators": true, 
+                        "action": "department", 
+                        "action_target_id": "6"
+                      }, 
+                      "closed": {
+                        "action": "voicemail", 
+                        "try_dial_operators": false, 
+                        "operator_routing": "longestidle"
+                      }
+                    }, 
+                    "name": "Test call center", 
+                    "first_action": "operators", 
+                    "monday_hours": [
+                      "08:00", 
+                      "18:00"
+                    ], 
+                    "country": "us", 
+                    "wednesday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "tuesday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "friday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "state": "active", 
+                    "no_operators_action": "voicemail", 
+                    "thursday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "ring_seconds": "30", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "saturday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "sunday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "id": "13", 
+                    "office_id": "4"
+                  }
+                ]
+              }
             }, 
             "description": "A successful response", 
             "schema": {
@@ -2781,7 +2844,62 @@
         "responses": {
           "200": {
             "examples": {
-              "application/json": {}
+              "application/json": {
+                "rooms": [
+                  {
+                    "name": "fake-room", 
+                    "country": "us", 
+                    "company_id": "3", 
+                    "is_free": false, 
+                    "office_id": "4", 
+                    "state": "active", 
+                    "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                    "is_on_duty": false, 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "id": "13"
+                  }
+                ], 
+                "users": [
+                  {
+                    "admin_office_ids": [
+                      "4"
+                    ], 
+                    "is_super_admin": true, 
+                    "last_name": "Bot", 
+                    "is_admin": true, 
+                    "timezone": "US/Pacific", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "id": "2", 
+                    "first_name": "\u30c6\u00c9st", 
+                    "forwarding_numbers": [
+                      "+14152301358"
+                    ], 
+                    "office_id": "4", 
+                    "muted": false, 
+                    "company_id": "3", 
+                    "state": "active", 
+                    "location": "Mock Location", 
+                    "status_message": "Mock Status", 
+                    "job_title": "Mock Job Title", 
+                    "is_available": true, 
+                    "is_online": false, 
+                    "emails": [
+                      "bot@fuzz-ball.com"
+                    ], 
+                    "language": "en", 
+                    "license": "talk", 
+                    "country": "us", 
+                    "do_not_disturb": false, 
+                    "extension": "20000", 
+                    "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                    "is_on_duty": false
+                  }
+                ]
+              }
             }, 
             "description": "A successful response", 
             "schema": {
