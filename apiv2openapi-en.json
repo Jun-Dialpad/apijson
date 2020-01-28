@@ -123,6 +123,12 @@
         }, 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "phone_number": "+14155551001", 
+                "call_center_id": 13
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosCallCallbackMessage"
             }, 
@@ -496,6 +502,11 @@
         "description": "Assigns a number to a room. The number will automatically be taken from the company's reserved block if there are reserved numbers, otherwise a number will be auto-assigned from the provided area code.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "area_code": "604"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosNumberAssignNumberMessage"
             }, 
@@ -543,6 +554,11 @@
         "description": "Increments the license counts for the office plan.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "fax_line_delta": "1"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosPlanAdjustLicensesProto"
             }, 
@@ -901,6 +917,11 @@
         "description": "Updates room details by id.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "name": "Blackcomb"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosRoomUpdateRoomMessage"
             }, 
@@ -1030,6 +1051,17 @@
         "description": "Causes a user's native Dialpad application to initiate an outbound call.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "outbound_caller_id": "blocked", 
+                "phone_number": [
+                  "+14155551001"
+                ], 
+                "group_id": "4", 
+                "group_type": "office", 
+                "custom_data": "something"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosCallInitiateCallMessage"
             }, 
@@ -1072,6 +1104,11 @@
         "description": "Assigns a number to a office. The number will automatically be taken from the company's reserved block if there are reserved numbers, otherwise a number will be auto-assigned from the provided area code.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "area_code": "604"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosNumberAssignNumberMessage"
             }, 
@@ -1119,6 +1156,13 @@
         "description": "Creates a desk phone under a room.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "type": "obi", 
+                "name": "Test Obihai", 
+                "mac_address": "9cadefa00096"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneCreateDeskPhone"
             }, 
@@ -1225,6 +1269,20 @@
         "description": "Begins processing statistics asynchronously, returning a request id to get the status and result of the result. The results should be queried by calling GET /stats/{request_id}. Stats for the whole company will be processed by default. An office_id can be provided to limit stats to a single office. A target_id and target_type can be provided to limit stats to a single target.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "stat_type": "calls", 
+                "export_type": "stats", 
+                "target_id": 2, 
+                "days_ago_end": 5, 
+                "target_type": "user", 
+                "coaching_group": true, 
+                "office_id": 4, 
+                "is_today": false, 
+                "timezone": "UTC", 
+                "days_ago_start": 1
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosStatsProcessStatsMessage"
             }, 
@@ -1241,7 +1299,7 @@
           "200": {
             "examples": {
               "application/json": {
-                "request_id": "2b55bfb7-efdb-41c3-a1bb-8ec25d9db85c"
+                "request_id": "b70dbeaf-9a42-4421-8285-69775c7019e5"
               }
             }, 
             "description": "A successful response", 
@@ -1257,6 +1315,12 @@
         "description": "Assigns a number to a user. The number will automatically be taken from the company's reserved block if there are reserved numbers, otherwise a number will be auto-assigned from the provided area code.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "area_code": "415", 
+                "number": "+8031112223302"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosNumberAssignNumberMessage"
             }, 
@@ -1304,6 +1368,19 @@
         "description": "Create a call event subscription for your company. Call events will be sent to the provided URL. Each subscription should be created with an id in the URL, which can be used to get and delete the subscription in the future. If a secret is provided, call events will be encoded and signed in the JWT format using the shared secret with the HS256 algorithm. The JWT payload should be decoded and the signature verified to ensure that the event came from Dialpad. If no secret is provided, unencoded events will be sent in the JSON format. It is recommended to provide a secret so that you can verify the authenticity of the event. Call states can be used to limit the states for which call events are sent. Use ['all'] to get events for all states. A target_type and target_id may optionally be provided to scope the events only to calls to/from that target.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "group_calls_only": true, 
+                "url": "https://test.com", 
+                "secret": "test_secret", 
+                "enabled": true, 
+                "call_states": [
+                  "hangup", 
+                  "barge", 
+                  "recording"
+                ]
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosCallEventSubscriptionCreateOrUpdateCallEventSubscriptionEndpoint"
             }, 
@@ -1578,6 +1655,12 @@
         "description": "Creates a new room.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "office_id": 4, 
+                "name": "Whistler"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosRoomCreateRoomMessage"
             }, 
@@ -1690,6 +1773,13 @@
         "description": "Creates a desk phone under a user.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "type": "obi", 
+                "name": "Test Obihai", 
+                "mac_address": "9cadefa00096"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneCreateDeskPhone"
             }, 
@@ -1798,6 +1888,11 @@
         "description": "Un-assigns a phone number from a user. The number will be returned to the company's reserved block if there is one. Otherwise the number will be released.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "number": "+8031112223302"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosNumberUnassignNumberMessage"
             }, 
@@ -1838,6 +1933,11 @@
         "description": "Un-assigns a phone number from a office mainline. The number will be returned to the company's reserved block if there is one. Otherwise the number will be released.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "number": "+16045551002"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosNumberUnassignNumberMessage"
             }, 
@@ -2091,6 +2191,13 @@
         "description": "Turn call recording on or off for a user's active call.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "is_recording": true, 
+                "recording_type": "group", 
+                "play_message": true
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosCallUpdateActiveCallMessage"
             }, 
@@ -2211,6 +2318,20 @@
         "description": "Updates the provided fields for an existing user.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "first_name": "Blocky", 
+                "last_name": "Mockson", 
+                "forwarding_numbers": [
+                  "+442074865800", 
+                  "+815058098764"
+                ], 
+                "extension": "12345", 
+                "license": "lite_support_agents", 
+                "office_id": 14, 
+                "job_title": "Junior Accountant"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosUserUpdateUserMessage"
             }, 
@@ -2412,6 +2533,11 @@
         "description": "When PIN protected international calls are enabled for the company, a PIN is required to make international calls from room phones.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "customer_ref": "something"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosRoomCreateInternationalPinProto"
             }, 
@@ -2430,7 +2556,7 @@
               "application/json": {
                 "customer_ref": "something", 
                 "pin": "47700", 
-                "expires_on": "2020-01-28T00:45:22.030000"
+                "expires_on": "2020-01-28T21:13:27.626000"
               }
             }, 
             "description": "A successful response", 
@@ -2446,6 +2572,14 @@
         "description": "Creates a new user.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "office_id": 4, 
+                "first_name": "Mocky", 
+                "last_name": "Mockson", 
+                "email": "mocky@fuzz-ball.com"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosUserCreateUserMessage"
             }, 
@@ -2742,6 +2876,11 @@
         "description": "Un-assigns a phone number from a room. The number will be returned to the company's reserved block if there is one. Otherwise the number will be released.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "number": "+16045551004"
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosNumberUnassignNumberMessage"
             }, 
@@ -2789,6 +2928,15 @@
         "description": "Send an SMS message.", 
         "parameters": [
           {
+            "examples": {
+              "application/json": {
+                "text": "Test text", 
+                "user_id": "2", 
+                "to_numbers": [
+                  "+14155557777"
+                ]
+              }
+            }, 
             "schema": {
               "$ref": "#/definitions/ProtosSmsSendSMSMessage"
             }, 
@@ -2816,7 +2964,7 @@
                 "to_numbers": [
                   "+14155557777"
                 ], 
-                "created_date": "2020-01-27T23:53:48.295137", 
+                "created_date": "2020-01-28T20:42:10.453736", 
                 "id": "14"
               }
             }, 
