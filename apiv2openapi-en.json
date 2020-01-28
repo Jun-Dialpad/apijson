@@ -25,51 +25,49 @@
         "operationId": "OfficeApi_listOperators", 
         "responses": {
           "200": {
+            "examples": {
+              "users": [
+                {
+                  "admin_office_ids": [
+                    "4"
+                  ], 
+                  "is_super_admin": true, 
+                  "last_name": "Bot", 
+                  "is_admin": true, 
+                  "timezone": "US/Pacific", 
+                  "phone_numbers": [
+                    "+14155551001"
+                  ], 
+                  "id": "2", 
+                  "first_name": "\u30c6\u00c9st", 
+                  "forwarding_numbers": [
+                    "+14152301358"
+                  ], 
+                  "office_id": "4", 
+                  "muted": false, 
+                  "company_id": "3", 
+                  "state": "active", 
+                  "location": "Mock Location", 
+                  "status_message": "Mock Status", 
+                  "job_title": "Mock Job Title", 
+                  "is_available": true, 
+                  "is_online": false, 
+                  "emails": [
+                    "bot@fuzz-ball.com"
+                  ], 
+                  "language": "en", 
+                  "license": "talk", 
+                  "country": "us", 
+                  "do_not_disturb": false, 
+                  "extension": "20000", 
+                  "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                  "is_on_duty": false
+                }
+              ]
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupOperatorCollection"
-            },
-            "examples": {
-              "application/json": {
-                "users": [
-                  {
-                   "admin_office_ids": [
-                    "4"
-                   ], 
-                   "company_id": "3", 
-                   "country": "us", 
-                   "do_not_disturb": false, 
-                   "emails": [
-                    "bot@fuzz-ball.com"
-                   ], 
-                   "extension": "20000", 
-                   "first_name": "\u30c6\u00c9st", 
-                   "forwarding_numbers": [
-                    "+14152301358"
-                   ], 
-                   "id": "2", 
-                   "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
-                   "is_admin": true, 
-                   "is_available": true, 
-                   "is_on_duty": false, 
-                   "is_online": false, 
-                   "is_super_admin": true, 
-                   "job_title": "Mock Job Title", 
-                   "language": "en", 
-                   "last_name": "Bot", 
-                   "license": "talk", 
-                   "location": "Mock Location", 
-                   "muted": false, 
-                   "office_id": "4", 
-                   "phone_numbers": [
-                    "+14155551001"
-                   ], 
-                   "state": "active", 
-                   "status_message": "Mock Status", 
-                   "timezone": "US/Pacific"
-                  }
-                 ]
-              }
             }
           }
         }
@@ -86,6 +84,13 @@
         "operationId": "CompanyApi_getCompany", 
         "responses": {
           "200": {
+            "examples": {
+              "country": "us", 
+              "domain": "fuzz-ball.com", 
+              "account_type": "default", 
+              "id": "3", 
+              "name": "\u30d5\u30a1\u30fc\u30b8\u30fc\u3000\u30dc\u30fc\u30eb, Inc"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCompanyCompanyProto"
@@ -101,6 +106,9 @@
         ], 
         "responses": {
           "200": {
+            "examples": {
+              "position": "1"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallCallbackProto"
@@ -139,6 +147,80 @@
         "operationId": "OfficeApi_getOffice", 
         "responses": {
           "200": {
+            "examples": {
+              "wednesday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "routing_options": {
+                "open": {
+                  "action_target_type": "department", 
+                  "operator_routing": "simultaneous", 
+                  "dtmf": [
+                    {
+                      "input": "1", 
+                      "options": {
+                        "action": "department", 
+                        "action_target_id": "4", 
+                        "action_target_type": "office"
+                      }
+                    }
+                  ], 
+                  "try_dial_operators": true, 
+                  "action": "department", 
+                  "action_target_id": "6"
+                }, 
+                "closed": {
+                  "action": "voicemail", 
+                  "try_dial_operators": false, 
+                  "operator_routing": "simultaneous"
+                }
+              }, 
+              "name": "\u30d5\u30a1\u30fc\u30b8\u30fc\u3000\u30dc\u30fc\u30eb, Inc", 
+              "first_action": "operators", 
+              "monday_hours": [
+                "08:00", 
+                "18:00"
+              ], 
+              "country": "us", 
+              "office_settings": {
+                "set_caller_id_disabled": false, 
+                "disable_desk_phone_self_provision": false, 
+                "disable_ivr_voicemail": false, 
+                "no_recording_message_on_user_calls": false, 
+                "block_caller_id_disabled": false, 
+                "bridged_target_recording_allowed": true, 
+                "allow_device_guest_login": false
+              }, 
+              "tuesday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "friday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "state": "active", 
+              "no_operators_action": "voicemail", 
+              "thursday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "ring_seconds": "30", 
+              "phone_numbers": [
+                "+14155551000"
+              ], 
+              "saturday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "sunday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "id": "4", 
+              "office_id": "4"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosOfficeOfficeProto"
@@ -166,6 +248,32 @@
         "operationId": "TranscriptApi_getTranscript", 
         "responses": {
           "200": {
+            "examples": {
+              "lines": [
+                {
+                  "content": "hello", 
+                  "user_id": "2", 
+                  "type": "transcript", 
+                  "name": "\u30c6\u00c9st Bot", 
+                  "time": "2018-05-08T21:33:15.300000"
+                }, 
+                {
+                  "content": "price_inquiry", 
+                  "user_id": "2", 
+                  "type": "moment", 
+                  "name": "\u30c6\u00c9st Bot", 
+                  "time": "2018-05-08T21:33:17.300000"
+                }, 
+                {
+                  "content": "hi", 
+                  "type": "transcript", 
+                  "name": "(415) 555-6666", 
+                  "contact_id": "ag5kZXZ-dWJlci12b2ljZXJWCxIHQ29udGFjdCJJaHR0cDovL3d3dy5nb29nbGUuY29tL204L2ZlZWRzL2NvbnRhY3RzL2JvdEBmdXp6LWJhbGwuY29tL2Jhc2UvMGQzOWI5M2E4MQw", 
+                  "time": "2018-05-08T21:33:19.300000"
+                }
+              ], 
+              "call_id": "13"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosTranscriptTranscriptProto"
@@ -207,6 +315,60 @@
         "operationId": "DepartmentApi_listDepartments", 
         "responses": {
           "200": {
+            "examples": {
+              "items": [
+                {
+                  "name": "Sales", 
+                  "first_action": "operators", 
+                  "monday_hours": [
+                    "08:00", 
+                    "18:00"
+                  ], 
+                  "country": "us", 
+                  "wednesday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "tuesday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "friday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "state": "active", 
+                  "no_operators_action": "voicemail", 
+                  "thursday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "ring_seconds": "30", 
+                  "routing_options": {
+                    "open": {
+                      "action": "voicemail", 
+                      "try_dial_operators": true, 
+                      "operator_routing": "simultaneous"
+                    }, 
+                    "closed": {
+                      "action": "voicemail", 
+                      "try_dial_operators": false, 
+                      "operator_routing": "simultaneous"
+                    }
+                  }, 
+                  "saturday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "sunday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "id": "6", 
+                  "office_id": "4"
+                }
+              ]
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupGroupCollection"
@@ -235,6 +397,46 @@
         "operationId": "CallCenterApi_listOperators", 
         "responses": {
           "200": {
+            "examples": {
+              "users": [
+                {
+                  "admin_office_ids": [
+                    "4"
+                  ], 
+                  "is_super_admin": true, 
+                  "last_name": "Bot", 
+                  "is_admin": true, 
+                  "timezone": "US/Pacific", 
+                  "phone_numbers": [
+                    "+14155551001"
+                  ], 
+                  "id": "2", 
+                  "first_name": "\u30c6\u00c9st", 
+                  "forwarding_numbers": [
+                    "+14152301358"
+                  ], 
+                  "office_id": "4", 
+                  "muted": false, 
+                  "company_id": "3", 
+                  "state": "active", 
+                  "location": "Mock Location", 
+                  "status_message": "Mock Status", 
+                  "job_title": "Mock Job Title", 
+                  "is_available": true, 
+                  "is_online": false, 
+                  "emails": [
+                    "bot@fuzz-ball.com"
+                  ], 
+                  "language": "en", 
+                  "license": "talk", 
+                  "country": "us", 
+                  "do_not_disturb": false, 
+                  "extension": "20000", 
+                  "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                  "is_on_duty": true
+                }
+              ]
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupOperatorCollection"
@@ -262,6 +464,9 @@
         "operationId": "StatsApi_getStats", 
         "responses": {
           "200": {
+            "examples": {
+              "status": "processing"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosStatsStatsProto"
@@ -297,6 +502,16 @@
         "operationId": "NumberApi_assignNumberToRoom", 
         "responses": {
           "200": {
+            "examples": {
+              "status": "room", 
+              "area_code": "604", 
+              "target_id": "15", 
+              "company_id": "3", 
+              "number": "+16045551004", 
+              "office_id": "4", 
+              "type": "local", 
+              "target_type": "room"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
@@ -332,6 +547,14 @@
         "operationId": "PlanApi_updateLicenses", 
         "responses": {
           "200": {
+            "examples": {
+              "tollfree_group_lines": "0", 
+              "user_lines": "0", 
+              "group_lines": "0", 
+              "fax_lines": "1", 
+              "tollfree_room_lines": "0", 
+              "room_lines": "0"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosPlanPlanProto"
@@ -360,6 +583,71 @@
         "operationId": "CallCenterApi_getCallCenter", 
         "responses": {
           "200": {
+            "examples": {
+              "routing_options": {
+                "open": {
+                  "action_target_type": "department", 
+                  "operator_routing": "longestidle", 
+                  "dtmf": [
+                    {
+                      "input": "1", 
+                      "options": {
+                        "action": "department", 
+                        "action_target_id": "4", 
+                        "action_target_type": "office"
+                      }
+                    }
+                  ], 
+                  "try_dial_operators": true, 
+                  "action": "department", 
+                  "action_target_id": "6"
+                }, 
+                "closed": {
+                  "action": "voicemail", 
+                  "try_dial_operators": false, 
+                  "operator_routing": "longestidle"
+                }
+              }, 
+              "name": "Test call center", 
+              "first_action": "operators", 
+              "monday_hours": [
+                "08:00", 
+                "18:00"
+              ], 
+              "country": "us", 
+              "wednesday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "tuesday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "friday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "state": "active", 
+              "no_operators_action": "voicemail", 
+              "thursday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "ring_seconds": "30", 
+              "phone_numbers": [
+                "+14155551001"
+              ], 
+              "saturday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "sunday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "id": "13", 
+              "office_id": "4"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupGroupProto"
@@ -399,6 +687,70 @@
         "operationId": "NumberApi_listNumbers", 
         "responses": {
           "200": {
+            "examples": {
+              "items": [
+                {
+                  "status": "office", 
+                  "area_code": "415", 
+                  "target_id": "4", 
+                  "company_id": "3", 
+                  "number": "+14155551000", 
+                  "office_id": "4", 
+                  "type": "local", 
+                  "target_type": "office"
+                }, 
+                {
+                  "status": "user", 
+                  "area_code": "415", 
+                  "target_id": "2", 
+                  "company_id": "3", 
+                  "number": "+14155551001", 
+                  "office_id": "4", 
+                  "type": "local", 
+                  "target_type": "user"
+                }, 
+                {
+                  "status": "available", 
+                  "area_code": "415", 
+                  "company_id": "3", 
+                  "number": "+14155551002", 
+                  "office_id": "4", 
+                  "type": "local"
+                }, 
+                {
+                  "status": "available", 
+                  "area_code": "415", 
+                  "company_id": "3", 
+                  "number": "+14155551003", 
+                  "office_id": "4", 
+                  "type": "local"
+                }, 
+                {
+                  "status": "available", 
+                  "area_code": "415", 
+                  "company_id": "3", 
+                  "number": "+14155551004", 
+                  "office_id": "4", 
+                  "type": "local"
+                }, 
+                {
+                  "status": "available", 
+                  "area_code": "415", 
+                  "company_id": "3", 
+                  "number": "+14155551005", 
+                  "office_id": "4", 
+                  "type": "local"
+                }, 
+                {
+                  "status": "available", 
+                  "area_code": "415", 
+                  "company_id": "3", 
+                  "number": "+14155551006", 
+                  "office_id": "4", 
+                  "type": "local"
+                }
+              ]
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberCollection"
@@ -432,6 +784,84 @@
         "operationId": "OfficeApi_listOffices", 
         "responses": {
           "200": {
+            "examples": {
+              "items": [
+                {
+                  "wednesday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "routing_options": {
+                    "open": {
+                      "action_target_type": "department", 
+                      "operator_routing": "simultaneous", 
+                      "dtmf": [
+                        {
+                          "input": "1", 
+                          "options": {
+                            "action": "department", 
+                            "action_target_id": "4", 
+                            "action_target_type": "office"
+                          }
+                        }
+                      ], 
+                      "try_dial_operators": true, 
+                      "action": "department", 
+                      "action_target_id": "6"
+                    }, 
+                    "closed": {
+                      "action": "voicemail", 
+                      "try_dial_operators": false, 
+                      "operator_routing": "simultaneous"
+                    }
+                  }, 
+                  "name": "\u30d5\u30a1\u30fc\u30b8\u30fc\u3000\u30dc\u30fc\u30eb, Inc", 
+                  "first_action": "operators", 
+                  "monday_hours": [
+                    "08:00", 
+                    "18:00"
+                  ], 
+                  "country": "us", 
+                  "office_settings": {
+                    "set_caller_id_disabled": false, 
+                    "disable_desk_phone_self_provision": false, 
+                    "disable_ivr_voicemail": false, 
+                    "no_recording_message_on_user_calls": false, 
+                    "block_caller_id_disabled": false, 
+                    "bridged_target_recording_allowed": true, 
+                    "allow_device_guest_login": false
+                  }, 
+                  "tuesday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "friday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "state": "active", 
+                  "no_operators_action": "voicemail", 
+                  "thursday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "ring_seconds": "30", 
+                  "phone_numbers": [
+                    "+14155551000"
+                  ], 
+                  "saturday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "sunday_hours": [
+                    "00:00", 
+                    "00:00"
+                  ], 
+                  "id": "4", 
+                  "office_id": "4"
+                }
+              ]
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosOfficeOfficeCollection"
@@ -467,6 +897,17 @@
         "operationId": "RoomApi_updateRoom", 
         "responses": {
           "200": {
+            "examples": {
+              "name": "Blackcomb", 
+              "country": "us", 
+              "company_id": "3", 
+              "is_free": false, 
+              "office_id": "4", 
+              "state": "pending", 
+              "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+              "is_on_duty": false, 
+              "id": "18"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomRoomProto"
@@ -493,6 +934,20 @@
         "operationId": "RoomApi_getRoom", 
         "responses": {
           "200": {
+            "examples": {
+              "name": "Boulevard", 
+              "country": "us", 
+              "company_id": "3", 
+              "is_free": false, 
+              "office_id": "4", 
+              "state": "active", 
+              "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+              "is_on_duty": false, 
+              "phone_numbers": [
+                "+14155551003"
+              ], 
+              "id": "15"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomRoomProto"
@@ -519,6 +974,17 @@
         "operationId": "RoomApi_deleteRoom", 
         "responses": {
           "200": {
+            "examples": {
+              "name": "Blackcomb", 
+              "country": "us", 
+              "company_id": "3", 
+              "is_free": false, 
+              "office_id": "4", 
+              "state": "pending", 
+              "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+              "is_on_duty": false, 
+              "id": "18"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomRoomProto"
@@ -554,6 +1020,11 @@
         "operationId": "CallApi_initiateCall", 
         "responses": {
           "200": {
+            "examples": {
+              "device": {
+                "id": "+14155551001-user-2-client-packagedappid"
+              }
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallInitiatedCallProto"
@@ -589,6 +1060,16 @@
         "operationId": "NumberApi_assignNumberToOffice", 
         "responses": {
           "200": {
+            "examples": {
+              "status": "office", 
+              "area_code": "604", 
+              "target_id": "4", 
+              "company_id": "3", 
+              "number": "+16045551002", 
+              "office_id": "4", 
+              "type": "local", 
+              "target_type": "office"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
@@ -624,6 +1105,18 @@
         "operationId": "DeskPhoneApi_createRoomDeskphone", 
         "responses": {
           "200": {
+            "examples": {
+              "realm": "uvstaging.ubervoip.net", 
+              "name": "Test Obihai", 
+              "port": "7060", 
+              "ring_notification": true, 
+              "byod": false, 
+              "mac_address": "9cadefa00096", 
+              "owner_type": "room", 
+              "type": "obi", 
+              "id": "+14155551002-room-13-obi-hex_ce3e13a487", 
+              "owner_id": "13"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
@@ -663,6 +1156,22 @@
         "operationId": "DeskPhoneApi_listRoomDeskphones", 
         "responses": {
           "200": {
+            "examples": {
+              "items": [
+                {
+                  "realm": "uvstaging.ubervoip.net", 
+                  "name": "Test Obihai", 
+                  "port": "7060", 
+                  "ring_notification": true, 
+                  "byod": false, 
+                  "mac_address": "9cadefa00096", 
+                  "owner_type": "room", 
+                  "type": "obi", 
+                  "id": "+14155551002-room-13-obi-hex_ce3e13a487", 
+                  "owner_id": "13"
+                }
+              ]
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhoneCollection"
@@ -690,6 +1199,9 @@
         "operationId": "StatsApi_processStats", 
         "responses": {
           "200": {
+            "examples": {
+              "request_id": "2b55bfb7-efdb-41c3-a1bb-8ec25d9db85c"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosStatsProcessingProto"
@@ -725,6 +1237,16 @@
         "operationId": "NumberApi_assignNumberToUser", 
         "responses": {
           "200": {
+            "examples": {
+              "status": "user", 
+              "area_code": "111", 
+              "target_id": "2", 
+              "company_id": "3", 
+              "number": "+8031112223302", 
+              "office_id": "14", 
+              "type": "free", 
+              "target_type": "user"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
@@ -759,6 +1281,22 @@
         "operationId": "CallEventSubscriptionApi_createOrUpdateCallEventSubscription", 
         "responses": {
           "200": {
+            "examples": {
+              "group_calls_only": true, 
+              "enabled": true, 
+              "url": "https://test.com", 
+              "call_states": [
+                "hangup", 
+                "barge", 
+                "recording"
+              ], 
+              "signature": {
+                "secret": "test_secret", 
+                "type": "jwt", 
+                "algo": "HS256"
+              }, 
+              "id": "test_hook_id"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallEventSubscriptionCallEventSubscriptionProto"
@@ -784,6 +1322,22 @@
         "operationId": "CallEventSubscriptionApi_getCallEventSubscription", 
         "responses": {
           "200": {
+            "examples": {
+              "group_calls_only": true, 
+              "enabled": true, 
+              "url": "https://test.com", 
+              "call_states": [
+                "hangup", 
+                "barge", 
+                "recording"
+              ], 
+              "signature": {
+                "secret": "test_secret", 
+                "type": "jwt", 
+                "algo": "HS256"
+              }, 
+              "id": "test_hook_id"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallEventSubscriptionCallEventSubscriptionProto"
@@ -841,6 +1395,18 @@
         "operationId": "DeskPhoneApi_getRoomDeskphone", 
         "responses": {
           "200": {
+            "examples": {
+              "realm": "uvstaging.ubervoip.net", 
+              "name": "Test Obihai", 
+              "port": "7060", 
+              "ring_notification": true, 
+              "byod": false, 
+              "mac_address": "9cadefa00096", 
+              "owner_type": "room", 
+              "type": "obi", 
+              "id": "+14155551002-room-13-obi-hex_ce3e13a487", 
+              "owner_id": "13"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
@@ -927,6 +1493,26 @@
         "operationId": "CallEventSubscriptionApi_listCallEventSubscriptions", 
         "responses": {
           "200": {
+            "examples": {
+              "items": [
+                {
+                  "group_calls_only": true, 
+                  "enabled": true, 
+                  "url": "https://test.com", 
+                  "call_states": [
+                    "hangup", 
+                    "barge", 
+                    "recording"
+                  ], 
+                  "signature": {
+                    "secret": "test_secret", 
+                    "type": "jwt", 
+                    "algo": "HS256"
+                  }, 
+                  "id": "test_hook_id"
+                }
+              ]
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallEventSubscriptionCallEventSubscriptionCollection"
@@ -954,6 +1540,17 @@
         "operationId": "RoomApi_createRoom", 
         "responses": {
           "200": {
+            "examples": {
+              "name": "Whistler", 
+              "country": "us", 
+              "company_id": "3", 
+              "is_free": false, 
+              "office_id": "4", 
+              "state": "pending", 
+              "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+              "is_on_duty": false, 
+              "id": "18"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomRoomProto"
@@ -992,6 +1589,38 @@
         "operationId": "RoomApi_listRooms", 
         "responses": {
           "200": {
+            "examples": {
+              "items": [
+                {
+                  "name": "Seaside", 
+                  "country": "us", 
+                  "company_id": "3", 
+                  "is_free": false, 
+                  "office_id": "4", 
+                  "state": "active", 
+                  "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                  "is_on_duty": false, 
+                  "phone_numbers": [
+                    "+14155551002"
+                  ], 
+                  "id": "13"
+                }, 
+                {
+                  "name": "Boulevard", 
+                  "country": "us", 
+                  "company_id": "3", 
+                  "is_free": false, 
+                  "office_id": "4", 
+                  "state": "active", 
+                  "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                  "is_on_duty": false, 
+                  "phone_numbers": [
+                    "+14155551003"
+                  ], 
+                  "id": "15"
+                }
+              ]
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomRoomCollection"
@@ -1027,6 +1656,19 @@
         "operationId": "DeskPhoneApi_createUserDeskphone", 
         "responses": {
           "200": {
+            "examples": {
+              "realm": "uvstaging.ubervoip.net", 
+              "name": "Test Obihai", 
+              "port": "7060", 
+              "ring_notification": true, 
+              "byod": false, 
+              "mac_address": "9cadefa00096", 
+              "owner_type": "user", 
+              "sip_transport_type": "tls", 
+              "type": "obi", 
+              "id": "+14155551001-user-2-obi-hex_8a5da52ed1", 
+              "owner_id": "2"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
@@ -1066,6 +1708,23 @@
         "operationId": "DeskPhoneApi_listUserDeskphones", 
         "responses": {
           "200": {
+            "examples": {
+              "items": [
+                {
+                  "realm": "uvstaging.ubervoip.net", 
+                  "name": "Test Obihai", 
+                  "port": "7060", 
+                  "ring_notification": true, 
+                  "byod": false, 
+                  "mac_address": "9cadefa00096", 
+                  "owner_type": "user", 
+                  "sip_transport_type": "tls", 
+                  "type": "obi", 
+                  "id": "+14155551001-user-2-obi-hex_8a5da52ed1", 
+                  "owner_id": "2"
+                }
+              ]
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhoneCollection"
@@ -1101,6 +1760,9 @@
         "operationId": "NumberApi_unassignNumberFromUser", 
         "responses": {
           "200": {
+            "examples": {
+              "deleted": true
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
@@ -1136,6 +1798,9 @@
         "operationId": "NumberApi_unassignNumberFromOffice", 
         "responses": {
           "200": {
+            "examples": {
+              "deleted": true
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
@@ -1164,6 +1829,71 @@
         "operationId": "DepartmentApi_getDepartment", 
         "responses": {
           "200": {
+            "examples": {
+              "routing_options": {
+                "open": {
+                  "action_target_type": "department", 
+                  "operator_routing": "simultaneous", 
+                  "dtmf": [
+                    {
+                      "input": "1", 
+                      "options": {
+                        "action": "department", 
+                        "action_target_id": "4", 
+                        "action_target_type": "office"
+                      }
+                    }
+                  ], 
+                  "try_dial_operators": true, 
+                  "action": "department", 
+                  "action_target_id": "6"
+                }, 
+                "closed": {
+                  "action": "voicemail", 
+                  "try_dial_operators": false, 
+                  "operator_routing": "simultaneous"
+                }
+              }, 
+              "name": "Sales", 
+              "first_action": "operators", 
+              "monday_hours": [
+                "08:00", 
+                "18:00"
+              ], 
+              "country": "us", 
+              "wednesday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "tuesday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "friday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "state": "active", 
+              "no_operators_action": "voicemail", 
+              "thursday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "ring_seconds": "30", 
+              "phone_numbers": [
+                "+14155551001"
+              ], 
+              "saturday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "sunday_hours": [
+                "00:00", 
+                "00:00"
+              ], 
+              "id": "6", 
+              "office_id": "4"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupGroupProto"
@@ -1199,6 +1929,19 @@
         "operationId": "DeskPhoneApi_getUserDeskphone", 
         "responses": {
           "200": {
+            "examples": {
+              "realm": "uvstaging.ubervoip.net", 
+              "name": "Test Obihai", 
+              "port": "7060", 
+              "ring_notification": true, 
+              "byod": false, 
+              "mac_address": "9cadefa00096", 
+              "owner_type": "user", 
+              "sip_transport_type": "tls", 
+              "type": "obi", 
+              "id": "+14155551001-user-2-obi-hex_8a5da52ed1", 
+              "owner_id": "2"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
@@ -1257,6 +2000,14 @@
         "operationId": "PlanApi_getPlan", 
         "responses": {
           "200": {
+            "examples": {
+              "tollfree_group_lines": "0", 
+              "user_lines": "99", 
+              "group_lines": "0", 
+              "fax_lines": "0", 
+              "tollfree_room_lines": "0", 
+              "room_lines": "5"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosPlanPlanProto"
@@ -1292,6 +2043,11 @@
         "operationId": "CallApi_updateActiveCall", 
         "responses": {
           "200": {
+            "examples": {
+              "call_state": "connected", 
+              "is_recording": true, 
+              "id": "13"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallActiveCallProto"
@@ -1319,6 +2075,14 @@
         "operationId": "NumberApi_getNumber", 
         "responses": {
           "200": {
+            "examples": {
+              "status": "available", 
+              "area_code": "415", 
+              "company_id": "3", 
+              "number": "+14155551002", 
+              "office_id": "4", 
+              "type": "local"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
@@ -1350,6 +2114,14 @@
         "operationId": "NumberApi_unassignNumber", 
         "responses": {
           "200": {
+            "examples": {
+              "status": "available", 
+              "area_code": "415", 
+              "company_id": "3", 
+              "number": "+14155551002", 
+              "office_id": "4", 
+              "type": "local"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
@@ -1385,6 +2157,43 @@
         "operationId": "UserApi_updateUser", 
         "responses": {
           "200": {
+            "examples": {
+              "admin_office_ids": [
+                "14"
+              ], 
+              "is_super_admin": true, 
+              "last_name": "Mockson", 
+              "is_admin": true, 
+              "timezone": "US/Pacific", 
+              "phone_numbers": [
+                "+14155551001"
+              ], 
+              "id": "2", 
+              "first_name": "Blocky", 
+              "forwarding_numbers": [
+                "+815058098764", 
+                "+442074865800"
+              ], 
+              "office_id": "14", 
+              "muted": false, 
+              "company_id": "3", 
+              "state": "active", 
+              "location": "Mock Location", 
+              "status_message": "Mock Status", 
+              "job_title": "Junior Accountant", 
+              "is_available": true, 
+              "is_online": false, 
+              "emails": [
+                "bot@fuzz-ball.com"
+              ], 
+              "language": "en", 
+              "license": "lite_support_agents", 
+              "country": "us", 
+              "do_not_disturb": false, 
+              "extension": "12345", 
+              "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=a54c75379069406d7958461d98788fb4", 
+              "is_on_duty": false
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserUserProto"
@@ -1410,6 +2219,42 @@
         "operationId": "UserApi_getUser", 
         "responses": {
           "200": {
+            "examples": {
+              "admin_office_ids": [
+                "4"
+              ], 
+              "is_super_admin": true, 
+              "last_name": "Bot", 
+              "is_admin": true, 
+              "timezone": "US/Pacific", 
+              "phone_numbers": [
+                "+14155551001"
+              ], 
+              "id": "2", 
+              "first_name": "\u30c6\u00c9st", 
+              "forwarding_numbers": [
+                "+14152301358"
+              ], 
+              "office_id": "4", 
+              "muted": false, 
+              "company_id": "3", 
+              "state": "active", 
+              "location": "Mock Location", 
+              "status_message": "Mock Status", 
+              "job_title": "Mock Job Title", 
+              "is_available": true, 
+              "is_online": false, 
+              "emails": [
+                "bot@fuzz-ball.com"
+              ], 
+              "language": "en", 
+              "license": "talk", 
+              "country": "us", 
+              "do_not_disturb": false, 
+              "extension": "20000", 
+              "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+              "is_on_duty": false
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserUserProto"
@@ -1435,6 +2280,43 @@
         "operationId": "UserApi_deleteUser", 
         "responses": {
           "200": {
+            "examples": {
+              "admin_office_ids": [
+                "14"
+              ], 
+              "is_super_admin": true, 
+              "last_name": "Mockson", 
+              "is_admin": true, 
+              "timezone": "US/Pacific", 
+              "phone_numbers": [
+                "+14155551001"
+              ], 
+              "id": "2", 
+              "first_name": "Blocky", 
+              "forwarding_numbers": [
+                "+815058098764", 
+                "+442074865800"
+              ], 
+              "office_id": "14", 
+              "muted": false, 
+              "company_id": "3", 
+              "state": "deleted", 
+              "location": "Mock Location", 
+              "status_message": "Mock Status", 
+              "job_title": "Junior Accountant", 
+              "is_available": false, 
+              "is_online": false, 
+              "emails": [
+                "bot@fuzz-ball.com"
+              ], 
+              "language": "en", 
+              "license": "lite_support_agents", 
+              "country": "us", 
+              "do_not_disturb": true, 
+              "extension": "12345", 
+              "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=a54c75379069406d7958461d98788fb4", 
+              "is_on_duty": false
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserUserProto"
@@ -1462,6 +2344,11 @@
         "operationId": "DeskPhoneApi_createInternationalPin", 
         "responses": {
           "200": {
+            "examples": {
+              "customer_ref": "something", 
+              "pin": "47700", 
+              "expires_on": "2020-01-28T00:45:22.030000"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomInternationalPinProto"
@@ -1489,6 +2376,32 @@
         "operationId": "UserApi_createUser", 
         "responses": {
           "200": {
+            "examples": {
+              "first_name": "Mocky", 
+              "admin_office_ids": [
+                "4"
+              ], 
+              "license": "talk", 
+              "language": "en", 
+              "muted": false, 
+              "country": "us", 
+              "do_not_disturb": false, 
+              "company_id": "3", 
+              "is_super_admin": false, 
+              "id": "13", 
+              "timezone": "US/Pacific", 
+              "office_id": "4", 
+              "state": "active", 
+              "last_name": "Mockson", 
+              "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYDQw.png?version=caaf49b4dbcec738c3b8fd1189746b89", 
+              "is_on_duty": false, 
+              "is_available": true, 
+              "is_admin": false, 
+              "emails": [
+                "mocky@fuzz-ball.com"
+              ], 
+              "is_online": false
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserUserProto"
@@ -1540,6 +2453,82 @@
         "operationId": "UserApi_listUsers", 
         "responses": {
           "200": {
+            "examples": {
+              "items": [
+                {
+                  "admin_office_ids": [
+                    "4"
+                  ], 
+                  "is_super_admin": true, 
+                  "last_name": "Bot", 
+                  "is_admin": true, 
+                  "timezone": "US/Pacific", 
+                  "phone_numbers": [
+                    "+14155551001"
+                  ], 
+                  "id": "2", 
+                  "first_name": "\u30c6\u00c9st", 
+                  "forwarding_numbers": [
+                    "+14152301358"
+                  ], 
+                  "office_id": "4", 
+                  "muted": false, 
+                  "company_id": "3", 
+                  "state": "active", 
+                  "location": "Mock Location", 
+                  "status_message": "Mock Status", 
+                  "job_title": "Mock Job Title", 
+                  "is_available": true, 
+                  "is_online": false, 
+                  "emails": [
+                    "bot@fuzz-ball.com"
+                  ], 
+                  "language": "en", 
+                  "license": "talk", 
+                  "country": "us", 
+                  "do_not_disturb": false, 
+                  "extension": "20000", 
+                  "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                  "is_on_duty": false
+                }, 
+                {
+                  "admin_office_ids": [
+                    "4"
+                  ], 
+                  "is_super_admin": false, 
+                  "last_name": "Bot", 
+                  "is_admin": true, 
+                  "timezone": "US/Pacific", 
+                  "phone_numbers": [
+                    "+14155551002"
+                  ], 
+                  "id": "13", 
+                  "first_name": "\u30c6\u00c9st", 
+                  "forwarding_numbers": [
+                    "+14152301358"
+                  ], 
+                  "office_id": "4", 
+                  "muted": false, 
+                  "company_id": "3", 
+                  "state": "active", 
+                  "location": "Mock Location", 
+                  "status_message": "Mock Status", 
+                  "job_title": "Mock Job Title", 
+                  "is_available": true, 
+                  "is_online": false, 
+                  "emails": [
+                    "test_contact@fuzz-ball.com"
+                  ], 
+                  "language": "en", 
+                  "license": "talk", 
+                  "country": "us", 
+                  "do_not_disturb": false, 
+                  "extension": "13000", 
+                  "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYDQw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                  "is_on_duty": false
+                }
+              ]
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserUserCollection"
@@ -1581,6 +2570,7 @@
         "operationId": "CallCenterApi_listCallCenters", 
         "responses": {
           "200": {
+            "examples": {}, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupGroupCollection"
@@ -1616,6 +2606,16 @@
         "operationId": "NumberApi_unassignNumberFromRoom", 
         "responses": {
           "200": {
+            "examples": {
+              "status": "room", 
+              "area_code": "604", 
+              "target_id": "15", 
+              "company_id": "3", 
+              "number": "+16045551004", 
+              "office_id": "4", 
+              "type": "local", 
+              "target_type": "room"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
@@ -1643,6 +2643,21 @@
         "operationId": "SMSApi_sendSms", 
         "responses": {
           "200": {
+            "examples": {
+              "message_status": "pending", 
+              "direction": "outbound", 
+              "user_id": "2", 
+              "text": "Test text", 
+              "target_id": "2", 
+              "target_type": "user", 
+              "contact_id": "http://www.google.com/m8/feeds/contacts/bot@fuzz-ball.com/base/ec0e7a0954", 
+              "from_number": "+14155551001", 
+              "to_numbers": [
+                "+14155557777"
+              ], 
+              "created_date": "2020-01-27T23:53:48.295137", 
+              "id": "14"
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosSmsSMSProto"
@@ -1671,6 +2686,7 @@
         "operationId": "DepartmentApi_listOperators", 
         "responses": {
           "200": {
+            "examples": {}, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupOperatorCollection"
@@ -3253,7 +4269,7 @@
         }, 
         "sender_group_id": {
           "type": "string", 
-          "description": "The ID of an office, department, or call center that the User should  send the message on behalf of.", 
+          "description": "The ID of an office, department, or call center that the User should send the message on behalf of.", 
           "format": "int64"
         }
       }
