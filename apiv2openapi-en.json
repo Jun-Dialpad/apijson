@@ -3222,18 +3222,22 @@
       "properties": {
         "phone_number": {
           "type": "string", 
-          "description": "The e164-formatted number to call back."
+          "description": "The e164-formatted number to call back.",
+          "example": "+14155551001"
         }, 
         "call_center_id": {
           "type": "string", 
           "description": "The ID of a call center that will be used to fulfill the callback.", 
-          "format": "int64"
+          "format": "int64",
+          "example": "13"
         }
       },
       "examples": {
-        "call_center_id": 13, 
-        "phone_number": "+14155551001"
+        "application/json" : {
+          "call_center_id": 13, 
+          "phone_number": "+14155551001"
        }
+      } 
     }, 
     "ProtosSmsSMSProto": {
       "type": "object", 
