@@ -1,0 +1,12 @@
+{
+  "spacing": {
+    "unit": 5,
+    "sectionHorizontal": 40,
+    "sectionVertical": 20
+  },
+  "breakpoints": {
+    "small": "50rem",
+    "medium": "85rem",
+    "large": "105rem"
+  }
+}
