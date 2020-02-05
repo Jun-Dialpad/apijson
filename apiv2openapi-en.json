@@ -2,6 +2,10 @@
   "info": {
     "version": "v2", 
     "description": "# Introduction\n\nAdmin API v2 for Dialpad.\n\nRequests and responses from the admin API are provided in the JSON format.\n\n# Pagination\n\nList APIs support a limit and cursor parameter.\n\nThe limit defines the number of results to return. For the first request, pass in a desired limit.\nThe API response will contain a cursor field with a special string. Pass this special string into\nthe next request to retrieve the next page.\n\n# Authentication\n\nAll requests are authenticated via an API key in the query parameter or as a bearer token in the\nAuthorization header.\n\nAn API key can be acquired from the Dialpad admin web portal.\n\nNote: If you received your API key from the Dialpad support team rather than the web portal, the\nuser associated with your key must have company administrator permissions.\n", 
+    "x-logo": {
+      "url": "https://storage.cloud.google.com/dialpad_openapi_specs/logo.png", 
+      "altText": "Dialpad"
+    }, 
     "title": "api"
   }, 
   "paths": {
@@ -98,6 +102,207 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCompanyCompanyProto"
+            }
+          }
+        }
+      }
+    }, 
+    "/api/v2/users/{id}": {
+      "patch": {
+        "description": "Updates the provided fields for an existing user.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosUserUpdateUserMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }, 
+          {
+            "description": "The user's id.", 
+            "format": "int64", 
+            "required": true, 
+            "in": "path", 
+            "type": "string", 
+            "name": "id"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Update user", 
+        "operationId": "UserApi_updateUser", 
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "admin_office_ids": [
+                  "14"
+                ], 
+                "is_super_admin": true, 
+                "last_name": "Mockson", 
+                "is_admin": true, 
+                "timezone": "US/Pacific", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "id": "2", 
+                "first_name": "Blocky", 
+                "forwarding_numbers": [
+                  "+815058098764", 
+                  "+442074865800"
+                ], 
+                "office_id": "14", 
+                "muted": false, 
+                "company_id": "3", 
+                "state": "active", 
+                "location": "Mock Location", 
+                "status_message": "Mock Status", 
+                "job_title": "Junior Accountant", 
+                "is_available": true, 
+                "is_online": false, 
+                "emails": [
+                  "bot@fuzz-ball.com"
+                ], 
+                "language": "en", 
+                "license": "lite_support_agents", 
+                "country": "us", 
+                "do_not_disturb": false, 
+                "extension": "12345", 
+                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=a54c75379069406d7958461d98788fb4", 
+                "is_on_duty": false
+              }
+            }, 
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosUserUserProto"
+            }
+          }
+        }
+      }, 
+      "get": {
+        "description": "Gets a user by id.", 
+        "parameters": [
+          {
+            "description": "The user's id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Get user by id", 
+        "operationId": "UserApi_getUser", 
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "admin_office_ids": [
+                  "4"
+                ], 
+                "is_super_admin": true, 
+                "last_name": "Bot", 
+                "is_admin": true, 
+                "timezone": "US/Pacific", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "id": "2", 
+                "first_name": "\u30c6\u00c9st", 
+                "forwarding_numbers": [
+                  "+14152301358"
+                ], 
+                "office_id": "4", 
+                "muted": false, 
+                "company_id": "3", 
+                "state": "active", 
+                "location": "Mock Location", 
+                "status_message": "Mock Status", 
+                "job_title": "Mock Job Title", 
+                "is_available": true, 
+                "is_online": false, 
+                "emails": [
+                  "bot@fuzz-ball.com"
+                ], 
+                "language": "en", 
+                "license": "talk", 
+                "country": "us", 
+                "do_not_disturb": false, 
+                "extension": "20000", 
+                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                "is_on_duty": false
+              }
+            }, 
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosUserUserProto"
+            }
+          }
+        }
+      }, 
+      "delete": {
+        "description": "Deletes a user by id.", 
+        "parameters": [
+          {
+            "description": "The user's id.", 
+            "required": true, 
+            "type": "string", 
+            "name": "id", 
+            "in": "path"
+          }
+        ], 
+        "tags": [
+          "users"
+        ], 
+        "summary": "Delete user by id", 
+        "operationId": "UserApi_deleteUser", 
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "admin_office_ids": [
+                  "14"
+                ], 
+                "is_super_admin": true, 
+                "last_name": "Mockson", 
+                "is_admin": true, 
+                "timezone": "US/Pacific", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "id": "2", 
+                "first_name": "Blocky", 
+                "forwarding_numbers": [
+                  "+815058098764", 
+                  "+442074865800"
+                ], 
+                "office_id": "14", 
+                "muted": false, 
+                "company_id": "3", 
+                "state": "deleted", 
+                "location": "Mock Location", 
+                "status_message": "Mock Status", 
+                "job_title": "Junior Accountant", 
+                "is_available": false, 
+                "is_online": false, 
+                "emails": [
+                  "bot@fuzz-ball.com"
+                ], 
+                "language": "en", 
+                "license": "lite_support_agents", 
+                "country": "us", 
+                "do_not_disturb": true, 
+                "extension": "12345", 
+                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=a54c75379069406d7958461d98788fb4", 
+                "is_on_duty": false
+              }
+            }, 
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosUserUserProto"
             }
           }
         }
@@ -2128,6 +2333,46 @@
         }
       }
     }, 
+    "/api/v2/userdevices": {
+      "get": {
+        "description": "List the devices for a specific user.", 
+        "parameters": [
+          {
+            "description": "The user's id.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "user_id", 
+            "format": "int64"
+          }, 
+          {
+            "description": "The maximum number of results to return.", 
+            "in": "query", 
+            "type": "string", 
+            "name": "limit", 
+            "format": "int64"
+          }, 
+          {
+            "description": "A token used to return the next page of a previous request. Use the cursor provided in the previous response.", 
+            "type": "string", 
+            "name": "cursor", 
+            "in": "query"
+          }
+        ], 
+        "tags": [
+          "userdevices"
+        ], 
+        "summary": "List the devices for a specific user", 
+        "operationId": "UserDeviceApi_listUserDevices", 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosUserdeviceUserDeviceCollection"
+            }
+          }
+        }
+      }
+    }, 
     "/api/v2/numbers/{number}": {
       "get": {
         "description": "Gets number details by number.", 
@@ -2206,205 +2451,28 @@
         }
       }
     }, 
-    "/api/v2/users/{id}": {
-      "patch": {
-        "description": "Updates the provided fields for an existing user.", 
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/definitions/ProtosUserUpdateUserMessage"
-            }, 
-            "name": "body", 
-            "in": "body"
-          }, 
-          {
-            "description": "The user's id.", 
-            "format": "int64", 
-            "required": true, 
-            "in": "path", 
-            "type": "string", 
-            "name": "id"
-          }
-        ], 
-        "tags": [
-          "users"
-        ], 
-        "summary": "Update user", 
-        "operationId": "UserApi_updateUser", 
-        "responses": {
-          "200": {
-            "examples": {
-              "application/json": {
-                "admin_office_ids": [
-                  "14"
-                ], 
-                "is_super_admin": true, 
-                "last_name": "Mockson", 
-                "is_admin": true, 
-                "timezone": "US/Pacific", 
-                "phone_numbers": [
-                  "+14155551001"
-                ], 
-                "id": "2", 
-                "first_name": "Blocky", 
-                "forwarding_numbers": [
-                  "+815058098764", 
-                  "+442074865800"
-                ], 
-                "office_id": "14", 
-                "muted": false, 
-                "company_id": "3", 
-                "state": "active", 
-                "location": "Mock Location", 
-                "status_message": "Mock Status", 
-                "job_title": "Junior Accountant", 
-                "is_available": true, 
-                "is_online": false, 
-                "emails": [
-                  "bot@fuzz-ball.com"
-                ], 
-                "language": "en", 
-                "license": "lite_support_agents", 
-                "country": "us", 
-                "do_not_disturb": false, 
-                "extension": "12345", 
-                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=a54c75379069406d7958461d98788fb4", 
-                "is_on_duty": false
-              }
-            }, 
-            "description": "A successful response", 
-            "schema": {
-              "$ref": "#/definitions/ProtosUserUserProto"
-            }
-          }
-        }
-      }, 
+    "/api/v2/userdevices/{id}": {
       "get": {
-        "description": "Gets a user by id.", 
+        "tags": [
+          "userdevices"
+        ], 
+        "responses": {
+          "200": {
+            "description": "A successful response", 
+            "schema": {
+              "$ref": "#/definitions/ProtosUserdeviceUserDeviceProto"
+            }
+          }
+        }, 
         "parameters": [
           {
-            "description": "The user's id.", 
             "required": true, 
             "type": "string", 
             "name": "id", 
             "in": "path"
           }
         ], 
-        "tags": [
-          "users"
-        ], 
-        "summary": "Get user by id", 
-        "operationId": "UserApi_getUser", 
-        "responses": {
-          "200": {
-            "examples": {
-              "application/json": {
-                "admin_office_ids": [
-                  "4"
-                ], 
-                "is_super_admin": true, 
-                "last_name": "Bot", 
-                "is_admin": true, 
-                "timezone": "US/Pacific", 
-                "phone_numbers": [
-                  "+14155551001"
-                ], 
-                "id": "2", 
-                "first_name": "\u30c6\u00c9st", 
-                "forwarding_numbers": [
-                  "+14152301358"
-                ], 
-                "office_id": "4", 
-                "muted": false, 
-                "company_id": "3", 
-                "state": "active", 
-                "location": "Mock Location", 
-                "status_message": "Mock Status", 
-                "job_title": "Mock Job Title", 
-                "is_available": true, 
-                "is_online": false, 
-                "emails": [
-                  "bot@fuzz-ball.com"
-                ], 
-                "language": "en", 
-                "license": "talk", 
-                "country": "us", 
-                "do_not_disturb": false, 
-                "extension": "20000", 
-                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
-                "is_on_duty": false
-              }
-            }, 
-            "description": "A successful response", 
-            "schema": {
-              "$ref": "#/definitions/ProtosUserUserProto"
-            }
-          }
-        }
-      }, 
-      "delete": {
-        "description": "Deletes a user by id.", 
-        "parameters": [
-          {
-            "description": "The user's id.", 
-            "required": true, 
-            "type": "string", 
-            "name": "id", 
-            "in": "path"
-          }
-        ], 
-        "tags": [
-          "users"
-        ], 
-        "summary": "Delete user by id", 
-        "operationId": "UserApi_deleteUser", 
-        "responses": {
-          "200": {
-            "examples": {
-              "application/json": {
-                "admin_office_ids": [
-                  "14"
-                ], 
-                "is_super_admin": true, 
-                "last_name": "Mockson", 
-                "is_admin": true, 
-                "timezone": "US/Pacific", 
-                "phone_numbers": [
-                  "+14155551001"
-                ], 
-                "id": "2", 
-                "first_name": "Blocky", 
-                "forwarding_numbers": [
-                  "+815058098764", 
-                  "+442074865800"
-                ], 
-                "office_id": "14", 
-                "muted": false, 
-                "company_id": "3", 
-                "state": "deleted", 
-                "location": "Mock Location", 
-                "status_message": "Mock Status", 
-                "job_title": "Junior Accountant", 
-                "is_available": false, 
-                "is_online": false, 
-                "emails": [
-                  "bot@fuzz-ball.com"
-                ], 
-                "language": "en", 
-                "license": "lite_support_agents", 
-                "country": "us", 
-                "do_not_disturb": true, 
-                "extension": "12345", 
-                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=a54c75379069406d7958461d98788fb4", 
-                "is_on_duty": false
-              }
-            }, 
-            "description": "A successful response", 
-            "schema": {
-              "$ref": "#/definitions/ProtosUserUserProto"
-            }
-          }
-        }
+        "operationId": "UserDeviceApi_getDevice"
       }
     }, 
     "/api/v2/rooms/international_pin": {
@@ -2924,13 +2992,13 @@
   "basePath": "/", 
   "securityDefinitions": {
     "bearer_token": {
-      "description": "<p>The API key can be put in the Authorization header.</p>\n<p>i.e. Authorization: Bearer <api_key></p>", 
+      "description": "The API key can be put in the Authorization header.\n\ni.e. Authorization: Bearer <api_key>\n", 
       "type": "apiKey", 
       "name": "Authorization", 
       "in": "header"
     }, 
     "api_key_in_url": {
-      "description": "<p>The API key can be put in the URL parameters.</p>\n<p>i.e. ?apikey=<api_key></p>", 
+      "description": "The API key can be put in the URL parameters.\n\ni.e. ?apikey=<api_key>\n", 
       "type": "apiKey", 
       "name": "apikey", 
       "in": "query"
@@ -3146,7 +3214,7 @@
       "properties": {
         "device": {
           "description": "Representation of Device entities", 
-          "$ref": "#/definitions/ProtosDeviceDeviceProto"
+          "$ref": "#/definitions/ProtosUserdeviceUserDeviceProto"
         }
       }
     }, 
@@ -3222,22 +3290,14 @@
       "properties": {
         "phone_number": {
           "type": "string", 
-          "description": "The e164-formatted number to call back.",
-          "example": "+14155551001"
+          "description": "The e164-formatted number to call back."
         }, 
         "call_center_id": {
           "type": "string", 
           "description": "The ID of a call center that will be used to fulfill the callback.", 
-          "format": "int64",
-          "example": "13"
+          "format": "int64"
         }
-      },
-      "examples": {
-        "application/json" : {
-          "call_center_id": 13, 
-          "phone_number": "+14155551001"
-       }
-      } 
+      }
     }, 
     "ProtosSmsSMSProto": {
       "type": "object", 
@@ -3596,6 +3656,21 @@
           }, 
           "type": "array", 
           "description": "Full response body for get group (department, call center) operations."
+        }
+      }
+    }, 
+    "ProtosUserdeviceUserDeviceCollection": {
+      "type": "object", 
+      "properties": {
+        "cursor": {
+          "type": "string"
+        }, 
+        "items": {
+          "items": {
+            "$ref": "#/definitions/ProtosUserdeviceUserDeviceProto"
+          }, 
+          "type": "array", 
+          "description": "Representation of Device entities"
         }
       }
     }, 
@@ -4379,14 +4454,6 @@
         }
       }
     }, 
-    "ProtosDeviceDeviceProto": {
-      "type": "object", 
-      "properties": {
-        "id": {
-          "type": "string"
-        }
-      }
-    }, 
     "ProtosCallEventSubscriptionCallEventSubscriptionProto": {
       "type": "object", 
       "properties": {
@@ -4642,6 +4709,71 @@
           "format": "int64"
         }, 
         "name": {
+          "type": "string"
+        }
+      }
+    }, 
+    "ProtosUserdeviceUserDeviceProto": {
+      "type": "object", 
+      "properties": {
+        "phone_number": {
+          "type": "string", 
+          "description": "The phone number associated with this device."
+        }, 
+        "display_name": {
+          "type": "string", 
+          "description": "The name of this device."
+        }, 
+        "user_id": {
+          "type": "string", 
+          "description": "The ID of the user who owns the device.", 
+          "format": "int64"
+        }, 
+        "date_updated": {
+          "type": "string", 
+          "description": "The most recent time at which the device data was modified.", 
+          "format": "date-time"
+        }, 
+        "date_registered": {
+          "type": "string", 
+          "description": "The most recent time at which the device registered with the backend.", 
+          "format": "date-time"
+        }, 
+        "date_created": {
+          "type": "string", 
+          "description": "The time at which this device was created.", 
+          "format": "date-time"
+        }, 
+        "app_version": {
+          "type": "string", 
+          "description": "The device firmware version, or Dialpad app version."
+        }, 
+        "type": {
+          "enum": [
+            "android", 
+            "iphone", 
+            "ipad", 
+            "obi", 
+            "sip", 
+            "polycom", 
+            "mini", 
+            "audiocodes", 
+            "yealink", 
+            "packaged_app", 
+            "native", 
+            "web", 
+            "harness", 
+            "salesforce", 
+            "iframe_zendesk", 
+            "iframe_service_titan", 
+            "iframe_front", 
+            "iframe_salesforce", 
+            "proxy"
+          ], 
+          "type": "string", 
+          "description": "The device type."
+        }, 
+        "id": {
           "type": "string"
         }
       }
