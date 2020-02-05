@@ -4,7 +4,8 @@
     "description": "# Introduction\n\nAdmin API v2 for Dialpad.\n\nRequests and responses from the admin API are provided in the JSON format.\n\n# Pagination\n\nList APIs support a limit and cursor parameter.\n\nThe limit defines the number of results to return. For the first request, pass in a desired limit.\nThe API response will contain a cursor field with a special string. Pass this special string into\nthe next request to retrieve the next page.\n\n# Authentication\n\nAll requests are authenticated via an API key in the query parameter or as a bearer token in the\nAuthorization header.\n\nAn API key can be acquired from the Dialpad admin web portal.\n\nNote: If you received your API key from the Dialpad support team rather than the web portal, the\nuser associated with your key must have company administrator permissions.\n", 
     "x-logo": {
       "url": "https://storage.cloud.google.com/dialpad_openapi_specs/logo.png", 
-      "altText": "Dialpad"
+      "altText": "Dialpad", 
+      "href": "https://www.dialpad.com/"
     }, 
     "title": "api"
   }, 
