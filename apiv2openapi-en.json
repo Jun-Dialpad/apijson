@@ -4,8 +4,7 @@
     "description": "# Introduction\n\nAdmin API v2 for Dialpad.\n\nRequests and responses from the admin API are provided in the JSON format.\n\n# Pagination\n\nList APIs support a limit and cursor parameter.\n\nThe limit defines the number of results to return. For the first request, pass in a desired limit.\nThe API response will contain a cursor field with a special string. Pass this special string into\nthe next request to retrieve the next page.\n\n# Authentication\n\nAll requests are authenticated via an API key in the query parameter or as a bearer token in the\nAuthorization header.\n\nAn API key can be acquired from the Dialpad admin web portal.\n\nNote: If you received your API key from the Dialpad support team rather than the web portal, the\nuser associated with your key must have company administrator permissions.\n", 
     "x-logo": {
       "url": "https://storage.cloud.google.com/dialpad_openapi_specs/logo.png", 
-      "altText": "Dialpad", 
-      "href": "https://www.dialpad.com/"
+      "altText": "Dialpad"
     }, 
     "title": "api"
   }, 
@@ -311,9 +310,21 @@
     }, 
     "/api/v2/callback": {
       "post": {
+        "description": "Requests a call back to a given number by an operator in a given call center. The call back is added to the queue for the call center like a regular call, and a call is initiated when the next operator becomes available. This API respects all existing call center settings, e.g. business / holiday hours and queue settings. This API currently does not allow international call backs. Duplicate call backs for a given number and call center are not allowed. Specific error messages will be provided in case of failure.", 
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/ProtosCallCallbackMessage"
+            }, 
+            "name": "body", 
+            "in": "body"
+          }
+        ], 
         "tags": [
           "callback"
         ], 
+        "summary": "Request call back.", 
+        "operationId": "CallApi_callback", 
         "responses": {
           "200": {
             "examples": {
@@ -326,17 +337,7 @@
               "$ref": "#/definitions/ProtosCallCallbackProto"
             }
           }
-        }, 
-        "parameters": [
-          {
-            "schema": {
-              "$ref": "#/definitions/ProtosCallCallbackMessage"
-            }, 
-            "name": "body", 
-            "in": "body"
-          }
-        ], 
-        "operationId": "CallApi_callback"
+        }
       }
     }, 
     "/api/v2/offices/{id}": {
@@ -2366,6 +2367,28 @@
         "operationId": "UserDeviceApi_listUserDevices", 
         "responses": {
           "200": {
+            "examples": {
+              "application/json": {
+                "items": [
+                  {
+                    "user_id": "2", 
+                    "date_updated": "2020-02-07T00:34:30.062000", 
+                    "date_created": "2020-02-07T00:34:30.055000", 
+                    "type": "native", 
+                    "id": "+14155551001-user-2-client-native", 
+                    "display_name": "native"
+                  }, 
+                  {
+                    "user_id": "2", 
+                    "date_updated": "2020-02-07T00:34:25.420000", 
+                    "date_created": "2020-02-07T00:34:25.412000", 
+                    "type": "packaged_app", 
+                    "id": "+14155551001-user-2-client-packagedappid", 
+                    "display_name": "packagedappid"
+                  }
+                ]
+              }
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserdeviceUserDeviceCollection"
@@ -2459,6 +2482,16 @@
         ], 
         "responses": {
           "200": {
+            "examples": {
+              "application/json": {
+                "user_id": "2", 
+                "date_updated": "2020-02-07T00:34:27.829000", 
+                "date_created": "2020-02-07T00:34:27.822000", 
+                "type": "native", 
+                "id": "+14155551001-user-2-client-native", 
+                "display_name": "native"
+              }
+            }, 
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserdeviceUserDeviceProto"
