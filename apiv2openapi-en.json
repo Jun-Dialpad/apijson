@@ -1841,10 +1841,34 @@
             }, 
             "examples": {
               "application/json": {
+                "country": "us", 
+                "first_action": "operators", 
+                "friday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "id": "13", 
+                "monday_hours": [
+                  "08:00", 
+                  "18:00"
+                ], 
+                "name": "Test call center", 
+                "no_operators_action": "voicemail", 
+                "office_id": "4", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "ring_seconds": "30", 
                 "routing_options": {
-                  "open": {
-                    "action_target_type": "department", 
+                  "closed": {
+                    "action": "voicemail", 
                     "operator_routing": "longestidle", 
+                    "try_dial_operators": false
+                  }, 
+                  "open": {
+                    "action": "department", 
+                    "action_target_id": "6", 
+                    "action_target_type": "department", 
                     "dtmf": [
                       {
                         "input": "1", 
@@ -1855,24 +1879,20 @@
                         }
                       }
                     ], 
-                    "try_dial_operators": true, 
-                    "action": "department", 
-                    "action_target_id": "6"
-                  }, 
-                  "closed": {
-                    "action": "voicemail", 
-                    "try_dial_operators": false, 
-                    "operator_routing": "longestidle"
+                    "operator_routing": "longestidle", 
+                    "try_dial_operators": true
                   }
                 }, 
-                "name": "Test call center", 
-                "first_action": "operators", 
-                "monday_hours": [
-                  "08:00", 
-                  "18:00"
+                "saturday_hours": [
+                  "00:00", 
+                  "00:00"
                 ], 
-                "country": "us", 
-                "wednesday_hours": [
+                "state": "active", 
+                "sunday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "thursday_hours": [
                   "00:00", 
                   "00:00"
                 ], 
@@ -1880,30 +1900,10 @@
                   "00:00", 
                   "00:00"
                 ], 
-                "friday_hours": [
+                "wednesday_hours": [
                   "00:00", 
                   "00:00"
-                ], 
-                "state": "active", 
-                "no_operators_action": "voicemail", 
-                "thursday_hours": [
-                  "00:00", 
-                  "00:00"
-                ], 
-                "ring_seconds": "30", 
-                "phone_numbers": [
-                  "+14155551001"
-                ], 
-                "saturday_hours": [
-                  "00:00", 
-                  "00:00"
-                ], 
-                "sunday_hours": [
-                  "00:00", 
-                  "00:00"
-                ], 
-                "id": "13", 
-                "office_id": "4"
+                ]
               }
             }
           }
@@ -1941,37 +1941,37 @@
                     "admin_office_ids": [
                       "4"
                     ], 
-                    "is_super_admin": true, 
-                    "last_name": "Bot", 
-                    "is_admin": true, 
-                    "timezone": "US/Pacific", 
-                    "phone_numbers": [
-                      "+14155551001"
+                    "company_id": "3", 
+                    "country": "us", 
+                    "do_not_disturb": false, 
+                    "emails": [
+                      "bot@fuzz-ball.com"
                     ], 
-                    "id": "2", 
+                    "extension": "20000", 
                     "first_name": "\u30c6\u00c9st", 
                     "forwarding_numbers": [
                       "+14152301358"
                     ], 
-                    "office_id": "4", 
-                    "muted": false, 
-                    "company_id": "3", 
-                    "state": "active", 
-                    "location": "Mock Location", 
-                    "status_message": "Mock Status", 
-                    "job_title": "Mock Job Title", 
-                    "is_available": true, 
-                    "is_online": false, 
-                    "emails": [
-                      "bot@fuzz-ball.com"
-                    ], 
-                    "language": "en", 
-                    "license": "talk", 
-                    "country": "us", 
-                    "do_not_disturb": false, 
-                    "extension": "20000", 
+                    "id": "2", 
                     "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
-                    "is_on_duty": true
+                    "is_admin": true, 
+                    "is_available": true, 
+                    "is_on_duty": true, 
+                    "is_online": false, 
+                    "is_super_admin": true, 
+                    "job_title": "Mock Job Title", 
+                    "language": "en", 
+                    "last_name": "Bot", 
+                    "license": "talk", 
+                    "location": "Mock Location", 
+                    "muted": false, 
+                    "office_id": "4", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "state": "active", 
+                    "status_message": "Mock Status", 
+                    "timezone": "US/Pacific"
                   }
                 ]
               }
@@ -1997,9 +1997,9 @@
             }, 
             "examples": {
               "application/json": {
+                "account_type": "default", 
                 "country": "us", 
                 "domain": "fuzz-ball.com", 
-                "account_type": "default", 
                 "id": "3", 
                 "name": "\u30d5\u30a1\u30fc\u30b8\u30fc\u3000\u30dc\u30fc\u30eb, Inc"
               }
@@ -2034,10 +2034,34 @@
             }, 
             "examples": {
               "application/json": {
+                "country": "us", 
+                "first_action": "operators", 
+                "friday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "id": "6", 
+                "monday_hours": [
+                  "08:00", 
+                  "18:00"
+                ], 
+                "name": "Sales", 
+                "no_operators_action": "voicemail", 
+                "office_id": "4", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "ring_seconds": "30", 
                 "routing_options": {
-                  "open": {
-                    "action_target_type": "department", 
+                  "closed": {
+                    "action": "voicemail", 
                     "operator_routing": "simultaneous", 
+                    "try_dial_operators": false
+                  }, 
+                  "open": {
+                    "action": "department", 
+                    "action_target_id": "6", 
+                    "action_target_type": "department", 
                     "dtmf": [
                       {
                         "input": "1", 
@@ -2048,24 +2072,20 @@
                         }
                       }
                     ], 
-                    "try_dial_operators": true, 
-                    "action": "department", 
-                    "action_target_id": "6"
-                  }, 
-                  "closed": {
-                    "action": "voicemail", 
-                    "try_dial_operators": false, 
-                    "operator_routing": "simultaneous"
+                    "operator_routing": "simultaneous", 
+                    "try_dial_operators": true
                   }
                 }, 
-                "name": "Sales", 
-                "first_action": "operators", 
-                "monday_hours": [
-                  "08:00", 
-                  "18:00"
+                "saturday_hours": [
+                  "00:00", 
+                  "00:00"
                 ], 
-                "country": "us", 
-                "wednesday_hours": [
+                "state": "active", 
+                "sunday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "thursday_hours": [
                   "00:00", 
                   "00:00"
                 ], 
@@ -2073,30 +2093,10 @@
                   "00:00", 
                   "00:00"
                 ], 
-                "friday_hours": [
+                "wednesday_hours": [
                   "00:00", 
                   "00:00"
-                ], 
-                "state": "active", 
-                "no_operators_action": "voicemail", 
-                "thursday_hours": [
-                  "00:00", 
-                  "00:00"
-                ], 
-                "ring_seconds": "30", 
-                "phone_numbers": [
-                  "+14155551001"
-                ], 
-                "saturday_hours": [
-                  "00:00", 
-                  "00:00"
-                ], 
-                "sunday_hours": [
-                  "00:00", 
-                  "00:00"
-                ], 
-                "id": "6", 
-                "office_id": "4"
+                ]
               }
             }
           }
@@ -2131,18 +2131,18 @@
               "application/json": {
                 "rooms": [
                   {
-                    "name": "fake-room", 
-                    "country": "us", 
                     "company_id": "3", 
-                    "is_free": false, 
-                    "office_id": "4", 
-                    "state": "active", 
+                    "country": "us", 
+                    "id": "13", 
                     "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                    "is_free": false, 
                     "is_on_duty": false, 
+                    "name": "fake-room", 
+                    "office_id": "4", 
                     "phone_numbers": [
                       "+14155551001"
                     ], 
-                    "id": "13"
+                    "state": "active"
                   }
                 ], 
                 "users": [
@@ -2150,37 +2150,37 @@
                     "admin_office_ids": [
                       "4"
                     ], 
-                    "is_super_admin": true, 
-                    "last_name": "Bot", 
-                    "is_admin": true, 
-                    "timezone": "US/Pacific", 
-                    "phone_numbers": [
-                      "+14155551001"
+                    "company_id": "3", 
+                    "country": "us", 
+                    "do_not_disturb": false, 
+                    "emails": [
+                      "bot@fuzz-ball.com"
                     ], 
-                    "id": "2", 
+                    "extension": "20000", 
                     "first_name": "\u30c6\u00c9st", 
                     "forwarding_numbers": [
                       "+14152301358"
                     ], 
-                    "office_id": "4", 
-                    "muted": false, 
-                    "company_id": "3", 
-                    "state": "active", 
-                    "location": "Mock Location", 
-                    "status_message": "Mock Status", 
-                    "job_title": "Mock Job Title", 
-                    "is_available": true, 
-                    "is_online": false, 
-                    "emails": [
-                      "bot@fuzz-ball.com"
-                    ], 
-                    "language": "en", 
-                    "license": "talk", 
-                    "country": "us", 
-                    "do_not_disturb": false, 
-                    "extension": "20000", 
+                    "id": "2", 
                     "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
-                    "is_on_duty": false
+                    "is_admin": true, 
+                    "is_available": true, 
+                    "is_on_duty": false, 
+                    "is_online": false, 
+                    "is_super_admin": true, 
+                    "job_title": "Mock Job Title", 
+                    "language": "en", 
+                    "last_name": "Bot", 
+                    "license": "talk", 
+                    "location": "Mock Location", 
+                    "muted": false, 
+                    "office_id": "4", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "state": "active", 
+                    "status_message": "Mock Status", 
+                    "timezone": "US/Pacific"
                   }
                 ]
               }
@@ -2245,20 +2245,20 @@
               "application/json": {
                 "items": [
                   {
-                    "group_calls_only": true, 
-                    "enabled": true, 
-                    "url": "https://test.com", 
                     "call_states": [
                       "hangup", 
                       "barge", 
                       "recording"
                     ], 
+                    "enabled": true, 
+                    "group_calls_only": true, 
+                    "id": "test_hook_id", 
                     "signature": {
+                      "algo": "HS256", 
                       "secret": "test_secret", 
-                      "type": "jwt", 
-                      "algo": "HS256"
+                      "type": "jwt"
                     }, 
-                    "id": "test_hook_id"
+                    "url": "https://test.com"
                   }
                 ]
               }
@@ -2314,20 +2314,20 @@
             }, 
             "examples": {
               "application/json": {
-                "group_calls_only": true, 
-                "enabled": true, 
-                "url": "https://test.com", 
                 "call_states": [
                   "hangup", 
                   "barge", 
                   "recording"
                 ], 
+                "enabled": true, 
+                "group_calls_only": true, 
+                "id": "test_hook_id", 
                 "signature": {
+                  "algo": "HS256", 
                   "secret": "test_secret", 
-                  "type": "jwt", 
-                  "algo": "HS256"
+                  "type": "jwt"
                 }, 
-                "id": "test_hook_id"
+                "url": "https://test.com"
               }
             }
           }
@@ -2364,20 +2364,20 @@
             }, 
             "examples": {
               "application/json": {
-                "group_calls_only": true, 
-                "enabled": true, 
-                "url": "https://test.com", 
                 "call_states": [
                   "hangup", 
                   "barge", 
                   "recording"
                 ], 
+                "enabled": true, 
+                "group_calls_only": true, 
+                "id": "test_hook_id", 
                 "signature": {
+                  "algo": "HS256", 
                   "secret": "test_secret", 
-                  "type": "jwt", 
-                  "algo": "HS256"
+                  "type": "jwt"
                 }, 
-                "id": "test_hook_id"
+                "url": "https://test.com"
               }
             }
           }
@@ -2423,63 +2423,63 @@
               "application/json": {
                 "items": [
                   {
-                    "status": "office", 
                     "area_code": "415", 
-                    "target_id": "4", 
                     "company_id": "3", 
                     "number": "+14155551000", 
                     "office_id": "4", 
-                    "type": "local", 
-                    "target_type": "office"
+                    "status": "office", 
+                    "target_id": "4", 
+                    "target_type": "office", 
+                    "type": "local"
                   }, 
                   {
-                    "status": "user", 
                     "area_code": "415", 
-                    "target_id": "2", 
                     "company_id": "3", 
                     "number": "+14155551001", 
                     "office_id": "4", 
-                    "type": "local", 
-                    "target_type": "user"
+                    "status": "user", 
+                    "target_id": "2", 
+                    "target_type": "user", 
+                    "type": "local"
                   }, 
                   {
-                    "status": "available", 
                     "area_code": "415", 
                     "company_id": "3", 
                     "number": "+14155551002", 
                     "office_id": "4", 
+                    "status": "available", 
                     "type": "local"
                   }, 
                   {
-                    "status": "available", 
                     "area_code": "415", 
                     "company_id": "3", 
                     "number": "+14155551003", 
                     "office_id": "4", 
+                    "status": "available", 
                     "type": "local"
                   }, 
                   {
-                    "status": "available", 
                     "area_code": "415", 
                     "company_id": "3", 
                     "number": "+14155551004", 
                     "office_id": "4", 
+                    "status": "available", 
                     "type": "local"
                   }, 
                   {
-                    "status": "available", 
                     "area_code": "415", 
                     "company_id": "3", 
                     "number": "+14155551005", 
                     "office_id": "4", 
+                    "status": "available", 
                     "type": "local"
                   }, 
                   {
-                    "status": "available", 
                     "area_code": "415", 
                     "company_id": "3", 
                     "number": "+14155551006", 
                     "office_id": "4", 
+                    "status": "available", 
                     "type": "local"
                   }
                 ]
@@ -2520,11 +2520,11 @@
             }, 
             "examples": {
               "application/json": {
-                "status": "available", 
                 "area_code": "415", 
                 "company_id": "3", 
                 "number": "+14155551002", 
                 "office_id": "4", 
+                "status": "available", 
                 "type": "local"
               }
             }
@@ -2555,11 +2555,11 @@
             }, 
             "examples": {
               "application/json": {
-                "status": "available", 
                 "area_code": "415", 
                 "company_id": "3", 
                 "number": "+14155551002", 
                 "office_id": "4", 
+                "status": "available", 
                 "type": "local"
               }
             }
@@ -2600,14 +2600,43 @@
               "application/json": {
                 "items": [
                   {
-                    "wednesday_hours": [
+                    "country": "us", 
+                    "first_action": "operators", 
+                    "friday_hours": [
                       "00:00", 
                       "00:00"
                     ], 
+                    "id": "4", 
+                    "monday_hours": [
+                      "08:00", 
+                      "18:00"
+                    ], 
+                    "name": "\u30d5\u30a1\u30fc\u30b8\u30fc\u3000\u30dc\u30fc\u30eb, Inc", 
+                    "no_operators_action": "voicemail", 
+                    "office_id": "4", 
+                    "office_settings": {
+                      "allow_device_guest_login": false, 
+                      "block_caller_id_disabled": false, 
+                      "bridged_target_recording_allowed": true, 
+                      "disable_desk_phone_self_provision": false, 
+                      "disable_ivr_voicemail": false, 
+                      "no_recording_message_on_user_calls": false, 
+                      "set_caller_id_disabled": false
+                    }, 
+                    "phone_numbers": [
+                      "+14155551000"
+                    ], 
+                    "ring_seconds": "30", 
                     "routing_options": {
-                      "open": {
-                        "action_target_type": "department", 
+                      "closed": {
+                        "action": "voicemail", 
                         "operator_routing": "simultaneous", 
+                        "try_dial_operators": false
+                      }, 
+                      "open": {
+                        "action": "department", 
+                        "action_target_id": "6", 
+                        "action_target_type": "department", 
                         "dtmf": [
                           {
                             "input": "1", 
@@ -2618,60 +2647,31 @@
                             }
                           }
                         ], 
-                        "try_dial_operators": true, 
-                        "action": "department", 
-                        "action_target_id": "6"
-                      }, 
-                      "closed": {
-                        "action": "voicemail", 
-                        "try_dial_operators": false, 
-                        "operator_routing": "simultaneous"
+                        "operator_routing": "simultaneous", 
+                        "try_dial_operators": true
                       }
                     }, 
-                    "name": "\u30d5\u30a1\u30fc\u30b8\u30fc\u3000\u30dc\u30fc\u30eb, Inc", 
-                    "first_action": "operators", 
-                    "monday_hours": [
-                      "08:00", 
-                      "18:00"
-                    ], 
-                    "country": "us", 
-                    "office_settings": {
-                      "set_caller_id_disabled": false, 
-                      "disable_desk_phone_self_provision": false, 
-                      "disable_ivr_voicemail": false, 
-                      "no_recording_message_on_user_calls": false, 
-                      "block_caller_id_disabled": false, 
-                      "bridged_target_recording_allowed": true, 
-                      "allow_device_guest_login": false
-                    }, 
-                    "tuesday_hours": [
-                      "00:00", 
-                      "00:00"
-                    ], 
-                    "friday_hours": [
-                      "00:00", 
-                      "00:00"
-                    ], 
-                    "state": "active", 
-                    "no_operators_action": "voicemail", 
-                    "thursday_hours": [
-                      "00:00", 
-                      "00:00"
-                    ], 
-                    "ring_seconds": "30", 
-                    "phone_numbers": [
-                      "+14155551000"
-                    ], 
                     "saturday_hours": [
                       "00:00", 
                       "00:00"
                     ], 
+                    "state": "active", 
                     "sunday_hours": [
                       "00:00", 
                       "00:00"
                     ], 
-                    "id": "4", 
-                    "office_id": "4"
+                    "thursday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "tuesday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "wednesday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ]
                   }
                 ]
               }
@@ -2706,14 +2706,43 @@
             }, 
             "examples": {
               "application/json": {
-                "wednesday_hours": [
+                "country": "us", 
+                "first_action": "operators", 
+                "friday_hours": [
                   "00:00", 
                   "00:00"
                 ], 
+                "id": "4", 
+                "monday_hours": [
+                  "08:00", 
+                  "18:00"
+                ], 
+                "name": "\u30d5\u30a1\u30fc\u30b8\u30fc\u3000\u30dc\u30fc\u30eb, Inc", 
+                "no_operators_action": "voicemail", 
+                "office_id": "4", 
+                "office_settings": {
+                  "allow_device_guest_login": false, 
+                  "block_caller_id_disabled": false, 
+                  "bridged_target_recording_allowed": true, 
+                  "disable_desk_phone_self_provision": false, 
+                  "disable_ivr_voicemail": false, 
+                  "no_recording_message_on_user_calls": false, 
+                  "set_caller_id_disabled": false
+                }, 
+                "phone_numbers": [
+                  "+14155551000"
+                ], 
+                "ring_seconds": "30", 
                 "routing_options": {
-                  "open": {
-                    "action_target_type": "department", 
+                  "closed": {
+                    "action": "voicemail", 
                     "operator_routing": "simultaneous", 
+                    "try_dial_operators": false
+                  }, 
+                  "open": {
+                    "action": "department", 
+                    "action_target_id": "6", 
+                    "action_target_type": "department", 
                     "dtmf": [
                       {
                         "input": "1", 
@@ -2724,60 +2753,31 @@
                         }
                       }
                     ], 
-                    "try_dial_operators": true, 
-                    "action": "department", 
-                    "action_target_id": "6"
-                  }, 
-                  "closed": {
-                    "action": "voicemail", 
-                    "try_dial_operators": false, 
-                    "operator_routing": "simultaneous"
+                    "operator_routing": "simultaneous", 
+                    "try_dial_operators": true
                   }
                 }, 
-                "name": "\u30d5\u30a1\u30fc\u30b8\u30fc\u3000\u30dc\u30fc\u30eb, Inc", 
-                "first_action": "operators", 
-                "monday_hours": [
-                  "08:00", 
-                  "18:00"
-                ], 
-                "country": "us", 
-                "office_settings": {
-                  "set_caller_id_disabled": false, 
-                  "disable_desk_phone_self_provision": false, 
-                  "disable_ivr_voicemail": false, 
-                  "no_recording_message_on_user_calls": false, 
-                  "block_caller_id_disabled": false, 
-                  "bridged_target_recording_allowed": true, 
-                  "allow_device_guest_login": false
-                }, 
-                "tuesday_hours": [
-                  "00:00", 
-                  "00:00"
-                ], 
-                "friday_hours": [
-                  "00:00", 
-                  "00:00"
-                ], 
-                "state": "active", 
-                "no_operators_action": "voicemail", 
-                "thursday_hours": [
-                  "00:00", 
-                  "00:00"
-                ], 
-                "ring_seconds": "30", 
-                "phone_numbers": [
-                  "+14155551000"
-                ], 
                 "saturday_hours": [
                   "00:00", 
                   "00:00"
                 ], 
+                "state": "active", 
                 "sunday_hours": [
                   "00:00", 
                   "00:00"
                 ], 
-                "id": "4", 
-                "office_id": "4"
+                "thursday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "tuesday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "wednesday_hours": [
+                  "00:00", 
+                  "00:00"
+                ]
               }
             }
           }
@@ -2817,14 +2817,14 @@
             }, 
             "examples": {
               "application/json": {
-                "status": "office", 
                 "area_code": "604", 
-                "target_id": "4", 
                 "company_id": "3", 
                 "number": "+16045551002", 
                 "office_id": "4", 
-                "type": "local", 
-                "target_type": "office"
+                "status": "office", 
+                "target_id": "4", 
+                "target_type": "office", 
+                "type": "local"
               }
             }
           }
@@ -2862,37 +2862,37 @@
                     "admin_office_ids": [
                       "4"
                     ], 
-                    "is_super_admin": true, 
-                    "last_name": "Bot", 
-                    "is_admin": true, 
-                    "timezone": "US/Pacific", 
-                    "phone_numbers": [
-                      "+14155551001"
+                    "company_id": "3", 
+                    "country": "us", 
+                    "do_not_disturb": false, 
+                    "emails": [
+                      "bot@fuzz-ball.com"
                     ], 
-                    "id": "2", 
+                    "extension": "20000", 
                     "first_name": "\u30c6\u00c9st", 
                     "forwarding_numbers": [
                       "+14152301358"
                     ], 
-                    "office_id": "4", 
-                    "muted": false, 
-                    "company_id": "3", 
-                    "state": "active", 
-                    "location": "Mock Location", 
-                    "status_message": "Mock Status", 
-                    "job_title": "Mock Job Title", 
-                    "is_available": true, 
-                    "is_online": false, 
-                    "emails": [
-                      "bot@fuzz-ball.com"
-                    ], 
-                    "language": "en", 
-                    "license": "talk", 
-                    "country": "us", 
-                    "do_not_disturb": false, 
-                    "extension": "20000", 
+                    "id": "2", 
                     "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
-                    "is_on_duty": false
+                    "is_admin": true, 
+                    "is_available": true, 
+                    "is_on_duty": false, 
+                    "is_online": false, 
+                    "is_super_admin": true, 
+                    "job_title": "Mock Job Title", 
+                    "language": "en", 
+                    "last_name": "Bot", 
+                    "license": "talk", 
+                    "location": "Mock Location", 
+                    "muted": false, 
+                    "office_id": "4", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "state": "active", 
+                    "status_message": "Mock Status", 
+                    "timezone": "US/Pacific"
                   }
                 ]
               }
@@ -2982,10 +2982,34 @@
               "application/json": {
                 "items": [
                   {
+                    "country": "us", 
+                    "first_action": "operators", 
+                    "friday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "id": "13", 
+                    "monday_hours": [
+                      "08:00", 
+                      "18:00"
+                    ], 
+                    "name": "Test call center", 
+                    "no_operators_action": "voicemail", 
+                    "office_id": "4", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "ring_seconds": "30", 
                     "routing_options": {
-                      "open": {
-                        "action_target_type": "department", 
+                      "closed": {
+                        "action": "voicemail", 
                         "operator_routing": "longestidle", 
+                        "try_dial_operators": false
+                      }, 
+                      "open": {
+                        "action": "department", 
+                        "action_target_id": "6", 
+                        "action_target_type": "department", 
                         "dtmf": [
                           {
                             "input": "1", 
@@ -2996,24 +3020,20 @@
                             }
                           }
                         ], 
-                        "try_dial_operators": true, 
-                        "action": "department", 
-                        "action_target_id": "6"
-                      }, 
-                      "closed": {
-                        "action": "voicemail", 
-                        "try_dial_operators": false, 
-                        "operator_routing": "longestidle"
+                        "operator_routing": "longestidle", 
+                        "try_dial_operators": true
                       }
                     }, 
-                    "name": "Test call center", 
-                    "first_action": "operators", 
-                    "monday_hours": [
-                      "08:00", 
-                      "18:00"
+                    "saturday_hours": [
+                      "00:00", 
+                      "00:00"
                     ], 
-                    "country": "us", 
-                    "wednesday_hours": [
+                    "state": "active", 
+                    "sunday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "thursday_hours": [
                       "00:00", 
                       "00:00"
                     ], 
@@ -3021,30 +3041,10 @@
                       "00:00", 
                       "00:00"
                     ], 
-                    "friday_hours": [
+                    "wednesday_hours": [
                       "00:00", 
                       "00:00"
-                    ], 
-                    "state": "active", 
-                    "no_operators_action": "voicemail", 
-                    "thursday_hours": [
-                      "00:00", 
-                      "00:00"
-                    ], 
-                    "ring_seconds": "30", 
-                    "phone_numbers": [
-                      "+14155551001"
-                    ], 
-                    "saturday_hours": [
-                      "00:00", 
-                      "00:00"
-                    ], 
-                    "sunday_hours": [
-                      "00:00", 
-                      "00:00"
-                    ], 
-                    "id": "13", 
-                    "office_id": "4"
+                    ]
                   }
                 ]
               }
@@ -3094,14 +3094,43 @@
               "application/json": {
                 "items": [
                   {
-                    "name": "Sales", 
+                    "country": "us", 
                     "first_action": "operators", 
+                    "friday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "id": "6", 
                     "monday_hours": [
                       "08:00", 
                       "18:00"
                     ], 
-                    "country": "us", 
-                    "wednesday_hours": [
+                    "name": "Sales", 
+                    "no_operators_action": "voicemail", 
+                    "office_id": "4", 
+                    "ring_seconds": "30", 
+                    "routing_options": {
+                      "closed": {
+                        "action": "voicemail", 
+                        "operator_routing": "simultaneous", 
+                        "try_dial_operators": false
+                      }, 
+                      "open": {
+                        "action": "voicemail", 
+                        "operator_routing": "simultaneous", 
+                        "try_dial_operators": true
+                      }
+                    }, 
+                    "saturday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "state": "active", 
+                    "sunday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "thursday_hours": [
                       "00:00", 
                       "00:00"
                     ], 
@@ -3109,39 +3138,10 @@
                       "00:00", 
                       "00:00"
                     ], 
-                    "friday_hours": [
+                    "wednesday_hours": [
                       "00:00", 
                       "00:00"
-                    ], 
-                    "state": "active", 
-                    "no_operators_action": "voicemail", 
-                    "thursday_hours": [
-                      "00:00", 
-                      "00:00"
-                    ], 
-                    "ring_seconds": "30", 
-                    "routing_options": {
-                      "open": {
-                        "action": "voicemail", 
-                        "try_dial_operators": true, 
-                        "operator_routing": "simultaneous"
-                      }, 
-                      "closed": {
-                        "action": "voicemail", 
-                        "try_dial_operators": false, 
-                        "operator_routing": "simultaneous"
-                      }
-                    }, 
-                    "saturday_hours": [
-                      "00:00", 
-                      "00:00"
-                    ], 
-                    "sunday_hours": [
-                      "00:00", 
-                      "00:00"
-                    ], 
-                    "id": "6", 
-                    "office_id": "4"
+                    ]
                   }
                 ]
               }
@@ -3176,12 +3176,12 @@
             }, 
             "examples": {
               "application/json": {
-                "tollfree_group_lines": "0", 
-                "user_lines": "99", 
-                "group_lines": "0", 
                 "fax_lines": "0", 
+                "group_lines": "0", 
+                "room_lines": "5", 
+                "tollfree_group_lines": "0", 
                 "tollfree_room_lines": "0", 
-                "room_lines": "5"
+                "user_lines": "99"
               }
             }
           }
@@ -3221,12 +3221,12 @@
             }, 
             "examples": {
               "application/json": {
-                "tollfree_group_lines": "0", 
-                "user_lines": "0", 
-                "group_lines": "0", 
                 "fax_lines": "1", 
+                "group_lines": "0", 
+                "room_lines": "0", 
+                "tollfree_group_lines": "0", 
                 "tollfree_room_lines": "0", 
-                "room_lines": "0"
+                "user_lines": "0"
               }
             }
           }
@@ -3273,32 +3273,32 @@
               "application/json": {
                 "items": [
                   {
-                    "name": "Seaside", 
-                    "country": "us", 
                     "company_id": "3", 
-                    "is_free": false, 
-                    "office_id": "4", 
-                    "state": "active", 
+                    "country": "us", 
+                    "id": "13", 
                     "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                    "is_free": false, 
                     "is_on_duty": false, 
+                    "name": "Seaside", 
+                    "office_id": "4", 
                     "phone_numbers": [
                       "+14155551002"
                     ], 
-                    "id": "13"
+                    "state": "active"
                   }, 
                   {
-                    "name": "Boulevard", 
-                    "country": "us", 
                     "company_id": "3", 
-                    "is_free": false, 
-                    "office_id": "4", 
-                    "state": "active", 
+                    "country": "us", 
+                    "id": "15", 
                     "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                    "is_free": false, 
                     "is_on_duty": false, 
+                    "name": "Boulevard", 
+                    "office_id": "4", 
                     "phone_numbers": [
                       "+14155551003"
                     ], 
-                    "id": "15"
+                    "state": "active"
                   }
                 ]
               }
@@ -3330,15 +3330,15 @@
             }, 
             "examples": {
               "application/json": {
-                "name": "Whistler", 
-                "country": "us", 
                 "company_id": "3", 
-                "is_free": false, 
-                "office_id": "4", 
-                "state": "pending", 
+                "country": "us", 
+                "id": "18", 
                 "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                "is_free": false, 
                 "is_on_duty": false, 
-                "id": "18"
+                "name": "Whistler", 
+                "office_id": "4", 
+                "state": "pending"
               }
             }
           }
@@ -3371,8 +3371,8 @@
             "examples": {
               "application/json": {
                 "customer_ref": "something", 
-                "pin": "47700", 
-                "expires_on": "2020-01-28T21:13:27.626000"
+                "expires_on": "2020-01-28T21:13:27.626000", 
+                "pin": "47700"
               }
             }
           }
@@ -3405,15 +3405,15 @@
             }, 
             "examples": {
               "application/json": {
-                "name": "Blackcomb", 
-                "country": "us", 
                 "company_id": "3", 
-                "is_free": false, 
-                "office_id": "4", 
-                "state": "pending", 
+                "country": "us", 
+                "id": "18", 
                 "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                "is_free": false, 
                 "is_on_duty": false, 
-                "id": "18"
+                "name": "Blackcomb", 
+                "office_id": "4", 
+                "state": "pending"
               }
             }
           }
@@ -3444,18 +3444,18 @@
             }, 
             "examples": {
               "application/json": {
-                "name": "Boulevard", 
-                "country": "us", 
                 "company_id": "3", 
-                "is_free": false, 
-                "office_id": "4", 
-                "state": "active", 
+                "country": "us", 
+                "id": "15", 
                 "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                "is_free": false, 
                 "is_on_duty": false, 
+                "name": "Boulevard", 
+                "office_id": "4", 
                 "phone_numbers": [
                   "+14155551003"
                 ], 
-                "id": "15"
+                "state": "active"
               }
             }
           }
@@ -3493,15 +3493,15 @@
             }, 
             "examples": {
               "application/json": {
-                "name": "Blackcomb", 
-                "country": "us", 
                 "company_id": "3", 
-                "is_free": false, 
-                "office_id": "4", 
-                "state": "pending", 
+                "country": "us", 
+                "id": "18", 
                 "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                "is_free": false, 
                 "is_on_duty": false, 
-                "id": "18"
+                "name": "Blackcomb", 
+                "office_id": "4", 
+                "state": "pending"
               }
             }
           }
@@ -3541,14 +3541,14 @@
             }, 
             "examples": {
               "application/json": {
-                "status": "room", 
                 "area_code": "604", 
-                "target_id": "15", 
                 "company_id": "3", 
                 "number": "+16045551004", 
                 "office_id": "4", 
-                "type": "local", 
-                "target_type": "room"
+                "status": "room", 
+                "target_id": "15", 
+                "target_type": "room", 
+                "type": "local"
               }
             }
           }
@@ -3588,14 +3588,14 @@
             }, 
             "examples": {
               "application/json": {
-                "status": "room", 
                 "area_code": "604", 
-                "target_id": "15", 
                 "company_id": "3", 
                 "number": "+16045551004", 
                 "office_id": "4", 
-                "type": "local", 
-                "target_type": "room"
+                "status": "room", 
+                "target_id": "15", 
+                "target_type": "room", 
+                "type": "local"
               }
             }
           }
@@ -3643,16 +3643,16 @@
               "application/json": {
                 "items": [
                   {
-                    "realm": "uvstaging.ubervoip.net", 
-                    "name": "Test Obihai", 
-                    "port": "7060", 
-                    "ring_notification": true, 
                     "byod": false, 
-                    "mac_address": "9cadefa00096", 
-                    "owner_type": "room", 
-                    "type": "obi", 
                     "id": "+14155551002-room-13-obi-hex_ce3e13a487", 
-                    "owner_id": "13"
+                    "mac_address": "9cadefa00096", 
+                    "name": "Test Obihai", 
+                    "owner_id": "13", 
+                    "owner_type": "room", 
+                    "port": "7060", 
+                    "realm": "uvstaging.ubervoip.net", 
+                    "ring_notification": true, 
+                    "type": "obi"
                   }
                 ]
               }
@@ -3692,16 +3692,16 @@
             }, 
             "examples": {
               "application/json": {
-                "realm": "uvstaging.ubervoip.net", 
-                "name": "Test Obihai", 
-                "port": "7060", 
-                "ring_notification": true, 
                 "byod": false, 
-                "mac_address": "9cadefa00096", 
-                "owner_type": "room", 
-                "type": "obi", 
                 "id": "+14155551002-room-13-obi-hex_ce3e13a487", 
-                "owner_id": "13"
+                "mac_address": "9cadefa00096", 
+                "name": "Test Obihai", 
+                "owner_id": "13", 
+                "owner_type": "room", 
+                "port": "7060", 
+                "realm": "uvstaging.ubervoip.net", 
+                "ring_notification": true, 
+                "type": "obi"
               }
             }
           }
@@ -3771,16 +3771,16 @@
             }, 
             "examples": {
               "application/json": {
-                "realm": "uvstaging.ubervoip.net", 
-                "name": "Test Obihai", 
-                "port": "7060", 
-                "ring_notification": true, 
                 "byod": false, 
-                "mac_address": "9cadefa00096", 
-                "owner_type": "room", 
-                "type": "obi", 
                 "id": "+14155551002-room-13-obi-hex_ce3e13a487", 
-                "owner_id": "13"
+                "mac_address": "9cadefa00096", 
+                "name": "Test Obihai", 
+                "owner_id": "13", 
+                "owner_type": "room", 
+                "port": "7060", 
+                "realm": "uvstaging.ubervoip.net", 
+                "ring_notification": true, 
+                "type": "obi"
               }
             }
           }
@@ -3812,19 +3812,19 @@
             }, 
             "examples": {
               "application/json": {
-                "message_status": "pending", 
+                "contact_id": "http://www.google.com/m8/feeds/contacts/bot@fuzz-ball.com/base/ec0e7a0954", 
+                "created_date": "2020-01-28T20:42:10.453736", 
                 "direction": "outbound", 
-                "user_id": "2", 
-                "text": "Test text", 
+                "from_number": "+14155551001", 
+                "id": "14", 
+                "message_status": "pending", 
                 "target_id": "2", 
                 "target_type": "user", 
-                "contact_id": "http://www.google.com/m8/feeds/contacts/bot@fuzz-ball.com/base/ec0e7a0954", 
-                "from_number": "+14155551001", 
+                "text": "Test text", 
                 "to_numbers": [
                   "+14155557777"
                 ], 
-                "created_date": "2020-01-28T20:42:10.453736", 
-                "id": "14"
+                "user_id": "2"
               }
             }
           }
@@ -3920,30 +3920,30 @@
             }, 
             "examples": {
               "application/json": {
+                "call_id": "13", 
                 "lines": [
                   {
                     "content": "hello", 
-                    "user_id": "2", 
-                    "type": "transcript", 
                     "name": "\u30c6\u00c9st Bot", 
-                    "time": "2018-05-08T21:33:15.300000"
+                    "time": "2018-05-08T21:33:15.300000", 
+                    "type": "transcript", 
+                    "user_id": "2"
                   }, 
                   {
                     "content": "price_inquiry", 
-                    "user_id": "2", 
-                    "type": "moment", 
                     "name": "\u30c6\u00c9st Bot", 
-                    "time": "2018-05-08T21:33:17.300000"
+                    "time": "2018-05-08T21:33:17.300000", 
+                    "type": "moment", 
+                    "user_id": "2"
                   }, 
                   {
-                    "content": "hi", 
-                    "type": "transcript", 
-                    "name": "(415) 555-6666", 
                     "contact_id": "ag5kZXZ-dWJlci12b2ljZXJWCxIHQ29udGFjdCJJaHR0cDovL3d3dy5nb29nbGUuY29tL204L2ZlZWRzL2NvbnRhY3RzL2JvdEBmdXp6LWJhbGwuY29tL2Jhc2UvMGQzOWI5M2E4MQw", 
-                    "time": "2018-05-08T21:33:19.300000"
+                    "content": "hi", 
+                    "name": "(415) 555-6666", 
+                    "time": "2018-05-08T21:33:19.300000", 
+                    "type": "transcript"
                   }
-                ], 
-                "call_id": "13"
+                ]
               }
             }
           }
@@ -3990,20 +3990,20 @@
               "application/json": {
                 "items": [
                   {
-                    "user_id": "2", 
-                    "date_updated": "2020-02-07T00:34:30.062000", 
                     "date_created": "2020-02-07T00:34:30.055000", 
-                    "type": "native", 
+                    "date_updated": "2020-02-07T00:34:30.062000", 
+                    "display_name": "native", 
                     "id": "+14155551001-user-2-client-native", 
-                    "display_name": "native"
+                    "type": "native", 
+                    "user_id": "2"
                   }, 
                   {
-                    "user_id": "2", 
-                    "date_updated": "2020-02-07T00:34:25.420000", 
                     "date_created": "2020-02-07T00:34:25.412000", 
-                    "type": "packaged_app", 
+                    "date_updated": "2020-02-07T00:34:25.420000", 
+                    "display_name": "packagedappid", 
                     "id": "+14155551001-user-2-client-packagedappid", 
-                    "display_name": "packagedappid"
+                    "type": "packaged_app", 
+                    "user_id": "2"
                   }
                 ]
               }
@@ -4036,12 +4036,12 @@
             }, 
             "examples": {
               "application/json": {
-                "user_id": "2", 
-                "date_updated": "2020-02-07T00:34:27.829000", 
                 "date_created": "2020-02-07T00:34:27.822000", 
-                "type": "native", 
+                "date_updated": "2020-02-07T00:34:27.829000", 
+                "display_name": "native", 
                 "id": "+14155551001-user-2-client-native", 
-                "display_name": "native"
+                "type": "native", 
+                "user_id": "2"
               }
             }
           }
@@ -4102,73 +4102,73 @@
                     "admin_office_ids": [
                       "4"
                     ], 
-                    "is_super_admin": true, 
-                    "last_name": "Bot", 
-                    "is_admin": true, 
-                    "timezone": "US/Pacific", 
-                    "phone_numbers": [
-                      "+14155551001"
+                    "company_id": "3", 
+                    "country": "us", 
+                    "do_not_disturb": false, 
+                    "emails": [
+                      "bot@fuzz-ball.com"
                     ], 
-                    "id": "2", 
+                    "extension": "20000", 
                     "first_name": "\u30c6\u00c9st", 
                     "forwarding_numbers": [
                       "+14152301358"
                     ], 
-                    "office_id": "4", 
-                    "muted": false, 
-                    "company_id": "3", 
-                    "state": "active", 
-                    "location": "Mock Location", 
-                    "status_message": "Mock Status", 
-                    "job_title": "Mock Job Title", 
-                    "is_available": true, 
-                    "is_online": false, 
-                    "emails": [
-                      "bot@fuzz-ball.com"
-                    ], 
-                    "language": "en", 
-                    "license": "talk", 
-                    "country": "us", 
-                    "do_not_disturb": false, 
-                    "extension": "20000", 
+                    "id": "2", 
                     "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
-                    "is_on_duty": false
+                    "is_admin": true, 
+                    "is_available": true, 
+                    "is_on_duty": false, 
+                    "is_online": false, 
+                    "is_super_admin": true, 
+                    "job_title": "Mock Job Title", 
+                    "language": "en", 
+                    "last_name": "Bot", 
+                    "license": "talk", 
+                    "location": "Mock Location", 
+                    "muted": false, 
+                    "office_id": "4", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "state": "active", 
+                    "status_message": "Mock Status", 
+                    "timezone": "US/Pacific"
                   }, 
                   {
                     "admin_office_ids": [
                       "4"
                     ], 
-                    "is_super_admin": false, 
-                    "last_name": "Bot", 
-                    "is_admin": true, 
-                    "timezone": "US/Pacific", 
-                    "phone_numbers": [
-                      "+14155551002"
+                    "company_id": "3", 
+                    "country": "us", 
+                    "do_not_disturb": false, 
+                    "emails": [
+                      "test_contact@fuzz-ball.com"
                     ], 
-                    "id": "13", 
+                    "extension": "13000", 
                     "first_name": "\u30c6\u00c9st", 
                     "forwarding_numbers": [
                       "+14152301358"
                     ], 
-                    "office_id": "4", 
-                    "muted": false, 
-                    "company_id": "3", 
-                    "state": "active", 
-                    "location": "Mock Location", 
-                    "status_message": "Mock Status", 
-                    "job_title": "Mock Job Title", 
-                    "is_available": true, 
-                    "is_online": false, 
-                    "emails": [
-                      "test_contact@fuzz-ball.com"
-                    ], 
-                    "language": "en", 
-                    "license": "talk", 
-                    "country": "us", 
-                    "do_not_disturb": false, 
-                    "extension": "13000", 
+                    "id": "13", 
                     "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYDQw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
-                    "is_on_duty": false
+                    "is_admin": true, 
+                    "is_available": true, 
+                    "is_on_duty": false, 
+                    "is_online": false, 
+                    "is_super_admin": false, 
+                    "job_title": "Mock Job Title", 
+                    "language": "en", 
+                    "last_name": "Bot", 
+                    "license": "talk", 
+                    "location": "Mock Location", 
+                    "muted": false, 
+                    "office_id": "4", 
+                    "phone_numbers": [
+                      "+14155551002"
+                    ], 
+                    "state": "active", 
+                    "status_message": "Mock Status", 
+                    "timezone": "US/Pacific"
                   }
                 ]
               }
@@ -4200,30 +4200,30 @@
             }, 
             "examples": {
               "application/json": {
-                "first_name": "Mocky", 
                 "admin_office_ids": [
                   "4"
                 ], 
-                "license": "talk", 
-                "language": "en", 
-                "muted": false, 
+                "company_id": "3", 
                 "country": "us", 
                 "do_not_disturb": false, 
-                "company_id": "3", 
-                "is_super_admin": false, 
-                "id": "13", 
-                "timezone": "US/Pacific", 
-                "office_id": "4", 
-                "state": "active", 
-                "last_name": "Mockson", 
-                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYDQw.png?version=caaf49b4dbcec738c3b8fd1189746b89", 
-                "is_on_duty": false, 
-                "is_available": true, 
-                "is_admin": false, 
                 "emails": [
                   "mocky@fuzz-ball.com"
                 ], 
-                "is_online": false
+                "first_name": "Mocky", 
+                "id": "13", 
+                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYDQw.png?version=caaf49b4dbcec738c3b8fd1189746b89", 
+                "is_admin": false, 
+                "is_available": true, 
+                "is_on_duty": false, 
+                "is_online": false, 
+                "is_super_admin": false, 
+                "language": "en", 
+                "last_name": "Mockson", 
+                "license": "talk", 
+                "muted": false, 
+                "office_id": "4", 
+                "state": "active", 
+                "timezone": "US/Pacific"
               }
             }
           }
@@ -4258,38 +4258,38 @@
                 "admin_office_ids": [
                   "14"
                 ], 
-                "is_super_admin": true, 
-                "last_name": "Mockson", 
-                "is_admin": true, 
-                "timezone": "US/Pacific", 
-                "phone_numbers": [
-                  "+14155551001"
+                "company_id": "3", 
+                "country": "us", 
+                "do_not_disturb": true, 
+                "emails": [
+                  "bot@fuzz-ball.com"
                 ], 
-                "id": "2", 
+                "extension": "12345", 
                 "first_name": "Blocky", 
                 "forwarding_numbers": [
                   "+815058098764", 
                   "+442074865800"
                 ], 
-                "office_id": "14", 
-                "muted": false, 
-                "company_id": "3", 
-                "state": "deleted", 
-                "location": "Mock Location", 
-                "status_message": "Mock Status", 
-                "job_title": "Junior Accountant", 
-                "is_available": false, 
-                "is_online": false, 
-                "emails": [
-                  "bot@fuzz-ball.com"
-                ], 
-                "language": "en", 
-                "license": "lite_support_agents", 
-                "country": "us", 
-                "do_not_disturb": true, 
-                "extension": "12345", 
+                "id": "2", 
                 "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=a54c75379069406d7958461d98788fb4", 
-                "is_on_duty": false
+                "is_admin": true, 
+                "is_available": false, 
+                "is_on_duty": false, 
+                "is_online": false, 
+                "is_super_admin": true, 
+                "job_title": "Junior Accountant", 
+                "language": "en", 
+                "last_name": "Mockson", 
+                "license": "lite_support_agents", 
+                "location": "Mock Location", 
+                "muted": false, 
+                "office_id": "14", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "state": "deleted", 
+                "status_message": "Mock Status", 
+                "timezone": "US/Pacific"
               }
             }
           }
@@ -4322,37 +4322,37 @@
                 "admin_office_ids": [
                   "4"
                 ], 
-                "is_super_admin": true, 
-                "last_name": "Bot", 
-                "is_admin": true, 
-                "timezone": "US/Pacific", 
-                "phone_numbers": [
-                  "+14155551001"
+                "company_id": "3", 
+                "country": "us", 
+                "do_not_disturb": false, 
+                "emails": [
+                  "bot@fuzz-ball.com"
                 ], 
-                "id": "2", 
+                "extension": "20000", 
                 "first_name": "\u30c6\u00c9st", 
                 "forwarding_numbers": [
                   "+14152301358"
                 ], 
-                "office_id": "4", 
-                "muted": false, 
-                "company_id": "3", 
-                "state": "active", 
-                "location": "Mock Location", 
-                "status_message": "Mock Status", 
-                "job_title": "Mock Job Title", 
-                "is_available": true, 
-                "is_online": false, 
-                "emails": [
-                  "bot@fuzz-ball.com"
-                ], 
-                "language": "en", 
-                "license": "talk", 
-                "country": "us", 
-                "do_not_disturb": false, 
-                "extension": "20000", 
+                "id": "2", 
                 "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
-                "is_on_duty": false
+                "is_admin": true, 
+                "is_available": true, 
+                "is_on_duty": false, 
+                "is_online": false, 
+                "is_super_admin": true, 
+                "job_title": "Mock Job Title", 
+                "language": "en", 
+                "last_name": "Bot", 
+                "license": "talk", 
+                "location": "Mock Location", 
+                "muted": false, 
+                "office_id": "4", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "state": "active", 
+                "status_message": "Mock Status", 
+                "timezone": "US/Pacific"
               }
             }
           }
@@ -4393,38 +4393,38 @@
                 "admin_office_ids": [
                   "14"
                 ], 
-                "is_super_admin": true, 
-                "last_name": "Mockson", 
-                "is_admin": true, 
-                "timezone": "US/Pacific", 
-                "phone_numbers": [
-                  "+14155551001"
+                "company_id": "3", 
+                "country": "us", 
+                "do_not_disturb": false, 
+                "emails": [
+                  "bot@fuzz-ball.com"
                 ], 
-                "id": "2", 
+                "extension": "12345", 
                 "first_name": "Blocky", 
                 "forwarding_numbers": [
                   "+815058098764", 
                   "+442074865800"
                 ], 
-                "office_id": "14", 
-                "muted": false, 
-                "company_id": "3", 
-                "state": "active", 
-                "location": "Mock Location", 
-                "status_message": "Mock Status", 
-                "job_title": "Junior Accountant", 
-                "is_available": true, 
-                "is_online": false, 
-                "emails": [
-                  "bot@fuzz-ball.com"
-                ], 
-                "language": "en", 
-                "license": "lite_support_agents", 
-                "country": "us", 
-                "do_not_disturb": false, 
-                "extension": "12345", 
+                "id": "2", 
                 "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=a54c75379069406d7958461d98788fb4", 
-                "is_on_duty": false
+                "is_admin": true, 
+                "is_available": true, 
+                "is_on_duty": false, 
+                "is_online": false, 
+                "is_super_admin": true, 
+                "job_title": "Junior Accountant", 
+                "language": "en", 
+                "last_name": "Mockson", 
+                "license": "lite_support_agents", 
+                "location": "Mock Location", 
+                "muted": false, 
+                "office_id": "14", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "state": "active", 
+                "status_message": "Mock Status", 
+                "timezone": "US/Pacific"
               }
             }
           }
@@ -4465,8 +4465,8 @@
             "examples": {
               "application/json": {
                 "call_state": "connected", 
-                "is_recording": true, 
-                "id": "13"
+                "id": "13", 
+                "is_recording": true
               }
             }
           }
@@ -4506,14 +4506,14 @@
             }, 
             "examples": {
               "application/json": {
-                "status": "user", 
                 "area_code": "111", 
-                "target_id": "2", 
                 "company_id": "3", 
                 "number": "+8031112223302", 
                 "office_id": "14", 
-                "type": "free", 
-                "target_type": "user"
+                "status": "user", 
+                "target_id": "2", 
+                "target_type": "user", 
+                "type": "free"
               }
             }
           }
@@ -4643,17 +4643,17 @@
               "application/json": {
                 "items": [
                   {
-                    "realm": "uvstaging.ubervoip.net", 
-                    "name": "Test Obihai", 
-                    "port": "7060", 
-                    "ring_notification": true, 
                     "byod": false, 
-                    "mac_address": "9cadefa00096", 
-                    "owner_type": "user", 
-                    "sip_transport_type": "tls", 
-                    "type": "obi", 
                     "id": "+14155551001-user-2-obi-hex_8a5da52ed1", 
-                    "owner_id": "2"
+                    "mac_address": "9cadefa00096", 
+                    "name": "Test Obihai", 
+                    "owner_id": "2", 
+                    "owner_type": "user", 
+                    "port": "7060", 
+                    "realm": "uvstaging.ubervoip.net", 
+                    "ring_notification": true, 
+                    "sip_transport_type": "tls", 
+                    "type": "obi"
                   }
                 ]
               }
@@ -4693,17 +4693,17 @@
             }, 
             "examples": {
               "application/json": {
-                "realm": "uvstaging.ubervoip.net", 
-                "name": "Test Obihai", 
-                "port": "7060", 
-                "ring_notification": true, 
                 "byod": false, 
-                "mac_address": "9cadefa00096", 
-                "owner_type": "user", 
-                "sip_transport_type": "tls", 
-                "type": "obi", 
                 "id": "+14155551001-user-2-obi-hex_8a5da52ed1", 
-                "owner_id": "2"
+                "mac_address": "9cadefa00096", 
+                "name": "Test Obihai", 
+                "owner_id": "2", 
+                "owner_type": "user", 
+                "port": "7060", 
+                "realm": "uvstaging.ubervoip.net", 
+                "ring_notification": true, 
+                "sip_transport_type": "tls", 
+                "type": "obi"
               }
             }
           }
@@ -4773,17 +4773,17 @@
             }, 
             "examples": {
               "application/json": {
-                "realm": "uvstaging.ubervoip.net", 
-                "name": "Test Obihai", 
-                "port": "7060", 
-                "ring_notification": true, 
                 "byod": false, 
-                "mac_address": "9cadefa00096", 
-                "owner_type": "user", 
-                "sip_transport_type": "tls", 
-                "type": "obi", 
                 "id": "+14155551001-user-2-obi-hex_8a5da52ed1", 
-                "owner_id": "2"
+                "mac_address": "9cadefa00096", 
+                "name": "Test Obihai", 
+                "owner_id": "2", 
+                "owner_type": "user", 
+                "port": "7060", 
+                "realm": "uvstaging.ubervoip.net", 
+                "ring_notification": true, 
+                "sip_transport_type": "tls", 
+                "type": "obi"
               }
             }
           }
