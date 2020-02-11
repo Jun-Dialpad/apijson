@@ -1805,6 +1805,11 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallCallbackProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "position": "1"
+              }
             }
           }
         }, 
@@ -1833,6 +1838,73 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupGroupProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "routing_options": {
+                  "open": {
+                    "action_target_type": "department", 
+                    "operator_routing": "longestidle", 
+                    "dtmf": [
+                      {
+                        "input": "1", 
+                        "options": {
+                          "action": "department", 
+                          "action_target_id": "4", 
+                          "action_target_type": "office"
+                        }
+                      }
+                    ], 
+                    "try_dial_operators": true, 
+                    "action": "department", 
+                    "action_target_id": "6"
+                  }, 
+                  "closed": {
+                    "action": "voicemail", 
+                    "try_dial_operators": false, 
+                    "operator_routing": "longestidle"
+                  }
+                }, 
+                "name": "Test call center", 
+                "first_action": "operators", 
+                "monday_hours": [
+                  "08:00", 
+                  "18:00"
+                ], 
+                "country": "us", 
+                "wednesday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "tuesday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "friday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "state": "active", 
+                "no_operators_action": "voicemail", 
+                "thursday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "ring_seconds": "30", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "saturday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "sunday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "id": "13", 
+                "office_id": "4"
+              }
             }
           }
         }, 
@@ -1861,6 +1933,48 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupOperatorCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "users": [
+                  {
+                    "admin_office_ids": [
+                      "4"
+                    ], 
+                    "is_super_admin": true, 
+                    "last_name": "Bot", 
+                    "is_admin": true, 
+                    "timezone": "US/Pacific", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "id": "2", 
+                    "first_name": "\u30c6\u00c9st", 
+                    "forwarding_numbers": [
+                      "+14152301358"
+                    ], 
+                    "office_id": "4", 
+                    "muted": false, 
+                    "company_id": "3", 
+                    "state": "active", 
+                    "location": "Mock Location", 
+                    "status_message": "Mock Status", 
+                    "job_title": "Mock Job Title", 
+                    "is_available": true, 
+                    "is_online": false, 
+                    "emails": [
+                      "bot@fuzz-ball.com"
+                    ], 
+                    "language": "en", 
+                    "license": "talk", 
+                    "country": "us", 
+                    "do_not_disturb": false, 
+                    "extension": "20000", 
+                    "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                    "is_on_duty": true
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -1880,6 +1994,15 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCompanyCompanyProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "country": "us", 
+                "domain": "fuzz-ball.com", 
+                "account_type": "default", 
+                "id": "3", 
+                "name": "\u30d5\u30a1\u30fc\u30b8\u30fc\u3000\u30dc\u30fc\u30eb, Inc"
+              }
             }
           }
         }, 
@@ -1908,6 +2031,73 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupGroupProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "routing_options": {
+                  "open": {
+                    "action_target_type": "department", 
+                    "operator_routing": "simultaneous", 
+                    "dtmf": [
+                      {
+                        "input": "1", 
+                        "options": {
+                          "action": "department", 
+                          "action_target_id": "4", 
+                          "action_target_type": "office"
+                        }
+                      }
+                    ], 
+                    "try_dial_operators": true, 
+                    "action": "department", 
+                    "action_target_id": "6"
+                  }, 
+                  "closed": {
+                    "action": "voicemail", 
+                    "try_dial_operators": false, 
+                    "operator_routing": "simultaneous"
+                  }
+                }, 
+                "name": "Sales", 
+                "first_action": "operators", 
+                "monday_hours": [
+                  "08:00", 
+                  "18:00"
+                ], 
+                "country": "us", 
+                "wednesday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "tuesday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "friday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "state": "active", 
+                "no_operators_action": "voicemail", 
+                "thursday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "ring_seconds": "30", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "saturday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "sunday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "id": "6", 
+                "office_id": "4"
+              }
             }
           }
         }, 
@@ -1936,6 +2126,64 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupOperatorCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "rooms": [
+                  {
+                    "name": "fake-room", 
+                    "country": "us", 
+                    "company_id": "3", 
+                    "is_free": false, 
+                    "office_id": "4", 
+                    "state": "active", 
+                    "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                    "is_on_duty": false, 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "id": "13"
+                  }
+                ], 
+                "users": [
+                  {
+                    "admin_office_ids": [
+                      "4"
+                    ], 
+                    "is_super_admin": true, 
+                    "last_name": "Bot", 
+                    "is_admin": true, 
+                    "timezone": "US/Pacific", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "id": "2", 
+                    "first_name": "\u30c6\u00c9st", 
+                    "forwarding_numbers": [
+                      "+14152301358"
+                    ], 
+                    "office_id": "4", 
+                    "muted": false, 
+                    "company_id": "3", 
+                    "state": "active", 
+                    "location": "Mock Location", 
+                    "status_message": "Mock Status", 
+                    "job_title": "Mock Job Title", 
+                    "is_available": true, 
+                    "is_online": false, 
+                    "emails": [
+                      "bot@fuzz-ball.com"
+                    ], 
+                    "language": "en", 
+                    "license": "talk", 
+                    "country": "us", 
+                    "do_not_disturb": false, 
+                    "extension": "20000", 
+                    "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                    "is_on_duty": false
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -1992,6 +2240,28 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallEventSubscriptionCallEventSubscriptionCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "items": [
+                  {
+                    "group_calls_only": true, 
+                    "enabled": true, 
+                    "url": "https://test.com", 
+                    "call_states": [
+                      "hangup", 
+                      "barge", 
+                      "recording"
+                    ], 
+                    "signature": {
+                      "secret": "test_secret", 
+                      "type": "jwt", 
+                      "algo": "HS256"
+                    }, 
+                    "id": "test_hook_id"
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -2041,6 +2311,24 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallEventSubscriptionCallEventSubscriptionProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "group_calls_only": true, 
+                "enabled": true, 
+                "url": "https://test.com", 
+                "call_states": [
+                  "hangup", 
+                  "barge", 
+                  "recording"
+                ], 
+                "signature": {
+                  "secret": "test_secret", 
+                  "type": "jwt", 
+                  "algo": "HS256"
+                }, 
+                "id": "test_hook_id"
+              }
             }
           }
         }, 
@@ -2073,6 +2361,24 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallEventSubscriptionCallEventSubscriptionProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "group_calls_only": true, 
+                "enabled": true, 
+                "url": "https://test.com", 
+                "call_states": [
+                  "hangup", 
+                  "barge", 
+                  "recording"
+                ], 
+                "signature": {
+                  "secret": "test_secret", 
+                  "type": "jwt", 
+                  "algo": "HS256"
+                }, 
+                "id": "test_hook_id"
+              }
             }
           }
         }, 
@@ -2112,6 +2418,72 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "items": [
+                  {
+                    "status": "office", 
+                    "area_code": "415", 
+                    "target_id": "4", 
+                    "company_id": "3", 
+                    "number": "+14155551000", 
+                    "office_id": "4", 
+                    "type": "local", 
+                    "target_type": "office"
+                  }, 
+                  {
+                    "status": "user", 
+                    "area_code": "415", 
+                    "target_id": "2", 
+                    "company_id": "3", 
+                    "number": "+14155551001", 
+                    "office_id": "4", 
+                    "type": "local", 
+                    "target_type": "user"
+                  }, 
+                  {
+                    "status": "available", 
+                    "area_code": "415", 
+                    "company_id": "3", 
+                    "number": "+14155551002", 
+                    "office_id": "4", 
+                    "type": "local"
+                  }, 
+                  {
+                    "status": "available", 
+                    "area_code": "415", 
+                    "company_id": "3", 
+                    "number": "+14155551003", 
+                    "office_id": "4", 
+                    "type": "local"
+                  }, 
+                  {
+                    "status": "available", 
+                    "area_code": "415", 
+                    "company_id": "3", 
+                    "number": "+14155551004", 
+                    "office_id": "4", 
+                    "type": "local"
+                  }, 
+                  {
+                    "status": "available", 
+                    "area_code": "415", 
+                    "company_id": "3", 
+                    "number": "+14155551005", 
+                    "office_id": "4", 
+                    "type": "local"
+                  }, 
+                  {
+                    "status": "available", 
+                    "area_code": "415", 
+                    "company_id": "3", 
+                    "number": "+14155551006", 
+                    "office_id": "4", 
+                    "type": "local"
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -2145,6 +2517,16 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "status": "available", 
+                "area_code": "415", 
+                "company_id": "3", 
+                "number": "+14155551002", 
+                "office_id": "4", 
+                "type": "local"
+              }
             }
           }
         }, 
@@ -2170,6 +2552,16 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "status": "available", 
+                "area_code": "415", 
+                "company_id": "3", 
+                "number": "+14155551002", 
+                "office_id": "4", 
+                "type": "local"
+              }
             }
           }
         }, 
@@ -2203,6 +2595,86 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosOfficeOfficeCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "items": [
+                  {
+                    "wednesday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "routing_options": {
+                      "open": {
+                        "action_target_type": "department", 
+                        "operator_routing": "simultaneous", 
+                        "dtmf": [
+                          {
+                            "input": "1", 
+                            "options": {
+                              "action": "department", 
+                              "action_target_id": "4", 
+                              "action_target_type": "office"
+                            }
+                          }
+                        ], 
+                        "try_dial_operators": true, 
+                        "action": "department", 
+                        "action_target_id": "6"
+                      }, 
+                      "closed": {
+                        "action": "voicemail", 
+                        "try_dial_operators": false, 
+                        "operator_routing": "simultaneous"
+                      }
+                    }, 
+                    "name": "\u30d5\u30a1\u30fc\u30b8\u30fc\u3000\u30dc\u30fc\u30eb, Inc", 
+                    "first_action": "operators", 
+                    "monday_hours": [
+                      "08:00", 
+                      "18:00"
+                    ], 
+                    "country": "us", 
+                    "office_settings": {
+                      "set_caller_id_disabled": false, 
+                      "disable_desk_phone_self_provision": false, 
+                      "disable_ivr_voicemail": false, 
+                      "no_recording_message_on_user_calls": false, 
+                      "block_caller_id_disabled": false, 
+                      "bridged_target_recording_allowed": true, 
+                      "allow_device_guest_login": false
+                    }, 
+                    "tuesday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "friday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "state": "active", 
+                    "no_operators_action": "voicemail", 
+                    "thursday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "ring_seconds": "30", 
+                    "phone_numbers": [
+                      "+14155551000"
+                    ], 
+                    "saturday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "sunday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "id": "4", 
+                    "office_id": "4"
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -2231,6 +2703,82 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosOfficeOfficeProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "wednesday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "routing_options": {
+                  "open": {
+                    "action_target_type": "department", 
+                    "operator_routing": "simultaneous", 
+                    "dtmf": [
+                      {
+                        "input": "1", 
+                        "options": {
+                          "action": "department", 
+                          "action_target_id": "4", 
+                          "action_target_type": "office"
+                        }
+                      }
+                    ], 
+                    "try_dial_operators": true, 
+                    "action": "department", 
+                    "action_target_id": "6"
+                  }, 
+                  "closed": {
+                    "action": "voicemail", 
+                    "try_dial_operators": false, 
+                    "operator_routing": "simultaneous"
+                  }
+                }, 
+                "name": "\u30d5\u30a1\u30fc\u30b8\u30fc\u3000\u30dc\u30fc\u30eb, Inc", 
+                "first_action": "operators", 
+                "monday_hours": [
+                  "08:00", 
+                  "18:00"
+                ], 
+                "country": "us", 
+                "office_settings": {
+                  "set_caller_id_disabled": false, 
+                  "disable_desk_phone_self_provision": false, 
+                  "disable_ivr_voicemail": false, 
+                  "no_recording_message_on_user_calls": false, 
+                  "block_caller_id_disabled": false, 
+                  "bridged_target_recording_allowed": true, 
+                  "allow_device_guest_login": false
+                }, 
+                "tuesday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "friday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "state": "active", 
+                "no_operators_action": "voicemail", 
+                "thursday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "ring_seconds": "30", 
+                "phone_numbers": [
+                  "+14155551000"
+                ], 
+                "saturday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "sunday_hours": [
+                  "00:00", 
+                  "00:00"
+                ], 
+                "id": "4", 
+                "office_id": "4"
+              }
             }
           }
         }, 
@@ -2266,6 +2814,18 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "status": "office", 
+                "area_code": "604", 
+                "target_id": "4", 
+                "company_id": "3", 
+                "number": "+16045551002", 
+                "office_id": "4", 
+                "type": "local", 
+                "target_type": "office"
+              }
             }
           }
         }, 
@@ -2294,6 +2854,48 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupOperatorCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "users": [
+                  {
+                    "admin_office_ids": [
+                      "4"
+                    ], 
+                    "is_super_admin": true, 
+                    "last_name": "Bot", 
+                    "is_admin": true, 
+                    "timezone": "US/Pacific", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "id": "2", 
+                    "first_name": "\u30c6\u00c9st", 
+                    "forwarding_numbers": [
+                      "+14152301358"
+                    ], 
+                    "office_id": "4", 
+                    "muted": false, 
+                    "company_id": "3", 
+                    "state": "active", 
+                    "location": "Mock Location", 
+                    "status_message": "Mock Status", 
+                    "job_title": "Mock Job Title", 
+                    "is_available": true, 
+                    "is_online": false, 
+                    "emails": [
+                      "bot@fuzz-ball.com"
+                    ], 
+                    "language": "en", 
+                    "license": "talk", 
+                    "country": "us", 
+                    "do_not_disturb": false, 
+                    "extension": "20000", 
+                    "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                    "is_on_duty": false
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -2329,6 +2931,11 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "deleted": true
+              }
             }
           }
         }, 
@@ -2370,6 +2977,77 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupGroupCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "items": [
+                  {
+                    "routing_options": {
+                      "open": {
+                        "action_target_type": "department", 
+                        "operator_routing": "longestidle", 
+                        "dtmf": [
+                          {
+                            "input": "1", 
+                            "options": {
+                              "action": "department", 
+                              "action_target_id": "4", 
+                              "action_target_type": "office"
+                            }
+                          }
+                        ], 
+                        "try_dial_operators": true, 
+                        "action": "department", 
+                        "action_target_id": "6"
+                      }, 
+                      "closed": {
+                        "action": "voicemail", 
+                        "try_dial_operators": false, 
+                        "operator_routing": "longestidle"
+                      }
+                    }, 
+                    "name": "Test call center", 
+                    "first_action": "operators", 
+                    "monday_hours": [
+                      "08:00", 
+                      "18:00"
+                    ], 
+                    "country": "us", 
+                    "wednesday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "tuesday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "friday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "state": "active", 
+                    "no_operators_action": "voicemail", 
+                    "thursday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "ring_seconds": "30", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "saturday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "sunday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "id": "13", 
+                    "office_id": "4"
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -2411,6 +3089,62 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosGroupGroupCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "items": [
+                  {
+                    "name": "Sales", 
+                    "first_action": "operators", 
+                    "monday_hours": [
+                      "08:00", 
+                      "18:00"
+                    ], 
+                    "country": "us", 
+                    "wednesday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "tuesday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "friday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "state": "active", 
+                    "no_operators_action": "voicemail", 
+                    "thursday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "ring_seconds": "30", 
+                    "routing_options": {
+                      "open": {
+                        "action": "voicemail", 
+                        "try_dial_operators": true, 
+                        "operator_routing": "simultaneous"
+                      }, 
+                      "closed": {
+                        "action": "voicemail", 
+                        "try_dial_operators": false, 
+                        "operator_routing": "simultaneous"
+                      }
+                    }, 
+                    "saturday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "sunday_hours": [
+                      "00:00", 
+                      "00:00"
+                    ], 
+                    "id": "6", 
+                    "office_id": "4"
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -2439,6 +3173,16 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosPlanPlanProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "tollfree_group_lines": "0", 
+                "user_lines": "99", 
+                "group_lines": "0", 
+                "fax_lines": "0", 
+                "tollfree_room_lines": "0", 
+                "room_lines": "5"
+              }
             }
           }
         }, 
@@ -2474,6 +3218,16 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosPlanPlanProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "tollfree_group_lines": "0", 
+                "user_lines": "0", 
+                "group_lines": "0", 
+                "fax_lines": "1", 
+                "tollfree_room_lines": "0", 
+                "room_lines": "0"
+              }
             }
           }
         }, 
@@ -2514,6 +3268,40 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomRoomCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "items": [
+                  {
+                    "name": "Seaside", 
+                    "country": "us", 
+                    "company_id": "3", 
+                    "is_free": false, 
+                    "office_id": "4", 
+                    "state": "active", 
+                    "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                    "is_on_duty": false, 
+                    "phone_numbers": [
+                      "+14155551002"
+                    ], 
+                    "id": "13"
+                  }, 
+                  {
+                    "name": "Boulevard", 
+                    "country": "us", 
+                    "company_id": "3", 
+                    "is_free": false, 
+                    "office_id": "4", 
+                    "state": "active", 
+                    "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                    "is_on_duty": false, 
+                    "phone_numbers": [
+                      "+14155551003"
+                    ], 
+                    "id": "15"
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -2539,6 +3327,19 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomRoomProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "name": "Whistler", 
+                "country": "us", 
+                "company_id": "3", 
+                "is_free": false, 
+                "office_id": "4", 
+                "state": "pending", 
+                "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                "is_on_duty": false, 
+                "id": "18"
+              }
             }
           }
         }, 
@@ -2566,6 +3367,13 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomInternationalPinProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "customer_ref": "something", 
+                "pin": "47700", 
+                "expires_on": "2020-01-28T21:13:27.626000"
+              }
             }
           }
         }, 
@@ -2594,6 +3402,19 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomRoomProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "name": "Blackcomb", 
+                "country": "us", 
+                "company_id": "3", 
+                "is_free": false, 
+                "office_id": "4", 
+                "state": "pending", 
+                "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                "is_on_duty": false, 
+                "id": "18"
+              }
             }
           }
         }, 
@@ -2620,6 +3441,22 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomRoomProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "name": "Boulevard", 
+                "country": "us", 
+                "company_id": "3", 
+                "is_free": false, 
+                "office_id": "4", 
+                "state": "active", 
+                "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                "is_on_duty": false, 
+                "phone_numbers": [
+                  "+14155551003"
+                ], 
+                "id": "15"
+              }
             }
           }
         }, 
@@ -2653,6 +3490,19 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosRoomRoomProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "name": "Blackcomb", 
+                "country": "us", 
+                "company_id": "3", 
+                "is_free": false, 
+                "office_id": "4", 
+                "state": "pending", 
+                "image_url": "http://testbed.example.com/avatar/static/avatar_room_contact.png?version=2", 
+                "is_on_duty": false, 
+                "id": "18"
+              }
             }
           }
         }, 
@@ -2688,6 +3538,18 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "status": "room", 
+                "area_code": "604", 
+                "target_id": "15", 
+                "company_id": "3", 
+                "number": "+16045551004", 
+                "office_id": "4", 
+                "type": "local", 
+                "target_type": "room"
+              }
             }
           }
         }, 
@@ -2723,6 +3585,18 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "status": "room", 
+                "area_code": "604", 
+                "target_id": "15", 
+                "company_id": "3", 
+                "number": "+16045551004", 
+                "office_id": "4", 
+                "type": "local", 
+                "target_type": "room"
+              }
             }
           }
         }, 
@@ -2764,6 +3638,24 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhoneCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "items": [
+                  {
+                    "realm": "uvstaging.ubervoip.net", 
+                    "name": "Test Obihai", 
+                    "port": "7060", 
+                    "ring_notification": true, 
+                    "byod": false, 
+                    "mac_address": "9cadefa00096", 
+                    "owner_type": "room", 
+                    "type": "obi", 
+                    "id": "+14155551002-room-13-obi-hex_ce3e13a487", 
+                    "owner_id": "13"
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -2797,6 +3689,20 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
+            }, 
+            "examples": {
+              "application/json": {
+                "realm": "uvstaging.ubervoip.net", 
+                "name": "Test Obihai", 
+                "port": "7060", 
+                "ring_notification": true, 
+                "byod": false, 
+                "mac_address": "9cadefa00096", 
+                "owner_type": "room", 
+                "type": "obi", 
+                "id": "+14155551002-room-13-obi-hex_ce3e13a487", 
+                "owner_id": "13"
+              }
             }
           }
         }, 
@@ -2862,6 +3768,20 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
+            }, 
+            "examples": {
+              "application/json": {
+                "realm": "uvstaging.ubervoip.net", 
+                "name": "Test Obihai", 
+                "port": "7060", 
+                "ring_notification": true, 
+                "byod": false, 
+                "mac_address": "9cadefa00096", 
+                "owner_type": "room", 
+                "type": "obi", 
+                "id": "+14155551002-room-13-obi-hex_ce3e13a487", 
+                "owner_id": "13"
+              }
             }
           }
         }, 
@@ -2889,6 +3809,23 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosSmsSMSProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "message_status": "pending", 
+                "direction": "outbound", 
+                "user_id": "2", 
+                "text": "Test text", 
+                "target_id": "2", 
+                "target_type": "user", 
+                "contact_id": "http://www.google.com/m8/feeds/contacts/bot@fuzz-ball.com/base/ec0e7a0954", 
+                "from_number": "+14155551001", 
+                "to_numbers": [
+                  "+14155557777"
+                ], 
+                "created_date": "2020-01-28T20:42:10.453736", 
+                "id": "14"
+              }
             }
           }
         }, 
@@ -2916,6 +3853,11 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosStatsProcessingProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "request_id": "b70dbeaf-9a42-4421-8285-69775c7019e5"
+              }
             }
           }
         }, 
@@ -2943,6 +3885,11 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosStatsStatsProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "status": "processing"
+              }
             }
           }
         }, 
@@ -2970,6 +3917,34 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosTranscriptTranscriptProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "lines": [
+                  {
+                    "content": "hello", 
+                    "user_id": "2", 
+                    "type": "transcript", 
+                    "name": "\u30c6\u00c9st Bot", 
+                    "time": "2018-05-08T21:33:15.300000"
+                  }, 
+                  {
+                    "content": "price_inquiry", 
+                    "user_id": "2", 
+                    "type": "moment", 
+                    "name": "\u30c6\u00c9st Bot", 
+                    "time": "2018-05-08T21:33:17.300000"
+                  }, 
+                  {
+                    "content": "hi", 
+                    "type": "transcript", 
+                    "name": "(415) 555-6666", 
+                    "contact_id": "ag5kZXZ-dWJlci12b2ljZXJWCxIHQ29udGFjdCJJaHR0cDovL3d3dy5nb29nbGUuY29tL204L2ZlZWRzL2NvbnRhY3RzL2JvdEBmdXp6LWJhbGwuY29tL2Jhc2UvMGQzOWI5M2E4MQw", 
+                    "time": "2018-05-08T21:33:19.300000"
+                  }
+                ], 
+                "call_id": "13"
+              }
             }
           }
         }, 
@@ -3010,6 +3985,28 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserdeviceUserDeviceCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "items": [
+                  {
+                    "user_id": "2", 
+                    "date_updated": "2020-02-07T00:34:30.062000", 
+                    "date_created": "2020-02-07T00:34:30.055000", 
+                    "type": "native", 
+                    "id": "+14155551001-user-2-client-native", 
+                    "display_name": "native"
+                  }, 
+                  {
+                    "user_id": "2", 
+                    "date_updated": "2020-02-07T00:34:25.420000", 
+                    "date_created": "2020-02-07T00:34:25.412000", 
+                    "type": "packaged_app", 
+                    "id": "+14155551001-user-2-client-packagedappid", 
+                    "display_name": "packagedappid"
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -3036,6 +4033,16 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserdeviceUserDeviceProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "user_id": "2", 
+                "date_updated": "2020-02-07T00:34:27.829000", 
+                "date_created": "2020-02-07T00:34:27.822000", 
+                "type": "native", 
+                "id": "+14155551001-user-2-client-native", 
+                "display_name": "native"
+              }
             }
           }
         }, 
@@ -3087,6 +4094,84 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserUserCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "items": [
+                  {
+                    "admin_office_ids": [
+                      "4"
+                    ], 
+                    "is_super_admin": true, 
+                    "last_name": "Bot", 
+                    "is_admin": true, 
+                    "timezone": "US/Pacific", 
+                    "phone_numbers": [
+                      "+14155551001"
+                    ], 
+                    "id": "2", 
+                    "first_name": "\u30c6\u00c9st", 
+                    "forwarding_numbers": [
+                      "+14152301358"
+                    ], 
+                    "office_id": "4", 
+                    "muted": false, 
+                    "company_id": "3", 
+                    "state": "active", 
+                    "location": "Mock Location", 
+                    "status_message": "Mock Status", 
+                    "job_title": "Mock Job Title", 
+                    "is_available": true, 
+                    "is_online": false, 
+                    "emails": [
+                      "bot@fuzz-ball.com"
+                    ], 
+                    "language": "en", 
+                    "license": "talk", 
+                    "country": "us", 
+                    "do_not_disturb": false, 
+                    "extension": "20000", 
+                    "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                    "is_on_duty": false
+                  }, 
+                  {
+                    "admin_office_ids": [
+                      "4"
+                    ], 
+                    "is_super_admin": false, 
+                    "last_name": "Bot", 
+                    "is_admin": true, 
+                    "timezone": "US/Pacific", 
+                    "phone_numbers": [
+                      "+14155551002"
+                    ], 
+                    "id": "13", 
+                    "first_name": "\u30c6\u00c9st", 
+                    "forwarding_numbers": [
+                      "+14152301358"
+                    ], 
+                    "office_id": "4", 
+                    "muted": false, 
+                    "company_id": "3", 
+                    "state": "active", 
+                    "location": "Mock Location", 
+                    "status_message": "Mock Status", 
+                    "job_title": "Mock Job Title", 
+                    "is_available": true, 
+                    "is_online": false, 
+                    "emails": [
+                      "test_contact@fuzz-ball.com"
+                    ], 
+                    "language": "en", 
+                    "license": "talk", 
+                    "country": "us", 
+                    "do_not_disturb": false, 
+                    "extension": "13000", 
+                    "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYDQw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                    "is_on_duty": false
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -3112,6 +4197,34 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserUserProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "first_name": "Mocky", 
+                "admin_office_ids": [
+                  "4"
+                ], 
+                "license": "talk", 
+                "language": "en", 
+                "muted": false, 
+                "country": "us", 
+                "do_not_disturb": false, 
+                "company_id": "3", 
+                "is_super_admin": false, 
+                "id": "13", 
+                "timezone": "US/Pacific", 
+                "office_id": "4", 
+                "state": "active", 
+                "last_name": "Mockson", 
+                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYDQw.png?version=caaf49b4dbcec738c3b8fd1189746b89", 
+                "is_on_duty": false, 
+                "is_available": true, 
+                "is_admin": false, 
+                "emails": [
+                  "mocky@fuzz-ball.com"
+                ], 
+                "is_online": false
+              }
             }
           }
         }, 
@@ -3139,6 +4252,45 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserUserProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "admin_office_ids": [
+                  "14"
+                ], 
+                "is_super_admin": true, 
+                "last_name": "Mockson", 
+                "is_admin": true, 
+                "timezone": "US/Pacific", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "id": "2", 
+                "first_name": "Blocky", 
+                "forwarding_numbers": [
+                  "+815058098764", 
+                  "+442074865800"
+                ], 
+                "office_id": "14", 
+                "muted": false, 
+                "company_id": "3", 
+                "state": "deleted", 
+                "location": "Mock Location", 
+                "status_message": "Mock Status", 
+                "job_title": "Junior Accountant", 
+                "is_available": false, 
+                "is_online": false, 
+                "emails": [
+                  "bot@fuzz-ball.com"
+                ], 
+                "language": "en", 
+                "license": "lite_support_agents", 
+                "country": "us", 
+                "do_not_disturb": true, 
+                "extension": "12345", 
+                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=a54c75379069406d7958461d98788fb4", 
+                "is_on_duty": false
+              }
             }
           }
         }, 
@@ -3164,6 +4316,44 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserUserProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "admin_office_ids": [
+                  "4"
+                ], 
+                "is_super_admin": true, 
+                "last_name": "Bot", 
+                "is_admin": true, 
+                "timezone": "US/Pacific", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "id": "2", 
+                "first_name": "\u30c6\u00c9st", 
+                "forwarding_numbers": [
+                  "+14152301358"
+                ], 
+                "office_id": "4", 
+                "muted": false, 
+                "company_id": "3", 
+                "state": "active", 
+                "location": "Mock Location", 
+                "status_message": "Mock Status", 
+                "job_title": "Mock Job Title", 
+                "is_available": true, 
+                "is_online": false, 
+                "emails": [
+                  "bot@fuzz-ball.com"
+                ], 
+                "language": "en", 
+                "license": "talk", 
+                "country": "us", 
+                "do_not_disturb": false, 
+                "extension": "20000", 
+                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=36c0561fb8e0f5765ccfb3a5316f6d5d", 
+                "is_on_duty": false
+              }
             }
           }
         }, 
@@ -3197,6 +4387,45 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosUserUserProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "admin_office_ids": [
+                  "14"
+                ], 
+                "is_super_admin": true, 
+                "last_name": "Mockson", 
+                "is_admin": true, 
+                "timezone": "US/Pacific", 
+                "phone_numbers": [
+                  "+14155551001"
+                ], 
+                "id": "2", 
+                "first_name": "Blocky", 
+                "forwarding_numbers": [
+                  "+815058098764", 
+                  "+442074865800"
+                ], 
+                "office_id": "14", 
+                "muted": false, 
+                "company_id": "3", 
+                "state": "active", 
+                "location": "Mock Location", 
+                "status_message": "Mock Status", 
+                "job_title": "Junior Accountant", 
+                "is_available": true, 
+                "is_online": false, 
+                "emails": [
+                  "bot@fuzz-ball.com"
+                ], 
+                "language": "en", 
+                "license": "lite_support_agents", 
+                "country": "us", 
+                "do_not_disturb": false, 
+                "extension": "12345", 
+                "image_url": "http://testbed.example.com/avatar/user/ag5kZXZ-dWJlci12b2ljZXIRCxILVXNlclByb2ZpbGUYAgw.png?version=a54c75379069406d7958461d98788fb4", 
+                "is_on_duty": false
+              }
             }
           }
         }, 
@@ -3232,6 +4461,13 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallActiveCallProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "call_state": "connected", 
+                "is_recording": true, 
+                "id": "13"
+              }
             }
           }
         }, 
@@ -3267,6 +4503,18 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "status": "user", 
+                "area_code": "111", 
+                "target_id": "2", 
+                "company_id": "3", 
+                "number": "+8031112223302", 
+                "office_id": "14", 
+                "type": "free", 
+                "target_type": "user"
+              }
             }
           }
         }, 
@@ -3302,6 +4550,13 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosCallInitiatedCallProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "device": {
+                  "id": "+14155551001-user-2-client-packagedappid"
+                }
+              }
             }
           }
         }, 
@@ -3337,6 +4592,11 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosNumberNumberProto"
+            }, 
+            "examples": {
+              "application/json": {
+                "deleted": true
+              }
             }
           }
         }, 
@@ -3378,6 +4638,25 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhoneCollection"
+            }, 
+            "examples": {
+              "application/json": {
+                "items": [
+                  {
+                    "realm": "uvstaging.ubervoip.net", 
+                    "name": "Test Obihai", 
+                    "port": "7060", 
+                    "ring_notification": true, 
+                    "byod": false, 
+                    "mac_address": "9cadefa00096", 
+                    "owner_type": "user", 
+                    "sip_transport_type": "tls", 
+                    "type": "obi", 
+                    "id": "+14155551001-user-2-obi-hex_8a5da52ed1", 
+                    "owner_id": "2"
+                  }
+                ]
+              }
             }
           }
         }, 
@@ -3411,6 +4690,21 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
+            }, 
+            "examples": {
+              "application/json": {
+                "realm": "uvstaging.ubervoip.net", 
+                "name": "Test Obihai", 
+                "port": "7060", 
+                "ring_notification": true, 
+                "byod": false, 
+                "mac_address": "9cadefa00096", 
+                "owner_type": "user", 
+                "sip_transport_type": "tls", 
+                "type": "obi", 
+                "id": "+14155551001-user-2-obi-hex_8a5da52ed1", 
+                "owner_id": "2"
+              }
             }
           }
         }, 
@@ -3476,6 +4770,21 @@
             "description": "A successful response", 
             "schema": {
               "$ref": "#/definitions/ProtosDeskphoneDeskPhone"
+            }, 
+            "examples": {
+              "application/json": {
+                "realm": "uvstaging.ubervoip.net", 
+                "name": "Test Obihai", 
+                "port": "7060", 
+                "ring_notification": true, 
+                "byod": false, 
+                "mac_address": "9cadefa00096", 
+                "owner_type": "user", 
+                "sip_transport_type": "tls", 
+                "type": "obi", 
+                "id": "+14155551001-user-2-obi-hex_8a5da52ed1", 
+                "owner_id": "2"
+              }
             }
           }
         }, 
